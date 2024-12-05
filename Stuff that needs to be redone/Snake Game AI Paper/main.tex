@@ -1,0 +1,113 @@
+\documentclass[paper=a4, fontsize=11pt,twoside]{scrartcl} 
+
+\usepackage[a4paper,pdftex]{geometry}
+\setlength{\oddsidemargin}{5mm}
+\setlength{\evensidemargin}{5mm}
+
+\usepackage[english]{babel}
+\usepackage[protrusion=true,expansion=true]{microtype}	
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage{graphicx}
+
+% --------------------------------------------------------------------
+% Definitions (do not change)
+% --------------------------------------------------------------------
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+\makeatletter
+\def\printtitle{
+	{\centering \@title\par}}
+\makeatother
+
+\makeatletter
+\def\printauthor{
+	{\centering \large \@author}}
+\makeatother
+
+% --------------------------------------------------------------------
+% Metadata
+% --------------------------------------------------------------------
+\title{
+    \normalsize \textsc{Future Computing Technologies Lab: Creative Inquiry} \\ [2.0cm]
+	\HRule{0.5pt} \\
+	\LARGE \textbf{\uppercase{Semester Report}}
+	\HRule{2pt} \\ [0.5cm]
+	\normalsize May 3, 2023
+}
+
+\author{
+	Michael Joseph Ellis\\	
+	Clemson University\\	
+	School of Computing \& College of Behavioral, Social and Health Sciences\\
+	School Email: \texttt{mje2@clemson.edu} \\
+}
+
+
+% --------------------------------------------------------------------
+% Main Document
+% --------------------------------------------------------------------
+\begin{document}
+
+\thispagestyle{empty}
+
+\printtitle
+\vfill
+\printauthor
+\newpage
+
+\setcounter{page}{1}
+
+\section{Abstract}
+
+This project focuses on reinforcement learning (RL) by applying it to the training of a machine learning model tasked with autonomously mastering the classic Snake Game. The primary aim is to develop an intelligent agent capable of learning effective game strategies and independently adapting to escalating levels of complexity, devoid of human intervention. The project uses RL principles, particularly Q-Learning and Deep Q-Networks. It showcases how the agent learns from its environment by iteratively experiencing actions, rewards and penalties to optimize game-play performance.\\
+
+The significance of our research lies in its dual nature: it serves both as a practical application of RL techniques and as a theoretical exploration of AI in gaming environments. By training an AI agent to play the Snake game effectively, we aim to demonstrate RL algorithms' adaptability and learning capabilities. Furthermore, our study contributes to the broader understanding of how AI models can navigate complex environments, showing a way for advancements in various domains.
+
+\section{Methodology}
+
+In this section you will describe the steps you took in your project. You can be as detailed as you like, including not only what your code does but also how you prepared your data, how you collected results, etc. Someone reading this section should be able to reproduce what you did on a conceptual level. You do not need to include code, but if you do, please include it as an appendix rather than in the text.\\
+
+The training procedure used was an implementation of the “Q-Network” model named the “Linear\_QNet” class. This is trained using a Q-Learning algorithm with experience replay. The “QTrainer” class facilitates the training process by managing the optimizer, loss function, and parameter updates. During training, the model’s parameters are optimized using the Adam optimizer and the mean squared error loss function. The model is updated iteratively based on batches of experiences sampled from the memory buffer, ensuring efficient and stable learning. The experimental setup primarily relies on software tools and libraries for game development and reinforcement learning. This includes the Pygame library for game development and the PyTorch library for implementing neural networks and reinforcement learning algorithms.\\
+
+The training regimen unfolds through multiple episodes of gameplay, with the AI agent progressively refining its strategies to enhance performance. At each step of the iterative loop, the agent observes the current state of the game environment, selects actions based on learned policies, executes these actions, and subsequently receives feedback in the form of rewards from the environment. These experiences are then logged into a memory buffer for subsequent training iterations.\\
+
+A fundamental concept employed in our approach is Q-learning, a reinforcement learning technique that seeks to determine the most optimal action to take in a given state. This is achieved by estimating the Q-value, representing the expected cumulative reward for taking a specific action in a specific state. Our implementation employs an epsilon-greedy policy, balancing between the exploitation of learned knowledge and the exploration of new state-action pairs to maximize rewards.\\
+
+Deep Q-learning extends the capabilities of traditional Q-learning by leveraging neural networks to approximate the Q-value function. In our implementation, the current state is fed into a neural network, which outputs Q-values for each possible action. By selecting the action with the highest predicted Q-value, the agent effectively navigates the game environment towards optimal performance.\\
+
+
+\section{Results}
+
+During the training process, the algorithm exhibited promising learning capabilities initially, achieving notable improvements in performance over successive episodes. However, as the average length of the snake increased, the complexity of the game also escalated, leading to challenges in further performance enhancement.\\
+
+One significant observation was the algorithm's declining effectiveness in navigating the increasingly complex game environment as the average length of the snake grew. This phenomenon can be attributed to several factors:\\
+
+1. Exploration-Exploitation Dilemma: As the snake grows longer, the number of possible state-action pairs expands exponentially, posing a dilemma between exploration of new strategies and exploitation of known successful actions. The algorithm may struggle to strike a balance between these conflicting objectives, leading to sub-optimal decisions.\\
+
+2. Limited Memory Capacity: The algorithm's memory buffer, although effective in storing past experiences for training, may become overwhelmed with the increasing volume of data generated by longer game-play sessions. This can result in information overload and difficulties in efficiently extracting meaningful insights from past experiences.\\
+
+3. Training Time: As the game progresses and the snake becomes longer, the duration of each game-play episode inevitably extends, leading to prolonged training times. This can impede the algorithm's ability to explore a diverse range of game scenarios within a reasonable time frame, hindering learning and adaptation.\\ 
+
+The training duration varied depending on several factors, including the complexity of the game environment, the algorithm's learning rate, and the computational resources available. On average, each training session lasted several hours, with longer durations observed as the average length of the snake increased. The iterative nature of the training process, coupled with the need to explore a wide range of game scenarios, contributed to the extended training times.\\
+
+Despite these challenges, the algorithm demonstrated resilience and adaptability, continuously refining its strategies to cope with the evolving dynamics of the game environment. While it may not have achieved optimal performance in all scenarios, the learning process facilitated valuable insights into the complexities of reinforcement learning in dynamic and unpredictable environments.\\
+
+\section{Experience}
+
+Participating in the CI has been a fun and transformative experience, providing good undergrad-level insights into research and fostering personal and professional growth. I really enjoyed the opportunity to explore diverse topics spanning from advanced machine learning algorithms to game development. The hands-on, self-learning nature of the projects allowed me to apply theoretical knowledge in practical contexts, providing me with a deeper understanding of complex concepts. Throughout the CI, I acquired a plethora of new skills encompassing areas such as reinforcement learning, neural network implementation, game development with Pygame, and project management. These skills not only expanded my computer science expertise but also honed my problem-solving abilities and critical thinking skills. One of the primary challenges I encountered was navigating the complexities of implementing advanced algorithms, such as deep Q-learning, within the context of game development. However, through perseverance, collaborative problem-solving, and leveraging available resources such as documentation and online communities, I was able to overcome these challenges and achieve successful outcomes. The CI exposed me to topics and methodologies that are typically inaccessible to undergraduate students, such as deep reinforcement learning, experience replay, and the training of neural networks. This exposure broadened my horizons and sparked a curiosity for exploring interdisciplinary research avenues. The CI has profoundly impacted my understanding of graduate research, illuminating the rigorous methodologies, collaborative nature, and transformative potential of research endeavors. It has ignited a passion for academic inquiry. I don't believe there are any areas of the CI that need to be improved upon currently. 
+
+\section{Conclusions and Future Work}
+
+In conclusion, the project has provided valuable insights into the application of reinforcement learning techniques. While the algorithm used demonstrated promising learning capabilities initially, challenges emerged as the complexity of the game environment increased, particularly with the elongation of the snake. Despite these challenges, the project yielded valuable learnings and laid the groundwork for further exploration and refinement. The idea of better algorithms comes to mind in future projects as well.\\
+
+Beyond the current project, several exciting project ideas align well with the CI's interdisciplinary focus that I thought about while taking other classes including thoughts about implementing my double major: \\
+
+1. Healthcare AI Applications: Develop AI-driven solutions for healthcare applications, such as disease diagnosis, patient monitoring, or personalized treatment recommendation systems, leveraging techniques from machine learning, natural language processing, and computer vision.
+
+2. Environmental Sustainability Projects: Investigate AI-driven approaches for environmental sustainability, including climate modeling, resource optimization, pollution monitoring, or biodiversity conservation, with a focus on leveraging data analytics and predictive modeling techniques.
+
+3. Ethical AI Frameworks: Explore the development of ethical AI frameworks and guidelines to ensure responsible and equitable deployment of AI technologies across various domains, addressing issues such as bias mitigation, fairness, transparency, and accountability.
+
+4. Human-Robot Interaction Research: Conduct research on human-robot interaction (HRI) to enhance the design and usability of robotic systems in real-world settings, with a focus on natural language understanding, gesture recognition, and collaborative task execution.
+
+\end{document}

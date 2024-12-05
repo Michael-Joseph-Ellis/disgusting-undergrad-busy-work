@@ -1,0 +1,27 @@
+/**
+ * <description>
+ * 
+ * </description>
+ * 
+ * @invarient numOfSeeds > 0 AND weight > 0
+ * 
+ * @corresponds: 
+ *              Self: Apples
+ *              Seeds: numOfSeeds - the number of the seeds we want to track
+ *              Weight: weight - weight of the apple
+ * 
+ * 
+ * 
+ */
+
+public class Apple implements IFruit 
+{
+    private int numOfSeeds;
+    private double weight;
+
+    @Override 
+    public void setSeeds(int aSeeds) 
+    {
+        
+    }
+}

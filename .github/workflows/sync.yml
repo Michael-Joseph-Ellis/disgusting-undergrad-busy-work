@@ -1,0 +1,31 @@
+name: Sync CPSC 2150 Repos
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # daily at midnight
+  workflow_dispatch:  # run action manually
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v3
+
+      - name: Sync repository 1
+        run: |
+          mkdir -p "Coursework/Undergraduate Coursework/CPSC Coursework/CPSC2150/CPSC2150 Project"
+          git clone https://$GITHUB_ACTOR:${{ secrets.GH_PAT }}@github.com/Clemson-CPSC2150-SummerFall24/project-1-connect4-define-isnan-x-false temp/repo1
+          cp -r temp/repo1/* "Coursework/Undergraduate Coursework/CPSC Coursework/CPSC2150/CPSC2150 Project/"
+          rm -rf temp/repo1
+
+      # essentially the same as above for future assignments, but for a different repo, folder, and link
+
+      # commit and push changes
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "mje2@clemson.edu"
+          git config --local user.name "Michael-Joseph-Ellis"
+          git add .
+          git commit -m "Successfully synced files from certain CPSC2150 group repos"
+          git push https://$GITHUB_ACTOR:${{ secrets.GH_PAT }}@github.com/Michael-Joseph-Ellis/General-Academia-Work.git main

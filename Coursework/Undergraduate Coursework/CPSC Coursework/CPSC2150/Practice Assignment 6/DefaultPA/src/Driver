@@ -1,0 +1,13 @@
+public class Driver
+{
+    public static void main(String[] arg)
+    {
+        IStack myStack = new ArrayStack(10)
+        
+        myStack.push(1);
+        myStack.push(2);
+        myStack.push(3);
+
+        System.out.println(mystack.peek())
+    }
+}

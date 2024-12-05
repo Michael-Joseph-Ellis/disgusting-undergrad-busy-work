@@ -1,0 +1,33 @@
+/**
+ * IFruit is an interface for different fruit objects. 
+ * 
+ * @Initialization_ensures:
+ *          Initialize the fruit object to be non-null.
+ * 
+ * @defines: 
+ *          Self: The fruit
+ *          Seeds: All fruit have seeds
+ *          Weight: The weight of the fruit 
+ * 
+ * @constraints: 
+ *          Seeds > 0 AND weight > 0 
+ * 
+ * 
+ * 
+ * 
+ */
+
+public interface IFruit 
+{
+
+    /**
+     * Standard setter for the seeds
+     * 
+     * @param aSeeds a number of seeds thi fruit has 
+     * 
+     * @pre aSeeds > 0 
+     * 
+     * @post Self = [#self except Seeds was given a value of aSeeds]
+     */
+    public void setSeeds(int aSeeds); 
+}

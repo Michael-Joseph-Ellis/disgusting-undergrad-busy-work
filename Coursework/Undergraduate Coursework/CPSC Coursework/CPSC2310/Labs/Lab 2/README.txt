@@ -1,0 +1,1 @@
+Was just a short practice with using Vim.
