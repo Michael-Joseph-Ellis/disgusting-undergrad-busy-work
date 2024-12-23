@@ -17,7 +17,293 @@
 \pagebreak
 
 \chapter{Exam 1 Content}
-\section{Problem}
+
+\section{9-26-24}
+\subsection{Psych. Research Format}
+
+\begin{center}
+\begin{tikzpicture}[node distance=5cm, auto]
+    \tikzset{main node/.style={circle,draw,minimum size=1cm,inner sep=0pt}}
+    % Nodes
+    \node (theory) [draw, circle] {Theory};
+    \node (introduction) [right of=theory, draw, circle] {Introduction};
+    \node (hypothesis) [below of=introduction, draw, circle] {Hypothesis};
+    \node (observation) [below of=theory, draw, circle] {Observation};
+    \node (discussion) [above left of=observation, draw, circle] {Discussion};
+
+    \node[text width=6cm] (hypo-explain) [right of=hypothesis] {Tells us what observation we are \\ making; a prediction.};
+    \node[text width=5cm] (obse-explain) [above right of=observation] {Method \& Results};
+    
+    % Arrows
+    \draw [->, bend left=45] (theory) to (introduction);
+    \draw [->, bend left=45] (introduction) to (hypothesis);
+    \draw [->, bend left=45] (hypothesis) to (observation);
+    \draw [->, bend left=45] (observation) to (discussion);
+    \draw [->, bend left=45] (discussion) to (theory);
+
+    \draw [->, left] (hypo-explain) to (hypothesis);
+    \draw [->, bend right=45] (obse-explain) to (observation);
+
+\end{tikzpicture}
+\end{center}
+
+\begin{itemize}
+    \item \textbf{Title} -- Always informative but not always accurate.
+    \item \textbf{Abstract} -- A short paragraph spoiling the article's main point.
+    \item \textbf{Introduction} -- Follows a format to start very broad, a big-picture question.
+    \item \textbf{Methods} -- Very specific; similar to a recipe for evaluating the study/replication.
+    \begin{itemize}
+        \item \textbf{Participants} -- Who is in the study.
+        \item \textbf{Materials/Measures} -- Tells how the study figured out how much of something applied to people
+        \item \textbf{Procedure} -- The instructions to the study. What order the participants did things in.
+    \end{itemize}
+    \item \textbf{Results} -- Very specific with a lot of numbers. 
+    \item \textbf{Discussion} -- Opposite of the intro; Highlights the major findings of the research presented. Broader picture and limitations.
+\end{itemize}
+
+\subsection{Literature Review}
+\begin{itemize}
+    \item Gets more and more specific until a hypothesis is given. 
+\end{itemize}
+
+\subsection{Additional Notes}
+Beware of reading limitations. They are the most important part of the paper.
+
+\section{10-1-24}
+
+\subsection{How to Cite and Find Empriical Evidence}
+
+\subsubsection{How to Start}
+
+\begin{itemize}
+    \item What is the Construct 
+    \item Clemson Psych-INFO (Literature Search)
+    \begin{itemize}
+        \item Use keywords (mostly constructs)
+        \item Use the peer-reviewed tag
+    \end{itemize}
+\end{itemize}
+
+\section{How to (not) write like a student}
+
+\vspace{10pt}
+
+\subsection{Typical Undergraduate Paper}
+\begin{itemize}
+    \item Sources Cited Together 
+    \item Organizing structure: Paper presenting idea/fact
+\end{itemize}
+
+\vspace{10pt}
+
+\subsection{A Good Review Paper}
+\begin{itemize}
+    \item Ideas or facts from any given source found throughout the paper
+    \item Organizing structure: \textbf{Ideas}
+    \item Includes most of the key elements from most sources
+    \item Effect: Here's a comprehensive, topically integrated literature review. 
+\end{itemize}
+
+\vspace{10pt}
+
+\subsection{Good Theory Paper; Good Intro for an Empirical Paper}
+\begin{itemize}
+    \item Ideas or facts selected from sources 
+    \item Organizing structure: \textbf{A PARTICULAR idea} the author wants to address
+    \item Accurate, but not a comprehensive look at any one given source article
+    \item Effect: Here's a neat idea you can build from the literature.
+\end{itemize}
+
+\vspace{10pt}
+
+\section{How do you get there?}
+\begin{itemize}
+    \item Citable Bricks
+    \item Reorganize your citable bricks by construct or idea
+\end{itemize}
+
+\subsection{Citable Bricks}
+\begin{itemize}
+    \item Parts that describe the \underline{direct observations} reported in the paper! 
+    \begin{itemize}
+        \item End of intro
+        \begin{itemize}
+            \item Hypothesis
+        \end{itemize}
+        \item Methods
+        \item Results
+        \item Beginning of Discussion
+    \end{itemize}
+\end{itemize}
+
+\vspace{10pt}
+
+\section{How do you get there? Pt. 2}
+\begin{itemize}
+    \item Provide a framework for your paper
+\end{itemize}
+
+\subsection{Typically, do \underline{not} use}
+\begin{itemize}
+    \item Parts that describe observations made in others papers
+    \begin{itemize}
+        \item Beginning of intro    
+        \item End of discussion
+    \end{itemize}
+    \item Parts that are "standard" ways psychologists write papers
+    \begin{itemize}
+        \item Limitations* 
+        \item "More research is needed"
+    \end{itemize}
+    \textit{*Advanced papers only - save it for grad school papers!*}
+\end{itemize}
+
+\vspace{10pt}
+
+\subsection{"But I found something really interesting there!"}
+\begin{itemize}
+    \item Read the works cited in that part!
+\end{itemize}
+
+\vspace{10pt}
+
+\section{Conclusion}
+\begin{itemize}
+    \item You don't need to include all of the findings from every paper - just relevant citable bricks
+    \item Organize by idea, and not by paper
+\end{itemize}
+
+\section{10-3-24}
+
+\subsubsection{Statistics and Research Design}
+
+\begin{center}
+\begin{tikzpicture}[node distance=5cm, auto]
+    \tikzset{main node/.style={circle,draw,minimum size=1cm,inner sep=0pt}}
+    % Nodes
+    \node (theory) [draw, circle] {Theory};
+    \node (observation) [below of=theory, draw, circle] {Observation};
+
+    \node (constructA) [right of=theory, draw] {Construct A};
+    \node (constructB) [right of=constructA, draw] {Construct B};
+
+    \node (odA) [below of=constructA, draw] {Op. Def. A};
+    \node (odB) [below of=constructB, draw] {Op. Def. B};
+    
+    
+    % Arrows
+    \draw [->, bend left=45] (theory) to (observation);
+    \draw [->, bend left=45] (observation) to (theory);
+    \draw [->, left] (constructA) to (theory);
+    \draw [->, left] (odA) to (observation);
+    \draw [->, bend right=10] (constructA) to (constructB);
+    \draw [->, bend left=10] (constructB) to (constructA);
+    \draw [->] (constructA) to (odA);
+    \draw [->] (constructB) to (odB);
+    \draw [->, bend right=10] (odA) to (odB);
+    \draw [->, bend left=10] (odB) to (odA);
+\end{tikzpicture}
+\end{center}
+
+\textit{Operational Definition A, \& B then lead to ...}
+
+\begin{center}
+\begin{tikzpicture}
+    \tikzset{main node/.style={circle,draw,minimum size=1cm,inner sep=0pt}}
+    % Nodes
+    \node (RQ) [draw] {Research Question};
+    \node (direction) [below of=RQ, draw] {Direction};
+    \node (replication) [below of=direction, draw] {Replication};
+    \node (part_rep) [below of=replication, draw] {Partial Replication};
+    \node (con_rep) [below of=part_rep, draw] {Conceptual Replication};
+    \node (meta_analysis) [below of=con_rep, draw] {Meta Analysis};
+
+    % Arrows
+    \draw [->] (RQ) to (direction);
+    \draw [->] (direction) to (replication);
+    \draw [->] (replication) to (part_rep);
+    \draw [->] (part_rep) to (con_rep);
+    \draw [->] (con_rep) to (meta_analysis);
+\end{tikzpicture}
+\end{center}
+
+\section{Type of Data}
+\begin{itemize}
+    \item \textbf{Data:} Output of operational definition.
+    \begin{itemize}
+        \item Measures; something you will most likely get numbers out of
+        \begin{itemize}
+            \item Quantitative = Numbers. It's only good if you know what you're looking for in your construct. 
+            \item Qualitative = Not Numbers. It is measurable. If you don't feel sure of all of the aspects of your construct.
+            \item Mixed Model/Diagram
+        \end{itemize}
+        \item Manipulation - assign an operational definition to some participants vs. a control group. $\leftarrow$ (Another way to get an operational definition).
+        \begin{itemize}
+            \item Random
+            \item Naturally occurring groups
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\section{Types of Design}
+\begin{itemize}
+    \item \textbf{Qualitative Data $\rightarrow$ Qualitative Study:} Going to have research questions. 
+    \item \textbf{Quantitiative Data:} Often times discrete and continuous. 
+    \begin{itemize}
+        \item Discrete
+        \item Continuous 
+        \begin{itemize}
+            \item Exponentially related
+            \item Operational Definition = Correlational
+        \end{itemize}
+    \end{itemize}
+    \begin{itemize}
+        \item True Experiment - Random Assignment 
+        \item Quasi Experiment - Naturally occurring groups
+    \end{itemize}
+\end{itemize}
+
+\section{Hypothesis Testing}
+\begin{itemize}
+    \item \textbf{Null Hypothesis}
+    \begin{itemize}
+        \item $H_0$ $\rightarrow$ no difference/no effect
+        \item Experiential(Research Hypothesis) $H_1$ $\rightarrow$ difference is there 
+    \end{itemize}
+    \item \textbf{Effect Size}
+\end{itemize}
+
+\section{Reliability (of studies)}
+\begin{itemize}
+    \item People can replicate a study. (Replication)
+    \item Partial replication. (conceptual replication - not exactly the same sample/outcome measure but lead to similar results)
+    \item Meta-analysis. (determines effect size)
+\end{itemize}
+
+\section{Validity (of studies)}
+\begin{itemize}
+    \item Internal Validity - Based on how the study was done, how can we assume that A caused something in B. (How much can we assume this is correct.) 
+    \item External Validity - Concerned about how representative our sample is in typical people. 
+\end{itemize}
+
+\begin{center}
+    \begin{tikzpicture}[node distance = 3cm, auto]
+        \tikzset{main node/.style={circle,draw,minimum size=1cm,inner sep=0pt}}
+        
+        % Nodes
+        \node (quantitative) [draw, circle] {Quantitative};
+        \node (continuous) [below left of=quantitative, draw, circle] {Continuous};
+        \node (discrete) [below right of=quantitative, draw, circle] {Discrete};
+        \node (expo_related) [below of=continuous, draw] {Exponentially Related};
+        \node (od_corre) [below of=expo_related, draw] {O.D. $\rightarrow$ Correlational};
+
+        % Arrows
+        \draw [->] (quantitative) to (continuous);
+        \draw [->] (quantitative) to (discrete);
+        \draw [->] (continuous) to (expo_related);
+        \draw [->] (expo_related) to (od_corre);
+    \end{tikzpicture}
+\end{center}
 
 \chapter{Exam 2 Content}
 
@@ -385,8 +671,6 @@ measured. \\
 Theory and hypothesis are covered by the intro. Hypothesis then to observations are covered by the methods.
 Observations and then to data analyzing are covered by results. Data analyzing to theory 
 are covered by the discussion. \\ 
-
-
 
 \chapter{References}
 This is a reference to a source \cite{example}.
