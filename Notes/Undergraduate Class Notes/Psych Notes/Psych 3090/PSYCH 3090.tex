@@ -3,6 +3,7 @@
 \input{../../../Notes Template/preamble.tex}
 \input{../../../Notes Template/macros.tex}
 \input{../../../Notes Template/letterfonts.tex}
+% for info on how to make tables https://www.overleaf.com/learn/latex/Tables
 
 \title{\Huge{Psych 3090}\\Intro To Experimental Psychology}
 \author{\huge{Michael Joseph Ellis}}
@@ -15,13 +16,285 @@
 \tableofcontents
 \pagebreak
 
-\chapter{Introduction}
+\chapter{Introduction to Statistics}
 
 \section{Introduction}
 
-\subsection{Introduction}
+\chapterclaim{3 Purporses of Statistics}
+{
+    1. Describe - "Descriptive statistics" (First part of the semester)
+    
+    2. Make inferences - "Inferential statistics" (Second part of the semester)
+    
+    3. Communicate effectively - How to describe the data that you've got. (Throughout the semester)
+}
 
-\subsubsection{Introduction}
+\subsubsection{Why is learning stats important?}
+\noindent Stages of scientific research: 
+\begin{itemize}
+    \item State the question
+    \item Develop a hypothesis 
+    \item Define variables
+    \item Observe
+    \item Analyze
+    \item Make conclusions, refine theory, repeat
+\end{itemize}
+However, to which of these levels is knowledge of stats relevant?
+\textbf{Statistics is relevant at all stages of scientific research.}
+\newline\newline
+\noindent\underline{Understanding stats\dots}
+\begin{itemize}
+    \item Is crucial when \underline{doing research}. 
+    \item Is crucial when \underline{reading} others' research.
+    \item Helps you \underline{think critically about data}.
+    \item Is marketable! Survival in the information economy\dots
+\end{itemize}
+
+\subsubsection{The Big Picture: 4 Key Terms}
+\chapterdefinition{The Big Picture: 4 Key Statistical Terms}
+{
+    \begin{itemize}
+        \item Population - The entire group of interest. 
+        \item Parameters describe populations. These parameters are often symbolized by greek letters.
+        \item Sample - A subset of the population.
+        \item Statistics describe samples. These statistics are often symbolized by english letters.
+    \end{itemize}
+    \textit{Note: An inference is a study from a sample going to the population. i.e., "I have a sample of 100 people, and I want to make a statement about the population of 1000 people."}
+}
+
+\subsubsection{3 Kinds of Variables}
+\chapterdefinition{3 Kinds of Variables}
+{
+    \begin{itemize}
+        \item Dependant Variables - What we measure in an experiment.
+        \item Independant Variables - What we manipulate in an experiment.
+        \item Extraneous Variables - Any variable that is neither a DV or an IV. 
+    \end{itemize}
+    \textit{Note: \underline{Memory Tip 1:} "The \underline{dependant} variable \underline{depends} on the independant variable."} \newline
+    \textit{Note: \underline{Memory Tip 2:} "The \underline{d}ependant variable is your \underline{d}ata."}
+}
+
+\subsubsection{Correlations vs. Experiements} 
+
+\textbf{Correlations}
+\begin{itemize}
+    \item Examine wheather two or more DVs are related.
+    \item \textbf{No IVs.}
+\end{itemize}
+Correlations are typically \underline{seen} in scatterplots; \underline{measured} by "r". 
+\newline\newline
+\textbf{Correlation does not prove causation!} The problem with correlations is what really causes what?
+An example of this is the "vulnerability model" which states that people who have low self-esteem are more likely to be depressed. i.e., A causes B.
+Another example is the "scar model" which states that people who are depressed are more likely to have low self-esteem. i.e., B causes A.
+Finally, the "third variable" model states that there is an unknown third variable that causes both A and B. i.e., C causes A and B.
+\newline\newline
+To establish causality, we need three things:
+\begin{itemize}
+    \item Covariation
+    \item Proper Sequence (cause \underline{then} effect)
+    \item No confounds (\textit{Def: Any extraneous variable that changes when an IV changes})
+\end{itemize}
+Let's look at an example experiment. 
+\sectionexample{Hot Peppers -> Mortality}
+{
+DV: Mortality \newline 
+IV: Consumption of hot peppers (Y/N) \newline
+Extraneous variables: Infinite (most are NP) \newline 
+Confounds allowed: \textbf{NONE}
+}
+\noindent\textbf{Experiments}
+\begin{itemize}
+    \item Determine if changes in an IV \underline{cause} changes in a DV.
+    \item \textbf{Require at least one IV.} 
+\end{itemize}
+
+\noindent Before getting into the measurements of a DV, there are two ways to manipulate an IV.
+
+\chapterdefinition{Ways to Manipulate an IV}
+{
+\begin{itemize}
+    \item \textbf{Between-subjects}
+    \begin{itemize}
+        \item Split sample into separate groups 
+        \item Each group gets a different level of the IV 
+        \item Comparison is \underline{between} groups
+    \end{itemize}
+    \item \textbf{Within-subjects} (also called "\underline{repeated measures}")
+    \begin{itemize}
+        \item Each member of the sample experiences each level of the IV 
+        \item Comparison is \underline{within} the group
+    \end{itemize}
+\end{itemize}
+Within-subjects gives \underline{statistical power,} but\dots gives more danger of \underline{learning effects} \newline 
+\textit{Ex: testing a new teaching method\dots}
+}
+\subsubsection{Measuring DVs:}
+\begin{itemize}
+    \item "Measurement = assigning numbers to objects or events according to rules 
+    \item \textit{Examples:}
+    \begin{itemize}
+        \item Your jersey number is 5 
+        \item You graduated 5$^{th}$ in your class
+        \item It is 5$^{\circ}$ fahrenheit outside
+        \item The wind is 5 mph
+    \end{itemize}
+\end{itemize}
+The following is not very interesting topic, but is crucial to remember, there are four measurement scales (from least sophisticaed to most):
+
+\begin{enumerate}
+    \item Nominal 
+    \begin{itemize}
+        \item For identification\dots \textit{Ex: CUID number, SSN} 
+        \item \dots~or for categorical data 
+        \item Good for classifying and counting\dots \textit{Ex: 5\% of CU students are psych majors}
+    \end{itemize}
+    \item Ordinal (put in order; ranking)
+    \begin{itemize}
+        \item \textit{Ex: Measuring class rank}
+    \end{itemize}
+    \item Interval - There are \underline{equal intervals} between values. But there is \underline{no meaningful zero} point. Cannot make any meaningful ratios. Finally, interval variables often found in \underline{surveys}.
+    \begin{itemize}
+        \item \textit{Ex: The temp diff between 10$^{\circ}$ and 20$^{\circ}$ is the same as diff between 90$^{\circ}$ and 100$^{\circ}$.}
+        \item \textit{Ex: 0$^{\circ}$ does not mean there is no heat, so it is not a meaningful zero.}
+    \end{itemize}
+    \item Ratio - Equal intervals \underline{AND} a meaningful zero. Can make valid ratios. 
+    \begin{itemize}
+        \item \textit{Ex: Number of points you will score on exam one}
+        \item \textit{Ex: Distance, time, and money}
+        \item \textit{Ex: Temperature measured in $^{\circ}$ Kelvin}
+        \item \textit{Ex: 60 seconds is exactly three times as long as 20 seconds}
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{\underline{Examples from Clinical Psych}}
+\begin{itemize}
+    \item \underline{Disorders:} Mental retardation, autism, separation anxiety (Nominal)
+    \item \underline{Mental Retardation Classes:} Mild, moderate, severe, profound (Ordinal)
+    \item Define \underline{degree of retardation} using IQ scores (Interval)
+\end{itemize}
+
+\noindent Why are these scales important to us? Firstly, some stat. procedures \underline{depend} on the measurement scales. For example, choosing a
+textbook provider, i.e., Pearson's v. Spearman's. Secondly, the scales tell us what we can do with our numbers. 
+\textit{Earlier examples:}
+\begin{itemize}
+    \item Your jersey number is 5 (Nominal)
+    \item You graduated 5$^{th}$ in your class (Ordinal)
+    \item It is 5$^{\circ}$ fahrenheit outside (Interval)
+    \item The wind is 5 mph (Ratio)
+\end{itemize}
+\newpage
+\sectionexample{Driving Experiment}
+{
+    \textbf{The \underline{design} of the experiment:}
+    \begin{itemize}
+        \item Dynamic contrast sensitivity - Ability to see low contrast objects.
+        \item IVs 
+        \begin{itemize}
+            \item Alcohol (3 Levels) 
+            \begin{itemize}
+                \item Alcohol (target BAC = 0.10\%)
+                \item Control (expecting no alcohol, given none)
+                \item Placebo (expecting acohol but given none)
+            \end{itemize}
+            \item Target motion (2 levels) 
+            \begin{itemize}
+                \item Stationary targets
+                \item Moving targets
+            \end{itemize}
+        \end{itemize}
+        \item Some extraneous variables (To be controlled)
+        \begin{itemize}
+            \item Age 
+            \item Drinking history
+            \item Medical conditions
+            \item Presence of other drugs
+            \item Stomach contents 
+            \item Many others
+        \end{itemize}
+        \item \underline{Methods}\dots (stated verbally, unfortunate)
+    \end{itemize}
+    \textbf{The \underline{results} of the experiement.}
+    \begin{itemize}
+        \item But alcohol \underline{severely} reduced the ability to see \underline{moving} targets.
+        \item The two measures of intoxication are NOT related\dots i.e., breath alcohol content (\%) and perceived intoxication level.
+    \end{itemize}
+    \textbf{The \underline{conclusion} of the experiment.}
+    \begin{itemize}
+        \item Moderate doses of alcohol (IV) severely reduce our ability to see low contrast moving targets (the DV)
+    \end{itemize}
+}
+
+\section{Frequeny Distributions \& Percentiles}
+
+With continuous data you can build a frequency distribution based on intervals.
+\chapterdefinition{Frequency Distribution}{A table showing the number of scores in each category or interval.}
+\subsubsection{Building a frequency distribution:}
+\begin{itemize}
+    \item Find the range of scores
+    \begin{itemize}
+        \item Range = biggest - smallest
+    \end{itemize}
+    \item Determine \underline{number of intervals} \& \underline{interval width}
+    \begin{itemize}
+        \item Usually 10 - 15 intervals 
+        \item Approx. interval width: (range / number of intervals)
+    \end{itemize}
+    \item List the limits of each interval 
+    \begin{itemize}
+        \item First interval must contain lowest score
+    \end{itemize}
+    \item Tally the raw scores into intervals
+    \item Add up the tallies 
+\end{itemize} 
+
+\sectionexample{Exam scores example}
+{
+    \begin{enumerate}
+        \item Gather data - \textit{Data: (25 Exam scores)}
+        \begin{itemize}
+            \item 82, 75, 88, 93, 53, 84, 87, 58, 72, 94, 69, 84, 61, 91, 64, 87, 84, 70, 76, 89, 75, 80, 73, 78, 60
+        \end{itemize}
+        \item Find the range and number of intervals needed.
+        \begin{itemize}
+            \item Range = 94 - 53 = 41
+            \item Width = 2 
+            \item Number of intervals needed to cover 41 = 21 (too many)
+            \item How about if we try a width of 10? 
+            \item Number of intervals needed to cover 41 = 5 (too few)
+            \item Finally, we choose a width of 5. 
+            \item Number of intervals needed to cover 41 = 9 (perfect) 
+        \end{itemize}
+        \item List the intervals and frequency.
+        Intervals - 
+        \begin{itemize}
+            \item 50 - 54 
+            \item 55 - 59
+            \item 60 - 64
+            \item 65 - 69
+            \item 70 - 74
+            \item 75 - 79
+            \item 80 - 84
+            \item 85 - 89
+            \item 90 - 94
+        \end{itemize}
+        Frequency - 
+        \begin{itemize}
+            \item 1, 1, 3, 1, 3, 5, 5, 4, 3 = 25 (n)
+        \end{itemize}
+        (\% Frequency) -
+        \begin{itemize}
+            \item 4, 4, 12, 4, 12, 16, 20, 16, 12 = 100
+        \end{itemize}
+        Cumulative Frequency -
+        \begin{itemize}
+            \item 1, 2, 5, 6, 9, 13, 18, 22, 25
+        \end{itemize}
+        Cumulative \% Frequency -
+        \begin{itemize}
+            \item 4, 8, 20, 24, 36, 52, 72, 88, 100
+        \end{itemize}
+    \end{enumerate}
+}
 
 \section{References}
 This is a reference to a source \cite{example}.
