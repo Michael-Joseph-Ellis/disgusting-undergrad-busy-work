@@ -4,6 +4,9 @@
 \input{../../../Notes Template/macros.tex}
 \input{../../../Notes Template/letterfonts.tex}
 % for info on how to make tables https://www.overleaf.com/learn/latex/Tables
+\usepackage{pgfplots}
+\usepackage{multirow}
+\usepackage{multicol}
 
 \title{\Huge{Psych 3090}\\Intro To Experimental Psychology}
 \author{\huge{Michael Joseph Ellis}}
@@ -281,7 +284,7 @@ With continuous data you can build a frequency distribution based on intervals.
         \begin{itemize}
             \item 1, 1, 3, 1, 3, 5, 5, 4, 3 = 25 (n)
         \end{itemize}
-        (\% Frequency) -
+        \% Frequency (divide frequency by total exam scores) -
         \begin{itemize}
             \item 4, 4, 12, 4, 12, 16, 20, 16, 12 = 100
         \end{itemize}
@@ -294,7 +297,168 @@ With continuous data you can build a frequency distribution based on intervals.
             \item 4, 8, 20, 24, 36, 52, 72, 88, 100
         \end{itemize}
     \end{enumerate}
+
+    \begin{tikzpicture}
+        \begin{axis}[ybar interval, ymax = 5, ymin = 0, minor y tick num = 1]
+            \addplot coordinates { (52, 1) (57, 1) (62, 3) (67, 1) (72, 3) (77, 4) (82, 5) (87, 4) (92, 3) };
+        \end{axis}
+    \end{tikzpicture}
 }
+
+\subsubsection{Cumulative Distribution, Percentiles \& Percentile Ranks}
+\sectiondefinition{Cumulative Distribution}
+{
+    A cumulative distribution indicates the percentage of scores that are \underline{less than or equal} to each value.
+}
+\sectiondefinition{Percentile Rank}
+{
+    The \underline{percentage} of the distribution that is below a specific score (0\% - 100\%) (y-axis)
+    \newline 
+    \textit{Ex:} "The percentile rank of a score of 85 is 75\%."
+}
+\sectiondefinition{Percentile}
+{
+    This is the score that exceeds a given percentage of the distribution. (x-axis)
+    \newline
+    \textit{Ex:} "The 40th percentile is an exam score of 75."
+}
+
+\subsubsection{Stem-and-leaf Displays}
+These are typically excellent for visualizing a distribution. They're used more for 
+\textit{exploring data} than for presenting to an audience. 
+
+\section{Describing Data Using Numbers}
+\subsubsection{Measures of Center}
+\begin{enumerate}
+    \item Mode - the most frequent value. Think of a bell curve, where the tip is the mean. Often times a single bell curve is "unimodal". 
+    However, they can also be "bimodal".
+    \item Median - the score in the middle of the distribution. (the 50th percentile.) 
+    To find the location of the median in an ordered array, use the formula : (N + 1)/2. \textit{NOTE: That this is \underline{NOT} how you FIND the median.}
+    \item Mean - $\bar{x}$ = $\frac{\sum x}{N}$. The mean is the balance point of the distribution.
+\end{enumerate}
+
+\noindent Sample mean: $\bar{x}$ = $\frac{\sum x}{n}$ (This is a \underline{statistic}, since it describes a sample.) 
+\newline
+Population Mean: $\mu$ = $\frac{\sum x}{N}$ (This is a \underline{parameter}, since it describes a population.)
+
+\sectionexample{\underline{Number of sexual partners}}
+{
+    
+    \textbf{\underline{Bottom line:} The mean can be misleading when there are extreme scores. To really understand your data, look at \underline{all three} measures of center.}
+}
+
+\subsubsection{Key Features of Means}
+% try to use multicol here instead 
+\begin{itemize}
+    \item $\sum(x - \bar{x})$ always = 0
+    \begin{itemize}
+        \item 3
+        \item 4
+        \item 5
+        \item 6
+        \item 7
+    \end{itemize} 
+    The mean of this data set is 5. ($\bar{x}$ = 5)
+    \begin{itemize}
+        \item -2
+        \item -1
+        \item 0
+        \item 1
+        \item 2
+    \end{itemize}
+    These are the "Deviation scores"; $\sum(x - \bar{x})$ = 0.00
+
+    \item The sum of the squared deviations $\sum(x - \bar{x})^2$ is minimized by the mean.
+    \begin{itemize}
+        \item 3
+        \item 4
+        \item 5
+        \item 6
+        \item 7
+    \end{itemize}
+    The mean is 5.00. ($\bar{x}$ = 5.00)
+    \begin{itemize}
+        \item -2
+        \item -1
+        \item 0
+        \item 1
+        \item 2
+    \end{itemize}
+    The sum of the deviation score is 0.00. ($\sum(x - \bar{x})$ = 0.00)
+    \begin{itemize}
+        \item 4
+        \item 1
+        \item 0
+        \item 1
+        \item 4
+    \end{itemize}
+    The sum of the squared deviations is 10.00. ($\sum(x - \bar{x})^2$ = 10.00)
+    \item Try another value where $\bar{x}$ = 4
+    \begin{itemize}
+        \item 1
+        \item 0
+        \item 1
+        \item 4
+        \item 9
+    \end{itemize}
+    The sum of the squared deviations is 15.00. ($\sum(x - \bar{x})^2$ = 15.00)
+\end{itemize}
+
+Only the \underline{mean} keeps the seesaw balanced! That's because $\sum(x - \bar{x})$ = 0.00. 
+For skewed distributions, the \underline{median} is most useful.
+
+\section{Measures of Spread}
+
+\subsection{Three Most Common Measures of Spread}
+These are going from least to most sophisticated ways of measuring spread.
+\begin{itemize}
+    \item Range = Largest - Smallest
+    \item Variance = $\frac{\sum(x - \bar{x})^2}{N}$. \textit{Ex: }
+    \begin{multicols}{3}
+        The following are X
+        \begin{itemize}
+            \item 3
+            \item 4
+            \item 5
+            \item 6
+            \item 7
+        \end{itemize}
+        $\bar{x}$ = 5.00
+
+        \columnbreak
+        The following are X - $\bar{x}$
+        \begin{itemize}
+            \item -2
+            \item -1
+            \item 0
+            \item 1
+            \item 2
+        \end{itemize}
+        $\sum(X - \bar{x})$ = 0.00
+
+        \columnbreak
+        The following is $(X - \bar{x})^2$
+        \begin{itemize}
+            \item 4
+            \item 1
+            \item 0
+            \item 1
+            \item 4
+        \end{itemize}
+        $\sum(X - \bar{x})^2$ = 10.00 \textit{Note: This is also called sum of the squared deviations, or "sum of squares" or "SS"}
+    \end{multicols}
+    In the end, the variance is 2.00.
+    \item Standard Deviation = $\sqrt{Variance}$. \textit{Ex: } $\sqrt{2.00}$ = 1.41. \textbf{Memorize this for the exam.}
+\end{itemize}
+
+\noindent Standard Deviation = $S_x = \sqrt{\frac{\sum(x - \bar{x})^2}{N}}$
+\newline
+Population Standard Deviation = $\sigma_x = \sqrt{\frac{\sum(x - \mu)^2}{N}}$
+\newline 
+Estimated Population Standard Deviation = $s_x = \sqrt{\frac{\sum(x - \bar{x})^2}{n-1}}$
+\newline\newline
+The first two are used when \underline{describing} data. The third is used when making \underline{inferences}. All three of these are "center-based" measures of spread. 
+
 
 \section{References}
 This is a reference to a source \cite{example}.
