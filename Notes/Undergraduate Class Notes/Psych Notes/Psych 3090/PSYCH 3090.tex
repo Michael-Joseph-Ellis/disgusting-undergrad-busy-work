@@ -459,6 +459,168 @@ Estimated Population Standard Deviation = $s_x = \sqrt{\frac{\sum(x - \bar{x})^2
 \newline\newline
 The first two are used when \underline{describing} data. The third is used when making \underline{inferences}. All three of these are "center-based" measures of spread. 
 
+\sectionexample{Number Of times Rated}
+{
+    \begin{multicols}{3}
+        The following is X
+        \begin{itemize}
+            \item 0
+            \item 5
+            \item 3
+            \item 0
+            \item 2
+            \item 4
+            \item 5
+            \item 6
+        \end{itemize}
+        $\sum x$ = 25. $\bar{x}$ = 3.12.
+
+        \columnbreak
+        The following is X - $\bar{x}$
+        \begin{itemize}
+            \item -3.12
+            \item 1.87
+            \item -.13
+            \item -3.12
+            \item -1.13
+            \item .87
+            \item 1.87
+            \item 2.87
+        \end{itemize}
+        $\sum(X - \bar{x})$ = 0.00
+
+        \columnbreak
+        The following is $(X - \bar{x})^2$
+        \begin{itemize}
+            \item 9.50
+            \item 3.50
+            \item .02
+            \item 9.80
+            \item 1.28
+            \item .76
+            \item 3.50
+            \item 8.24
+        \end{itemize}
+        $\sum(X - \bar{x})^2$ = 36.88
+    \end{multicols}
+    Finally, using the standard deviation formula of $S_x = \sqrt{\frac{\sum(x - \bar{x})^2}{N}}$, we get a standard deviation of 2.15
+}
+
+\section{Know your Stat Calculator!}
+\begin{itemize}
+    \item Be sure you are familiar with its stat functions.
+    \begin{itemize}
+        \item Esp. standard deviation and variance
+        \item (N) or (N-1) on denominator?
+        \item \underline{Easy check:}
+        \begin{enumerate}
+            \item Enter these values: {1, 2, 3}
+            \item std. dev = .82 when using N in denominator (descriptive)
+            \item std. dev = 1.00 when using N-1 in denominator (inferential)
+        \end{enumerate}
+    \end{itemize}
+    \item Got a TI-30Xa? Then watch the video that was posted by Dr. Tyrell in Canvas.
+\end{itemize}
+
+\section{Complete Descriptions of Data}
+\begin{itemize}
+    \item To \underline{completely} describe a variable, describe its:
+    \begin{enumerate}
+        \item Center 
+        \begin{itemize}
+            \item Mean, median, mode
+        \end{itemize}
+        \item Spread
+        \begin{itemize}
+            \item Range, standard deviation, variance
+        \end{itemize}
+        \item Form 
+    \end{enumerate}
+\end{itemize}
+We've talked about the first two but what about \underline{form}?
+
+\subsection{Measures of Form}
+\begin{enumerate}
+    \item Modality - The number of peaks in a distribution. \textit{Ex: Unimodal or bimodal.}
+    \item Skewness - The degree to which a distribution is asymmmetrical. \textit{Ex: Positively (right \& (mean < median < mode)) or negatively (left \& (mode < median < mean)) skewed.} 
+    \item Kurtosis - The degree to which a distrbution is peaked or flat. \textit{Ex: Leptokurtic (peaked) or platykurtic (flat).}
+\end{enumerate}
+And these are great, however the best way to see the form of a variable is to use a histogram.
+
+\section{Transformations}
+
+\underline{Effect of transformations on the CENTER:}
+\begin{enumerate}
+    \item Adding or subtracting a constant from all data points has same effect on center. 
+    \item Multiplying or dividing all data points by a constant has same effect on center.
+\end{enumerate}
+\underline{Effect of transformations on the SPREAD:}
+\begin{enumerate}
+    \item Adding or subtracting a constant has NO effect on spread.
+    \item Multiplying or dividing by a constant has same effect on measures of spread (\underline{except the variance!})
+    \item Multiplying or dividing a constant multiplies or divides the variance by the \underline{square} of the constant.
+\end{enumerate}
+\sectionexample{Example of transformation}
+{
+    \begin{multicols}{3}
+        The following is X
+        \begin{itemize}
+            \item 1
+            \item 10
+            \item 15
+        \end{itemize}
+        \begin{itemize}
+            \item 8.67 (Mean)
+            \item 5.79 (Standard Deviation)
+            \item 33.56 (Variance)
+        \end{itemize}
+        \columnbreak
+        plus 10
+        \columnbreak
+        The following is X + 10
+        \begin{itemize}
+            \item 11
+            \item 20
+            \item 25
+        \end{itemize}
+        \begin{itemize}
+            \item 18.67 (Mean)
+            \item 5.79 (Standard Deviation [unchanged])
+            \item 33.56 (Variance [unchanged])
+        \end{itemize}
+    \end{multicols}
+}
+\sectionexample{Example of transformation}
+{
+    \begin{multicols}{3}
+        The following is X
+        \begin{itemize}
+            \item 1
+            \item 10
+            \item 15
+        \end{itemize}
+        \begin{itemize}
+            \item 8.67 (Mean)
+            \item 5.79 (Standard Deviation)
+            \item 33.56 (Variance)
+        \end{itemize}
+        \columnbreak
+        times 10
+        \columnbreak
+        The following is X * 10
+        \begin{itemize}
+            \item 10
+            \item 100
+            \item 150
+        \end{itemize}
+        \begin{itemize}
+            \item 86.67 (Mean [multiplied by 10])
+            \item 57.93 (Standard Deviation [multiplied by 10])
+            \item 3356.00 (Variance [multiplied by 100])
+        \end{itemize}
+    \end{multicols}
+}
+
 
 \section{References}
 This is a reference to a source \cite{example}.
