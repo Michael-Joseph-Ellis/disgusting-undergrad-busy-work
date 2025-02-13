@@ -621,6 +621,200 @@ And these are great, however the best way to see the form of a variable is to us
     \end{multicols}
 }
 
+\chapter{Exam 2}
+
+\section{z-scores and normal curves}
+\sectionexample{z-scores}
+{
+    \begin{multicols}{3}
+        The following are X
+        \begin{itemize}
+            \item 17
+            \item 1824
+            \item 27
+            \item 32
+        \end{itemize}
+        The mean: 23.60. 
+        Standard Deviation: 5.61
+        \columnbreak
+        The following is X - $\bar{x}$
+        \begin{itemize}
+            \item -6.6
+            \item -5.6
+            \item .4
+            \item 3.4
+            \item 8.4
+        \end{itemize}
+        Mean: 0.00 
+        Standard Deviaton: 5.61 
+        \columnbreak
+        The following is $\frac{X - \bar{x}}{s}$
+        \begin{itemize}
+            \item -1.18
+            \item -1.00
+            \item .07
+            \item .61
+            \item 1.49
+        \end{itemize}
+        These are the z-scores. 
+        Mean: 0.00
+        Standard Deviation: 1.00
+    \end{multicols}
+}
+
+\subsection{5 Characteristics of the Normal Curve}
+\begin{enumerate}
+    \item Unimodal
+    \item Symmetrical
+    \item Bell-shaped
+    \item Asymptotic
+    \item The "66-95-99.7" rule (Emperical rule)
+\end{enumerate}
+
+\subsection{3 Characteristics of z-scores}
+\begin{enumerate}
+    \item Mean of all z scores always = 0
+    \item Std dev of all z scors always = 1
+    \item z distribution always has same shape as original distribution
+\end{enumerate}
+
+\subsection{3 advantages of z-scores}
+\begin{itemize}
+    \item z-scores do not ignore the distance between scores (percentiles do)
+    \item z-scores allow you to compare scores from different distributions
+    \item If you have (or assume) a normal distribution, z-scores allow you to calculate the proportion of scores that fal between \underline{any} given range of scores.
+\end{itemize}
+
+\noindent\underline{"Standard Normal Curve"} A normal distribution with a mean of 0 and a standard deviation of 1. Allows us to translate \underline{any} normal distribution into the \underline{standard normal curve}. $Z = \frac{X - \bar{x}}{s_x}$
+\newline\newline
+\noindent On page 422 there is a table C.1 that shows the proportion of scores that fall between any given range of z-scores. 
+
+\subsection{Z-score problems}
+\sectionexample{What percentage of IQ scores are > 100?}
+{
+Where the std is 15 and the mean is 100. \newline
+IQ: 70, 85, 100, 115, 130 \newline
+Z: -2, -1, 0, 1, 2 \newline
+
+$Z = \frac{X - \bar{x}}{s}$ = $\frac{100 - 100}{15}$ = 0.00. \newline
+The answer to this is 50\%.
+}
+
+\sectionexample{What percentage of IQ scores are greater than 105?}
+{
+Where the std is 15 and the mean is 100. \newline
+IQ: 70, 85, 100, 115, 130 \newline
+Z: -2, -1, 0, 1, 2 \newline 
+
+$Z = \frac{X - \bar{x}}{s}$ = $\frac{105 - 100}{15}$ = 0.33. \newline
+The answer would be 37.07\%.
+}
+
+
+\sectionexample{What proportion of IQ scores are less than 90?}
+{
+Where the std is 15 and the mean is 100. \newline
+IQ: 70, 85, 100, 115, 130 \newline 
+Z: -2, -1, 0, 1, 2 \newline
+
+We want to look at the IQ scores of 90 and less. 
+$Z = \frac{X - \bar{x}}{s}$ = $\frac{90 - 100}{15}$ = -0.67. \newline
+The answer would be .2514.
+}
+
+\sectionexample{What percentage of IQ scores are > 87}
+{
+Where the std is 15 and the mean is 100. \newline
+IQ: 70, 85, 100, 115, 130  \newline
+Z: -2, -1, 0, 1, 2 \newline
+
+We want to look at the IQ scores of 87 and above.
+$Z = \frac{X - \bar{x}}{s}$ = $\frac{87 - 100}{15}$ = -0.87. \newline
+The answer would be .3078 + .5000 = .8078 which is 80.78\%.
+}
+
+\sectionexample{What proportion of IQs are between 112 and 130?}
+{
+Where the std is 15 and the mean is 100. \newline
+IQ: 70, 85, 100, 115, 130 \newline
+Z: -2, -1, 0, 1, 2 \newline
+
+We want to look at the IQ scores between 112 and 130. \newline
+$Z = \frac{X - \bar{x}}{s}$ = $\frac{130 - 100}{15}$ = 2.00. \newline
+$Z = \frac{X - \bar{x}}{s}$ = $\frac{112 - 100}{15}$ = 0.80. \newline
+
+From the table, we can see that 2.00 = .4772 and .8000 = .2881 We then want to subtract the biggest number and the smallest to get our proportion. \newline
+.4772 - .2881 = .1891.
+}
+
+\sectionexample{What is the percentage of IQ scores between 0.5 and 1.5 standard deviations above the mean?}
+{
+Where the std is 15 and the mean is 100. \newline
+IQ: 70, 85, 100, 115, 130 \newline
+Z: -2, -1, 0, 1, 2 \newline
+
+We want to look at the IQ scores between 0.5 and 1.5 standard deviations above the mean. \newline
+1.5 = .4332. \newline
+.5 = .1915. \newline
+.4332 - .1915 = .2417 which is 25.17\% \newline 
+}
+
+\sectionexample{What z-score corresponds to the $40^{th}$ percentile?}
+{
+Where the std is 15 and the mean is 100. \newline
+IQ: 70, 85, 100, 115, 130 \newline
+Z: -2, -1, 0, 1, 2 \newline
+
+We want to look at the bottom 40\% of the data from the upper 60\%. \newline
+$Z = \frac{X - \bar{x}}{s}$ = $\frac{X - 100}{15}$ = -0.255. \newline
+}
+
+\sectionexample{What IQ score corresponds to the 25th percentile?}
+{
+Where the std is 15 and the mean is 100. \newline
+IQ: 70, 85, 100, 115, 130 \newline
+Z: -2, -1, 0, 1, 2 \newline
+
+We want to look at the bottom 25\% of the data from the upper 75\%. \newline
+$Z = \frac{X - \bar{x}}{s}$ = $\frac{X - 100}{15}$ = -0.675. \newline
+Split two numbers from the textbook column in half to get this Z score. \newline
+Now, to find the IQ score we do the following: \newline
+
+$X = \bar{x} + Zs$ = $100 + (-0.675)(15)$ = 89.875. \newline
+}
+
+\sectionexample{What 2 z-scores surround the central 95\% of a normal distribution?}
+{
+Where the std is 15 and the mean is 100. \newline
+IQ: 70, 85, 100, 115, 130 \newline
+Z: -2, -1, 0, 1, 2 \newline
+
+We want to look at the central 95\% of the data. \newline
+Split the 95\% in half to get 47.5\% on each side. \newline
+From the table, we can see that 1.96 = .4750. \newline
+The two z-scores are -1.96 and 1.96. \newline
+}
+
+\section{Correlations}
+\subsection{Scatterplots}
+\textit{Note:} The x-axis is called the abscissa and the y-axis is called the ordinate. \newline 
+\begin{itemize}
+    \item Strong \underline{positive} relationship. When X goes up, Y goes up.
+    \item Strong \underline{negative} relationship. When X goes up, Y goes down.
+\end{itemize}
+
+\subsection{Correlation Coefficient}
+\begin{itemize}
+    \item A single number that describes the strength of the linear relationship betwene two variables. 
+    \item Value is always between -1 and +1. A perfect negative correlation is -1 and a perfect positive correlation is +1. A 0 means no correlation.
+\end{itemize}
+
+There are two different kinds of correlation coefficients. 
+\begin{itemize}
+    \item Pearson's product-moment correlation coefficient (r)
+    \item Spearman's rank-order correlation coefficient ($r_s$)
+\end{itemize}
+
 
 \section{References}
 This is a reference to a source \cite{example}.
