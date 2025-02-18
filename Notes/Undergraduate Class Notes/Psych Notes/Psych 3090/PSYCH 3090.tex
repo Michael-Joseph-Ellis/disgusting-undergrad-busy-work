@@ -815,6 +815,126 @@ There are two different kinds of correlation coefficients.
     \item Spearman's rank-order correlation coefficient ($r_s$)
 \end{itemize}
 
+\subsection{Calculating Pearson's R}
+\sectionexample{Example 1}
+{
+    \begin{multicols}{5}
+        X 
+        \begin{itemize}
+            \item 6
+            \item 9
+            \item 4
+            \item 2
+            \item 4
+        \end{itemize}
+        \columnbreak
+        Y
+        \begin{itemize}
+            \item 7
+            \item 4
+            \item 6
+            \item 10
+            \item 3
+        \end{itemize}
+        \columnbreak
+        X - $\bar{x}$
+        \begin{itemize}
+            \item 1
+            \item 4
+            \item -1
+            \item -3
+            \item -1
+        \end{itemize}
+        \columnbreak
+        Y - $\bar{y}$
+        \begin{itemize}
+            \item -3
+            \item 4
+            \item 1
+            \item -2
+            \item 0
+        \end{itemize}
+        \columnbreak
+        $(X - \bar{x})(Y - \bar{y})$
+        \begin{itemize}
+            \item -3
+            \item 16
+            \item -1
+            \item 6
+            \item 0
+        \end{itemize}
+        $\sum(X - \bar{x})(Y - \bar{y})$ = 18.00
+
+    \end{multicols}
+    Mean of X = 5.00. \newline
+    Mean of Y = 3.00. \newline
+    S of X = 2.37. \newline
+    S of Y = 2.45. \newline
+
+    \underline{Pearson's r} = $\frac{cov(x, 4)}{s_x s_y}$. \newline 
+    Where cov(x, y) = $\frac{\sum(X - \bar{x})(Y - \bar{y})}{N}$ = $\frac{18}{5} = 3.6$ \newline
+    \textit{Note: N is the number of pairs of observations} \newline
+    \textit{Note: Covariance and correlation are always the same sign.} \newline 
+    \textit{Note: Covariance is big when variance is big.} \newline\newline 
+
+    $r = \frac{cov(x, y)}{s_x s_y} = \frac{3.6}{2.37 * 2.45}$ = +0.62. \newline
+}
+
+\sectionexample{Example 2}
+{
+    Let's try a new but same equation. $r = \frac{cov(x, y)}{s_x s_y} = \frac{\sum(z_x z_y)}{N}$. \newline
+    Using the same previous data, we can find Z. \newline 
+    \begin{multicols}{3}
+        Z of X
+        \begin{itemize}
+            \item .42
+            \item 1.69
+            \item -.42
+            \item -1.27
+            \item -.42
+        \end{itemize}
+        \columnbreak
+        Z of Y
+        \begin{itemize}
+            \item -1.22
+            \item 1.63
+            \item .41
+            \item -0.82
+            \item 0
+        \end{itemize}
+        \columnbreak
+        Z of X * Z of Y
+        \begin{itemize}
+            \item -.512
+            \item 2.755
+            \item -.172
+            \item 1.041
+            \item 0
+        \end{itemize}
+        $\sum(Z_x Z_y)$ = 3.112
+    \end{multicols}
+    $r = \frac{cov(x, y)}{s_x s_y} = \frac{3.112}{5} = 0.62$. \newline
+    \textit{Note: Pearson's r is the "average correspondance between pairs of z-scores".}
+}
+
+\subsection{Three wyas to calculate Pearson's r}
+\subsection{Pearson's vs Spearman's}
+\begin{itemize}
+    \item Pearson's r only applies when both variables are either \underline{interval} or \underline{ratio} measurement scales. \textit{Note: It's based on difference scores!}
+    \item If either variable (or both) is \underline{ordinal}, use Spearman's.
+    \item There are 2 approaches to calculating Spearman's. 
+    \begin{enumerate}
+        \item Use the textbook's formula.
+        \item Use the "Tyrrell method"
+    \end{enumerate}
+\end{itemize}
+
+\subsubsection{The Tyrrell Method}
+\underline{The Tyrrell approach to calculating Spearman's r}
+\begin{enumerate}
+    \item Convert both variables to ranks. 
+    \item Apply Pearson's formulas to the ranks. 
+\end{enumerate}
 
 \section{References}
 This is a reference to a source \cite{example}.
