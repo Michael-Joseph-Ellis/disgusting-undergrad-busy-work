@@ -917,7 +917,7 @@ There are two different kinds of correlation coefficients.
     \textit{Note: Pearson's r is the "average correspondance between pairs of z-scores".}
 }
 
-\subsection{Three wyas to calculate Pearson's r}
+\subsection{Three ways to calculate Pearson's r}
 \subsection{Pearson's vs Spearman's}
 \begin{itemize}
     \item Pearson's r only applies when both variables are either \underline{interval} or \underline{ratio} measurement scales. \textit{Note: It's based on difference scores!}
@@ -935,6 +935,89 @@ There are two different kinds of correlation coefficients.
     \item Convert both variables to ranks. 
     \item Apply Pearson's formulas to the ranks. 
 \end{enumerate}
+
+\section{Linear Regression}
+Remember: Correlations describe the strength of the linear relationship between two variables. 
+\begin{itemize}
+    \item But once we've \underline{described} it, can we use it to make predictions?
+    \item \textit{Ex:} Predicting weight\dots
+\end{itemize}
+Regression: "Model" the relationship and use the model to make predictions. 
+\begin{itemize}
+    \item Our model will be based on simple linear algebra: $Y = a + bX$
+    \item Where Y is the predicted value of the dependent variable, X is the value of the independent variable, a is the Y-intercept, and b is the slope of the line.
+    \item If the slope is positive, the relationship is positive. If the slope is negative, the relationship is negative.
+\end{itemize}
+
+\newpage
+\sectionexample{Example 1}
+{
+    Using the same X, Y numbers from example 1 of Calculating Pearson's R: \newline\newline
+    $B = \frac{N\sumXY-(\sumX)(\sumY)}{N\sumX^2 - (\sumX)^2}$. \newline
+
+    \begin{multicols}{2}
+        $X^2$
+        \begin{itemize}
+            \item 36
+            \item 81
+            \item 16
+            \item 4
+            \item 16
+        \end{itemize}   
+        \columnbreak
+        $XY$
+        \begin{itemize}
+            \item 18
+            \item 90
+            \item 28
+            \item 8
+            \item 24
+        \end{itemize}
+    \end{multicols}
+
+    $b = \frac{5(168) - (25)(168)}{5(153) - (25)^2}$ = $\frac{840 - 750}{765 - 625}$ = .64. \newline\newline
+    Y = 0.64X \newline
+    
+    Or, $b = r(S_y/S_x)$ = 0.62(2.45/2.37) = 0.64. \newline\newline
+    Y = 0.64X \newline
+
+    $a = \bar{y} - b\bar{x}$ = 6.0 = (.64)(5.0) = 2.80 \newline
+
+    Now we have Y = 2.80 + 0.64X. \newline
+    \begin{multicols}{3}
+        $Y'$
+        \begin{itemize}
+            \item 6.64
+            \item 8.56
+            \item 5.36
+            \item 4.08
+            \item 5.36
+        \end{itemize}
+        \columnbreak
+        $Y - Y'$
+        \begin{itemize}
+            \item -3.64
+            \item 1.44
+            \item 1.64
+            \item -.08
+            \item .64
+        \end{itemize}
+        \columnbreak
+        $(Y - Y')^2$
+        \begin{itemize}
+            \item 13.25
+            \item 2.07
+            \item 2.69
+            \item .01
+            \item .41
+        \end{itemize}
+        $\sum(Y - Y')^2$ = 18.43
+    \end{multicols}
+
+    $S_y' = \sqrt{\frac{\sum(Y - Y')^2}{N}}$ = $\frac{\sqrt{18.43}}{5}$ = 1.92 \newline
+}
+
+Residual = prediction error = observed - predicted. \newline\newline 
 
 \section{References}
 This is a reference to a source \cite{example}.
