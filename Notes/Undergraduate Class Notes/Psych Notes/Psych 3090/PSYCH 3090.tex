@@ -947,13 +947,16 @@ Regression: "Model" the relationship and use the model to make predictions.
     \item Our model will be based on simple linear algebra: $Y = a + bX$
     \item Where Y is the predicted value of the dependent variable, X is the value of the independent variable, a is the Y-intercept, and b is the slope of the line.
     \item If the slope is positive, the relationship is positive. If the slope is negative, the relationship is negative.
+    \item Our model minimizes the sum of the squared residuals. 
+    \item That is, the goal of regression is to build a model that minimizes this: $\sum (Y - Y')^2$.
+    \item Therefore, regression models are often called "least squares" models.
 \end{itemize}
 
 \newpage
 \sectionexample{Example 1}
 {
     Using the same X, Y numbers from example 1 of Calculating Pearson's R: \newline\newline
-    $B = \frac{N\sumXY-(\sumX)(\sumY)}{N\sumX^2 - (\sumX)^2}$. \newline
+    $B = \frac{N\sum XY-(\sum X)(\sum Y)}{N\sum X^2 - (\sum X)^2}$. \newline
 
     \begin{multicols}{2}
         $X^2$
@@ -1018,6 +1021,101 @@ Regression: "Model" the relationship and use the model to make predictions.
 }
 
 Residual = prediction error = observed - predicted. \newline\newline 
+
+\underline{Think of the regression line as:}
+\begin{itemize}
+    \item The regression model.
+    \item All predicted values connected together.
+    \item The 2-dimensional \underline{center} of the data.
+\end{itemize}
+\underline{Think of the standard devation error of the estimate $S_y$ as:}
+\begin{itemize}
+    \item A 2-dimensional measure of \underline{spread}.
+    \item "average error" of model
+\end{itemize}
+\underline{Strong correlations give:}
+\begin{itemize}
+    \item Strong models
+    \item Small residuals
+    \item Small $S_(y')$
+\end{itemize}
+\underline{Weak correlations give:}
+\begin{itemize}
+    \item Weak models
+    \item Big residuals
+    \item Big $S_(y')$
+\end{itemize}
+
+\sectionexample{Regression Example: Handwriting \& Personality}
+{
+    Specifically: Can extraversion be predicted by loop width? \newline 
+    Where extraversion is a personality characteristic and width (in mm) of the loops in the letters a, p, and d. \newline
+}
+
+\subsubsection{\underline{"Proportion of variance accounted for"}}
+
+Using $\bar{Y}$ to predict Y scores results in lots of error. However, using the known relationship to predict Y scores results in less error. But \underline{how much} less? \newline
+
+\subsubsection{\underline{$r^2$ measures "predictable variability"}}
+
+(Remember: r is the correlation coefficient.)\newline 
+$r^2$ tells us \underline{the proportion of variance in Y that can be predicted in X}. \newline
+
+\begin{multicols}{3}
+    If r = .20, $r^2$ = .04. X predicts 4\% of the variance of Y. 
+    \columnbreak
+    If r = .50, $r^2$ = .25. X predicts 25\% of the variance of Y. 
+    \columnbreak
+    If r = .90, $r^2$ = .81. X predicts 81\% of the variance of Y.
+\end{multicols}
+\noindent $r^2$ is the best way to evaluate the scientific \underline{importance} of a relationship. 
+
+\section{Probability}
+
+\subsection{Three probability rules}
+\begin{enumerate}
+    \item When outcomes are equally ikely, the probability of an event is: p = $\frac{number of possibilities of that event}{total number of possibilities}$
+    \item This is called the "additive rule". The probability of \underline{either} of two mutually eclusive events occurring is the \underline{sum} of their separate probabilities.
+    \item This is called the "multiplicative rule". The probability of two independent events \underline{both} occuring is the \underline{product} of their separate probabilities.
+\end{enumerate}
+
+\underline{Notice that:} Using the additive rule $\uparrow$ probability, but using the multiplicative rule $\downarrow$ probability. Apply this to the simple lottery\dots
+
+\sectionexample{Powerball Math}
+{
+    \begin{itemize}
+        \item Odds of winning the big jackpot:
+        \begin{itemize}
+            \item 1 in 292,201,338
+        \end{itemize}
+        \item \underline{If you buy 25 tickets/week (@ \$2):}
+        \begin{itemize}
+            \item You can expect to win once every 225,000 years
+        \end{itemize}
+        \item A lottery is a "zero-sum game."
+    \end{itemize}
+}
+
+\sectiondefinition{Bernoulli's Theorem "The law of large numbers"}
+{
+    Predicts that as N gets larger the frequency of an event will approach (p*N). \newline 
+
+    In other words\dots As N increases, we can expect the frequnecies to be closer and closer to the predicted frequencies.
+}
+
+\section{Sampling Distribution}
+
+\sectionexample{Example 1}
+{
+    The population: \newline 
+    Body weights of all 30 students in a class. \newline
+    $\mu = 139.9$ \newline
+    $N = 30$ \newline\newline
+
+    Let's pick a few samples, each of size n = 2\dots (n is sample size, N is population size) \newline 
+    \underline{Every possible sample mean:} Sample means will fluctuate, even though population means do not. \newline
+    \textbf{\underline{Sampling distribution: } A distribution of the probabilities of \underline{all possible values} of a statistic.} \textit{These are important because they tell us how much sample-to-sample variability we should expect in our statistic.}
+}
 
 \section{References}
 This is a reference to a source \cite{example}.
