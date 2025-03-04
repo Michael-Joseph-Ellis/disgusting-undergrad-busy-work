@@ -1062,10 +1062,12 @@ Using $\bar{Y}$ to predict Y scores results in lots of error. However, using the
 $r^2$ tells us \underline{the proportion of variance in Y that can be predicted in X}. \newline
 
 \begin{multicols}{3}
-    If r = .20, $r^2$ = .04. X predicts 4\% of the variance of Y. 
+    \noindent If r = .20, $r^2$ = .04. X predicts 4\% of the variance of Y.
     \columnbreak
+
     If r = .50, $r^2$ = .25. X predicts 25\% of the variance of Y. 
     \columnbreak
+    
     If r = .90, $r^2$ = .81. X predicts 81\% of the variance of Y.
 \end{multicols}
 \noindent $r^2$ is the best way to evaluate the scientific \underline{importance} of a relationship. 
@@ -1110,12 +1112,73 @@ $r^2$ tells us \underline{the proportion of variance in Y that can be predicted 
     The population: \newline 
     Body weights of all 30 students in a class. \newline
     $\mu = 139.9$ \newline
-    $N = 30$ \newline\newline
+    $N = 30$ \newline
 
-    Let's pick a few samples, each of size n = 2\dots (n is sample size, N is population size) \newline 
-    \underline{Every possible sample mean:} Sample means will fluctuate, even though population means do not. \newline
-    \textbf{\underline{Sampling distribution: } A distribution of the probabilities of \underline{all possible values} of a statistic.} \textit{These are important because they tell us how much sample-to-sample variability we should expect in our statistic.}
+    Let's pick a few samples, each of size n = 2\dots (n is sample size, N is population size) \newline\newline 
+    \underline{Every possible sample mean:} Sample means will fluctuate, even though population means do not. \newline\newline 
 }
+
+\sectiondefinition{Sampling Distribution}
+{
+    A distribution of the probabilities of \underline{all possible values} of a statistic. \textit{These are important because they tell us how much sample-to-sample variability we should expect in our statistic.}
+
+    This is represented by the "sampling distribution of every possible sample mean." \newline 
+    $\mu_{\bar{x}} = $ "Mean of all the x bar" \newline
+    $\sigma_{\bar{x}} = $ "Standard deviation (error) of the x bars" \newline
+}
+
+\subsection{Standard Error of the Mean}
+\begin{itemize}
+    \item The S.E.M is the standard deviation of a sampling distribution.
+    \item "How spread out are the sample means?" or "How much error can you expect to be in your sample mean?"
+    \item The S.E.M depends on only 2 factors: 
+    \begin{enumerate}
+        \item As $\sigma$ increases, the S.E.M increases.
+        \item As n increases, the S.E.M decreases.
+    \end{enumerate}
+    \item Formula for S.E.M: $\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{N}}$ {\textit{Note: $\sigma$ is the standard deviation of the population.} \textbf{THIS IS ANOTHER FORMULA TO MEMORIZE}}
+\end{itemize}
+
+\subsubsection{How can we fully describe a sampling distribution?} 
+\begin{itemize}
+    \item We'll \underline{rarely} take every possible sample from a population. 
+    \begin{itemize}
+        \item Normally, we only take one!
+    \end{itemize}
+    \item So, we need a system of shortcuts tto allow us to describe a sampling distribution. 
+\end{itemize}
+
+\subsection{Central Limit Theorem}
+\begin{itemize}
+    \item Center: Mean of sampling distribution = mean of the population. $\mu_{\bar{x}} = \mu$
+    \item Spread: Standard deviation of sampling distribution = S.E.M.: $\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{N}}$
+    \item Form: "As n increases, sampling distribution becomes more normal." Also, if the population is normal, then the S.D is as well (regardless of n).
+\end{itemize}
+
+\sectionexample{Central Limit Theorem In Action}
+{
+    \underline{Extreme Example:} Start with a population that's \underline{not} normally distributed. \textit{Ex: all numbers from 0 - 100, evenly distributed.} \newline 
+    $\mu = 50$ \newline
+    $\sigma = 28.9$ \newline
+    Even with a small N (just 4), sampling distribution looks \underline{somewhat} normal. \newline
+    $\mu_{\bar{x}} = 50$ \newline
+    $\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{N}} = \frac{28.9}{\sqrt{4}} = 14.43$ \newline
+    But now, with a larger N (30), sampling distribution looks \underline{very} normal. \newline
+    $\mu_{\bar{x}} = 50$ \newline
+    $\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{N}} = \frac{28.9}{\sqrt{30}} = 5.27$ \newline
+    Remember: C.L.T says that as N increases the sampling distribution becomes normal and the S.E.M shrinks. \newline\newline
+
+    What these look like visually, the smaller the N, the graph tends to look more wider, but as N increases, the graph tends to look more normal and skinnier.
+}
+
+\subsection{\underline{Using} Sampling Distributions}
+What if we take a sample from this population and our $\bar{x}$ is 160? Maybe our mean is from a \underline{different} population?
+How far from 139 can our $\bar{x}$ get before we decide something weird is going on? In order to answer questions like this we will have to rely on three tools. \newline 
+\begin{enumerate}
+    \item Probability (three rules and a low)
+    \item Knowledge of sampling distributions
+    \item Logic of \underline{hypothesis testing}
+\end{enumerate}
 
 \section{References}
 This is a reference to a source \cite{example}.
