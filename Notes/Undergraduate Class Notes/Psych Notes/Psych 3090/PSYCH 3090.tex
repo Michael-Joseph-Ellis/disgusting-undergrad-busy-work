@@ -1180,6 +1180,114 @@ How far from 139 can our $\bar{x}$ get before we decide something weird is going
     \item Logic of \underline{hypothesis testing}
 \end{enumerate}
 
+\section{Hypothesis Testing}
+
+\sectionexample{Example of Hypothesis Testing}
+{
+    Your particular interest is in behavior problems in stressed children. Mean beahvior problems score of general population is 50. 
+    We have access to five children whose parents are newly divorced. Their mean is 53. \newline\newline 
+    Can we conclude that stressed children exhibit an increased number of behavior problems? 
+    Is the +3 difference due to a \underline{real effect} of stress or is it due to \underline{sampling error}? \newline\newline 
+
+    The distribution of all possible sample means of behavior problems, each based on n = 5 scores. This shows as a normal distribution of a simpling distribution on a histogram. \newline\newline 
+
+    What's the probability of getting a smple mean of 53 if you're sampling from a population with a mean of 50? \newline\newline 
+
+    The first kind of hypothesis testnig we'll do is the easist\dots: The z-test.
+}
+
+When using the z-test, we can take interest in answering the following question. "Does this particlar sample come from a poulation with a mean of [insert hypothesized value of $\mu$ here]?" \newline
+
+\subsection{Seven steps involved in hypothesis testing}
+
+\begin{enumerate}
+    \item Define the null hypothesis, $H_0$.
+    \begin{itemize}
+        \item Statement of the parameter value that we want to test. \textit{Note: Must state a specific parameter and give it a value.}
+        \item Example: $H_0: \mu = 50$
+        \item Usually asserts that a more interesting hypothesis is wrong. 
+        \item $H_0$ is the hypothesis that we actually test. 
+    \end{itemize}
+    \item Specify the alternative hypothesis, $H_a$ (also called the research hypothesis).
+    \begin{itemize}
+        \item Logical opposite to the null hypothesis.
+        \item $H_a$ and $H_0$ must be mutually exclusive and exhaustive.
+        \item $H_a$ is usually the hypothesis we hope to support. 
+        \item Example: $H_a: \mu \neq 50$
+    \end{itemize}
+    \item Construct the sampling distribution under the assumption that the null hypothesis is true.
+    \begin{itemize}
+        \item What would be the \underline{center, spread, and form} of the sampling distribution if $H_0$ were true?
+        \begin{itemize}
+            \item Center usually specified by $H_0$.
+            \item Spread = standard error of the mean. 
+            \item Form: Is it normal? 
+        \end{itemize}
+    \end{itemize}
+    \item Collect the Data
+    \item Compare the sample statistic to the value in $H_0$.
+    \item \underline{Find the probability} of exceeding the observed statistic's value.
+    \item Make the inference. 
+    \begin{itemize}
+        \item Decide which decision to make\dots only two possibilities. 
+        \item Either \textbf{reject $H_0$} (if it is \underline{unlikely} to be true)
+        \item or \textbf{fail to reject $H_0$} (if it is \underline{likely} to be true)
+    \end{itemize}
+\end{enumerate}
+\begin{itemize}
+    \item Remember, this logic is indirect:
+    \begin{itemize}
+        \item We're testing the hypothesis that we hope is wrong ($H_0$).
+        \item If we reject $H_0$, we've found indirect evidence to support $H_a$.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{New form of Z}
+
+$Z_{calc} = \frac{\bar{X} - \mu}{\sigma_{\bar{x}}} \leftarrow$ "How many standard error of the means is my sample mean from the $H_a$ value?" \newline\newline 
+
+If $\abs{Z_{calc}} > Z_{critical}$, then reject $H_0$. \newline
+Fail to rject because (finish this its in iphone photos)
+
+
+\subsection{Errors in Making Inferences} 
+
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        & \textbf{True $H_0$} & \textbf{False $H_0$} \\
+        \hline
+        \textbf{Fail to reject $H_0$} & Correct decision $p = 1 - \alpha$ & Type II error (keeping a false $H_0$) $p = \beta$\\
+        \hline
+        \textbf{Reject $H_0$} & Type I error (rejecting a true $H_0$) $p = \alpha$ & Correct decision $p = 1 - \beta$ "power" \\
+        \hline
+    \end{tabular}
+    \caption{Table of our inference and actual state of nature}
+\end{table}
+
+\subsubsection{Statistical Power}
+\begin{itemize}
+    \item The probability of correctly rejecting a false null hypothesis. 
+    \item $p = 1 - \beta$
+\end{itemize}
+
+\subsubsection{Power is influenced by four things:}
+\begin{enumerate}
+    \item $\mu$ (father from $H_O$, the more power)
+    \item $\sigma$ (smaller the sigma the more power) 
+    \item $\alpha$ (bigger the alpha the more power)
+    \item N (more data the more power) 
+    \item \textit{Note: Number 3 and 4 are within your control.}
+\end{enumerate}
+
+\subsection{Why is it good to get more data?}
+\begin{itemize}
+    \item Because as we get $\uparrow N$, we get \underline{more power}
+    \item But how? 
+    \item $\uparrow N \rightarrow \downarrow \sigma_{\bar{x}} \rightarrow \uparrow Z_{calc} \rightarrow$ easier to reject a false $H_O$ (this is what "more power" means).
+\end{itemize}
+
 \section{References}
 This is a reference to a source \cite{example}.
 
