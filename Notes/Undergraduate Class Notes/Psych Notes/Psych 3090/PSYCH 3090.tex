@@ -1288,6 +1288,82 @@ Fail to rject because (finish this its in iphone photos)
     \item $\uparrow N \rightarrow \downarrow \sigma_{\bar{x}} \rightarrow \uparrow Z_{calc} \rightarrow$ easier to reject a false $H_O$ (this is what "more power" means).
 \end{itemize}
 
+\chapter{Exam 3}
+
+\section{Testing a Sample Mean when $\alpha$ is Unknown}
+\textit{Note: What we are not covering - 1. Confidence intervals (p 246 - 248), 2. Testing correlations. (p 249 - 255)}
+
+\sectiondefinition{William Gosset's Contribution}
+{ % make this into columns soon
+    Z-Test = $z_{calc} = \frac{\bar{X} - \mu}{\sigma_{\bar{X}}}$ \newline
+    where: \newline
+    $\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{N}}$ \newline
+
+    "Student's 1-sample t Test" = $t_{calc} = \frac{\bar{x} - \mu}{s_{\bar{X}}}$ \newline
+    where: \newline
+    $s_{\bar{x}} = \frac{s}{\sqrt{N}}$ \newline
+    and: \newline 
+    $s = \sqrt{\frac{\sum(X - \bar{X})^2}{N - 1}}$ \newline
+    and: \newline
+    \begin{itemize}
+        \item "df" = "degrees of freedom"
+        \item $t_{crit}$
+        \item 
+    \end{itemize}
+}
+
+\sectionexample{Example of a 1-sample T-Test}
+{
+    Q: You're told that the national average for \# of hours / week worked by business consultants is 52. Are you employees significantly different? Use $\alpha = .05$. \newline
+
+    $H_0: \mu = 52$ \newline
+    $H_a: \mu \neq 52$ \newline
+
+    We know: \newline
+    $\alpha = .05$ \newline
+    $N = 16$ \newline
+    $\bar{X} = 59$ hr/week \newline
+    $s = 7.15$ hr/week \newline 
+    Population is normal. \newline
+
+    Describe the sampling distribution assuming $H_0$ is true: \newline 
+    \begin{enumerate}
+        \item $\mu_{\bar{X}} = 52$ 
+        \item $\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{N}} = \frac{7.15}{\sqrt{16}} = 1.79$ 
+        \item Sampling Distribution is normal. 
+        \begin{itemize}
+            \item $df = N - 1 = 16 -1 = 15$
+            \item $t_{crit} = \pm 2.131$
+            \item $t_{calc} = \frac{59 - 52}{1.79} = 3.91$
+        \end{itemize}
+    \end{enumerate}
+
+    Summarize Statement: 
+}
+
+\section{1-tailed vs. 2-tailed tests}
+
+\begin{multicols}{2}
+    
+\end{multicols}
+
+\begin{itemize}
+    \item \underline{Two-tailed Tests} are for testing "non-directional" hypotheses.
+    \item "Is $\mu$ significantly different from \dots?"
+    \item $H_0: \mu = [some value]$
+    \item $H_a: \mu \neq [some value]$
+    \item Here, $\alpha$ is split between the 2 tails ($\alpha/2$ in each tail).
+\end{itemize}
+
+\begin{itemize}
+    \item \underline{One-tailed Tests} are for testing "directional" hypotheses.
+    \item "Is $\mu$ significantly greater than \dots?"
+    \item $H_0: \mu <= [some value]$
+    \item $H_a: \mu > [some value]$
+    \item Here, $\alpha$ is placed entirely in 1 tail.
+    \item 1-tailed tests are more powerful\dots but are riskier, too.
+\end{itemize}
+
 \section{References}
 This is a reference to a source \cite{example}.
 
