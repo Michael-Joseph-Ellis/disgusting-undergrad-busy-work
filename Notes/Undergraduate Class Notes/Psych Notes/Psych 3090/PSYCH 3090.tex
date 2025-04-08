@@ -1344,25 +1344,296 @@ Fail to rject because (finish this its in iphone photos)
 \section{1-tailed vs. 2-tailed tests}
 
 \begin{multicols}{2}
-    
+    \begin{itemize}
+        \item \underline{Two-tailed Tests} are for testing "non-directional" hypotheses.
+        \item "Is $\mu$ significantly different from \dots?"
+        \item $H_0: \mu = [some value]$
+        \item $H_a: \mu \neq [some value]$
+        \item Here, $\alpha$ is split between the 2 tails ($\alpha/2$ in each tail).
+    \end{itemize}
+    \columnbreak    
+    \begin{itemize}
+        \item \underline{One-tailed Tests} are for testing "directional" hypotheses.
+        \item "Is $\mu$ significantly greater than \dots?"
+        \item $H_0: \mu <= [some value]$
+        \item $H_a: \mu > [some value]$
+        \item Here, $\alpha$ is placed entirely in 1 tail.
+        \item 1-tailed tests are more powerful\dots but are riskier, too.
+    \end{itemize}
 \end{multicols}
 
+
+\sectionexample{Another Example of 1-sample T-Test}
+{
+    $\alpha = .05$ \newline
+    $N = 21$ \newline 
+    $H_0: \mu = 57.4$ \newline 
+    $H_a: \mu \neq 57.4$ \newline
+    $\bar{X} = 62.4$, $S = 11.00$, $df = 20$, $S_{\bar{X}} = \frac{11}{\sqrt{21}} = 2.41$ \newline
+    $t_{calc} = \frac{62.4 - 57.4}{2.41} = 2.07$ \newline
+    $t_{crit} = \pm 2.086$ \newline
+
+    1-Tailed Test: \newline 
+
+    $H_0: \mu <= 57.4$ \newline
+    $H_a: \mu > 57.4$ \newline
+    $\alpha = .05$ \newline
+    \textit{Note: $n, \bar{X}, s, and s_{\bar{X}}$ are the same as above.} \newline
+    $t_{crit} = 1.725$ \newline
+    $t_{calc} = \frac{62.4 - 57.4}{2.41} = 2.07$ \newline 
+    Reject the $H_0$ because $t_{calc} > t_{crit}$ \newline\newline 
+    \underline{Summary Statement:} \newline 
+    \begin{itemize}
+        \item Example: The mean stress level of the employees after the CEO's arrest, 62.4, was significantlly greater than 57.4, t(20) = 2.07, p < .05.
+        \begin{itemize}
+            \item \underline{Note that this statement includes:}
+        \end{itemize}
+        \item The DV 
+        \item The IV 
+        \item The value of both means
+        \item Whether difference was significant 
+        \item Whether a 1- or 2- tailed test was done 
+        \item The value of df 
+        \item The value of $t_{calc}$
+        \item A p-value
+    \end{itemize}
+}
+
+\subsection{P-values}
 \begin{itemize}
-    \item \underline{Two-tailed Tests} are for testing "non-directional" hypotheses.
-    \item "Is $\mu$ significantly different from \dots?"
-    \item $H_0: \mu = [some value]$
-    \item $H_a: \mu \neq [some value]$
-    \item Here, $\alpha$ is split between the 2 tails ($\alpha/2$ in each tail).
+    \item p value: the probability of getting your result if the null hypothesis were true. 
+    \begin{itemize}
+        \item If $H_0$ is rejected then p < $\alpha$. (because it's unlikely)
+        \item If $H_0$ is not rejected then p > $\alpha$. (because it's likely)
+        \item When you reject $H_0$, end summary statement with "\dots, \underline{p} < .05."
+        \item When you fail to reject $H_0$, end with "\dots, \underline{p} > .05."
+        \item If an exact p-value is known, give that instead (example, "\dots, \underline{p} = .03.")
+    \end{itemize}
+\end{itemize}
+
+\section{Experiements with Two Conditions}
+\begin{itemize}
+    \item Simplest approach to cause-and-effect
+    \item The foundation for more complex experiments
 \end{itemize}
 
 \begin{itemize}
-    \item \underline{One-tailed Tests} are for testing "directional" hypotheses.
-    \item "Is $\mu$ significantly greater than \dots?"
-    \item $H_0: \mu <= [some value]$
-    \item $H_a: \mu > [some value]$
-    \item Here, $\alpha$ is placed entirely in 1 tail.
-    \item 1-tailed tests are more powerful\dots but are riskier, too.
+    \item We need tests to compare 2 sample means.
+    \item \underline{\textbf{Two sets of procedures:}}
+    \begin{itemize}
+        \item 1. Between-subjects expts. (also called "independent samples")
+        \item 2. Within-subjects expts. (also called "dependent samples")
+    \end{itemize}
+    \item We'll assume the two population variances are equal ($\sigma_1^2 = \sigma_2^2$). (i.e., we're assuming "homogenity of variance").
 \end{itemize}
+
+\subsubsection{Summary of T-tests:}
+\begin{itemize}
+    \item One-sample t tests compares Xbar with a hypothesised value (Chapter 11).
+    \item Two-sample t tests compare two Xbars (Chapter 12).
+    \begin{itemize}
+        \item Between-subjects
+        \item Within-subjects
+    \end{itemize}
+    \item For all of the above, general pattern is: $t_{calc} = \frac{observed value - hypothesised value}{standard error}$
+\end{itemize}
+
+\section{Between-subjects T-Test Formulas}
+
+\section{Within-subjects T-Test Formulas}
+
+\sectiondefinition{Within Subjects T-Test}
+{
+    $H_0 : \mu_{diff} = 0$ \newline 
+    $H_a : \mu_{diff} \neq 0$ \newline
+
+    \begin{multicols}{4}
+        \underline{Subject}
+        \begin{itemize}
+            \item 1
+            \item 2
+            \item 3
+            \item \dots
+            \item N
+        \end{itemize}
+        Mean: \newline
+        S: 
+        \columnbreak
+
+        \underline{Score 1}
+        \begin{itemize}
+            \item 1
+            \item 2
+            \item 3
+            \item \dots
+            \item N
+        \end{itemize}
+        $\bar{X}_{1}$ = $\frac{\sum(X_1)}{N}$ \newline
+        $S_{1} = \sqrt{\frac{\sum(X_1)^2}{N - 1}}$ \newline
+        \columnbreak
+
+        \underline{Score 2}
+        \begin{itemize}
+            \item 1
+            \item 2
+            \item 3
+            \item \dots
+            \item N
+        \end{itemize}
+        $\bar{X}_{2}$ = $\frac{\sum(X_2)}{N}$ \newline
+        $S_{2} = \sqrt{\frac{\sum(X_2)^2}{N - 1}}$ \newline
+        \columnbreak
+
+        \underline{Difference}
+        \begin{itemize}
+            \item 1
+            \item 2
+            \item 3
+            \item \dots
+            \item N
+        \end{itemize}
+        $\bar{X}_{diff}$ = $\frac{\sum(X_1 - X_2)}{N}$ \newline
+        $S_{diff} = \sqrt{\frac{\sum(X_1 - X_2)^2}{N - 1}}$ \newline
+    \end{multicols}
+
+    $S_{\bar{X}_{diff}} = \frac{S_{diff}}{\sqrt{N}}$ \newline
+    $t_{calc} = \frac{\bar{X}_{diff} - \mu_{diff}}{S_{\bar{X}_{diff}}}$ \newline
+}
+
+\sectionexample{Biofeedback \& Headaches}
+{
+    $H_0: \mu_{diff} = 0$ \newline
+    $H_a: \mu_{diff} \neq 0$ \newline
+    $\alpha = .05$ \newline
+    \begin{multicols}{3}
+        \underline{Before Training}
+        \begin{itemize}
+            \item 17
+            \item 13
+            \item 6
+            \item 5
+            \item 5
+            \item 10
+            \item 8
+            \item 6
+            \item 7
+        \end{itemize}
+        $\bar{X}_{1}$ = 8.56 \newline
+        $S_{1}$ = 4.10 \newline
+        \columnbreak
+
+        \underline{After Training}
+        \begin{itemize}
+            \item 4
+            \item 7
+            \item 2
+            \item 3
+            \item 4
+            \item 12
+            \item 6
+            \item 5
+            \item 3
+        \end{itemize}
+        $\bar{X}_{2}$ = 5.11 \newline
+        $S_{2}$ = 3.12 \newline
+        \columnbreak 
+
+        \underline{Difference}
+        \begin{itemize}
+            \item 13
+            \item 6
+            \item 4
+            \item 2
+            \item 1
+            \item -2
+            \item 2
+            \item 1
+            \item 4
+        \end{itemize}
+        $\bar{X}_{diff}$ = 3.44 \newline
+        $S_{diff}$ = 4.25 \newline
+    \end{multicols}
+
+    $S_{\bar{X}_{diff}} = \frac{S_{diff}}{\sqrt{N}} = \frac{4.25}{\sqrt{9}} = 1.42$ \newline
+    $t_{calc} = \frac{\bar{X}_{diff} - \mu_{diff}}{S_{\bar{X}_{diff}}} = \frac{3.44 - 0}{1.42} = 2.43$ \newline
+    $df = N - 1 = 9 - 1 = 8$ \newline
+    $t_{crit} = \pm 2.306$ \newline
+    Reject $H_0$ because $t_{calc} > t_{crit}$ \newline
+
+    Summary Statement: \newline
+    The mean number of headaches reported after the biofeedbak training, 5.11, was significantly different from the mean number of headaches eported before the training, 8.56, t(8) = 2.43, p = .04. 
+}
+
+\sectionexample{Biofeedback \& Headaches Pt 2}
+{
+    What if we goofted and had done a between-subjects t-test? \newline 
+
+    $H_0: \mu_1 - \mu_{2} = 0$ \newline
+    $H_a: \mu_1 - \mu_{2} \neq 0$ \newline
+    $\alpha = .05$ \newline
+
+    Since $n_1 = n_2$ then \newline 
+
+    $S_{\bar{X}_{1} - \bar{X}_{2}} = \sqrt{\frac{S_{1}^2}{n_1} + \frac{S_{2}^2}{n_2}} = 1.69$ \newline
+    $t_{calc} = \frac{(\bar{X}_{1} - \bar{X}_{2}) - (\bar{\mu}_1 - \bar{\mu}_2)}{S_{\bar{X}_{1} - \bar{X}_{2}}} = 2.04$ \newline
+    $df = n_1 + n_2 - 2 = 9 + 9 - 2 = 16$ \newline
+    $t_{crit} = \pm 2.12$ \newline
+    Fail to reject $H_0$ because $t_{calc} < t_{crit}$ \newline
+}
+
+\textit{Remember: Within-subjects test are more powerful. THey take advantage of the fact that each subject gives multiple scores. The stronger the correlation between the scores, the greater the power advantage.}
+
+\subsubsection{"Matched Sample" T-tests}
+\begin{itemize}
+    \item A special case of within-subjects t-test. The logic is the same except\dots
+    \item Instead of measuring each participant twice, measure "matched" pairs of participants.
+    \begin{itemize}
+        \item Matched on score relevant characteristic.
+        \item So calculating difference scores make sense.
+        \item Use within-subjects t-test formulas.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Summary of T-Tests}
+\begin{itemize}
+    \item One-sample t-tests compare an Xbar with a hypothesized value. (Ch. 11)
+    \item Two-sample t-tests compare two Xbars. (Ch. 12) Being between-subjects, and within-subjects.
+    \item For all of the above, general pattern is: $t_{calc} = \frac{observed value - hypothesized value}{standard error}$. Where the observed value is $\bar{X}$, $(\bar{X}_{1} - \bar{X}_{2})$, or $\bar{X}_{diff}$, and the hypothesized value is a value from $H_0$ (usually zero).
+    \item To get a big $t_{calc}$, you need: Big diff between means... relative to.. a small standard error.
+    \item $t_{crit}$ depends on:
+    \begin{itemize}
+        \item $\alpha$
+        \item diff
+        \item \# of tails
+    \end{itemize}
+\end{itemize}
+
+\section{SEE VIDEO LECTURE 4/4/2025}
+
+\subsection{Sum of Squares in 1-way ANOVA}
+$SS_{total}$ = Definition: $\sum(X - GM)^2$ $\leftarrow$ measures total amount of variability. \newline
+$SS_{between}$ = Definition: $n\sum(\bar{X}_j - GM)^2$ $\leftarrow$ measures the impact of the IV \newline
+$SS_{within}$ = Definition: $\sum(X - \bar{X}_j)^2$ $\leftarrow$ measures the impact of the error \newline
+$SS_{total} = SS_{between} + SS_{within}$ "partitioning the variance" \newline
+
+\subsection{Degrees of freedom in 1-way ANOVA}
+$df_{total} = nk - 1$ which = $N - 1$ \newline
+$df_{between} = k - 1$ \newline
+$df_{within} = (n - 1)$ for each group, so\dots $k(n - 1) = nk - k$ \newline
+
+\subsection{The Three Variances}
+$ms_{total} = \frac{SS_{total}}{df_{total}}$ \newline
+$ms_{between} = \frac{SS_{between}}{df_{between}}$ "The good one you hope is big" \newline
+$ms_{error} = \frac{SS_{error}}{df_{error}}$ = $ms_{within} = \frac{SS_{within}}{df_{within}}$ "The bad one you hope is very small" \newline
+$F_{calc} = \frac{ms_{between}}{ms_{error}}$ \newline
+
+\subsection{Festing H0}
+\begin{itemize}
+    \item If $F_{calc} > F_{crit}$, then reject $H_0$, and conclude that the population means are not all equal.
+    \item In other words, if variability between the groups overwhealms the variability within the groups, then we conclude our IV affects our DV. 
+    \item This is why we call it ANOVA.
+\end{itemize}
+
 
 \section{References}
 This is a reference to a source \cite{example}.
