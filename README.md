@@ -13,7 +13,7 @@ this collection spans multiple computer science courses:
 - **CPSC 2120** - Data Structures and Algorithms
 - **CPSC 2150** - Software Development Foundations  
 - **CPSC 2310** - Computer Organization
-- **CPSC 3520** - Database Systems
+- **CPSC 3520** - Programming Systems
 - **CPSC 3600** - Network Programming
 - **CPSC 3720** - Software Engineering
 - **CPSC 4300** - Applied Data Science
