@@ -1,0 +1,36 @@
+% ---------------------------------------------
+% queriesextracredit.txt (2D)
+% Load in SWI: ?- [gardenextracredit].
+% Then run these at the ?- prompt.
+% ---------------------------------------------
+
+% 1) plantassign/3
+?- plantassign(2,3,L).
+?- plantassign(3,3,L).
+
+% 2) uniquecheck/1
+?- uniquecheck([roses,carnation,sunflower,violet,azalea,orchid]).
+?- uniquecheck([roses,roses,orchid]).  % should fail
+
+% 3) colorcheck/3
+?- colorcheck(2,3,[roses,carnation,gardenias,lilies,geranium,orchid]).
+?- colorcheck(2,3,[roses,poppy,lilies,geranium,geranium,orchid]).  % should fail (same color neighbors)
+
+% 4) sizecheck/3
+?- sizecheck(2,3,[lilies,roses,begonias,buttercup,dahlia,gladiolas]).   % short-med-tall arrangements OK
+?- sizecheck(2,3,[lilies,gladiolas,lilies,gladiolas,lilies,gladiolas]).  % should fail (short next to tall)
+
+% 5) wetcheck/3   (3x3: perimeter dry, center wet)
+?- wetcheck(3,3,[roses,lilies,azalea,buttercup,carnation,geranium,lavender,iris,sunflower]).
+?- wetcheck(3,3,[roses,lilies,azalea,buttercup,roses,geranium,lavender,iris,sunflower]).  % should fail (center dry)
+
+% 6) writegarden/3
+?- writegarden(3,3,[roses,lilies,azalea,buttercup,carnation,geranium,lavender,iris,sunflower]).
+?- writegarden(2,4,[roses,carnation,dahlia,poppy,azalea,orchid,tulip,gladiolas]).
+
+% 7) gardenplan/3 (generates a valid plan and prints it)
+?- gardenplan(2,4,L).
+?- gardenplan(3,3,L).
+
+% Optional: validate an existing grid in one go
+?- valid_garden(3,3,[roses,carnation,dahlia,poppy,periwinkle,azalea,lilies,iris,sunflower]).

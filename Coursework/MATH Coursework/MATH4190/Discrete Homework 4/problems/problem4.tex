@@ -1,0 +1,11 @@
+% ===== Problem 4 fragment (include with \input) =====
+\section*{Problem 4}
+\textbf{Problem.} How many ways are there to travel in xyz-space from the origin \((0,0,0)\) to \((4,3,5)\) by taking steps of length 1 only in the positive \(x\), \(y\), or \(z\) directions (no backtracking)?
+
+\medskip
+\textbf{Solution.}
+Any such path consists of \(4\) \(x\)-steps, \(3\) \(y\)-steps, and \(5\) \(z\)-steps, in some order. The total number of steps is \(4+3+5=12\). Distinct paths correspond to distinct permutations of the multiset
+\(\{x^4,y^3,z^5\}\), hence
+\[
+\#\text{paths}=\frac{12!}{4!\,3!\,5!}.
+\]

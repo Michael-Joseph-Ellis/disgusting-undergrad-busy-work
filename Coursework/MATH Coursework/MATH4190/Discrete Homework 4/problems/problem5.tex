@@ -1,0 +1,20 @@
+% ===== Problem 5 fragment (include with \input) =====
+\section*{Problem 5}
+\textbf{Problem.} Give a combinatorial proof of \(k\binom{n}{k}=n\binom{n-1}{k-1}\).
+
+\medskip
+\textbf{Proof.}
+Count the number of ways to form a committee of \(k\) people from \(n\) and then choose a chair.
+
+\emph{Method 1:} First choose the committee, then the chair.
+There are \(\binom{n}{k}\) ways to choose the committee and \(k\) choices for its chair, for a total of
+\(k\binom{n}{k}\) outcomes.
+
+\emph{Method 2:} First choose the chair, then the rest of the committee.
+There are \(n\) choices for the chair. After choosing the chair, choose the remaining \(k-1\) members from the remaining \(n-1\) people, which can be done in \(\binom{n-1}{k-1}\) ways. This gives
+\(n\binom{n-1}{k-1}\) outcomes.
+
+Both methods count the same set of outcomes, hence
+\[
+k\binom{n}{k}=n\binom{n-1}{k-1}.
+\qedhere

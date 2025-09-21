@@ -1,0 +1,42 @@
+% ===== Problem 7 fragment (include with \input) =====
+\section*{Problem 7}
+Let \(A\) and \(B\) be finite sets with \(|A|=n\) and \(|B|=k\).
+
+\medskip
+\textbf{(a) How many functions \(f:A\to B\) are there?}
+
+For each of the \(n\) elements of \(A\), there are \(k\) choices for its image in \(B\), independently.
+Hence the number of functions is
+\[
+k^{\,n}.
+\]
+
+\medskip
+\textbf{(b) How many injective functions \(f:A\to B\) are there, assuming \(n\le k\)?}
+
+Choose distinct images in \(B\) for the \(n\) elements of \(A\):
+\[
+k\cdot (k-1)\cdots (k-n+1)=\frac{k!}{(k-n)!}.
+\]
+
+\medskip
+\textbf{(c) How many bijections \(f:A\to B\) are there, assuming \(n=k\)?}
+
+When \(n=k\), a bijection is a bijective labeling of \(B\) by the elements of \(A\).
+The count is the number of permutations of \(k\) elements:
+\[
+k! \quad (\text{equivalently } n!).
+\]
+
+\medskip
+\textbf{(d) Show that the number of surjections \(f:A\to B\) is \(k!\,S(n,k)\) (assume \(k\le n\)).}
+
+Here \(S(n,k)\) denotes the Stirling number of the second kind, i.e., the number of ways to partition
+an \(n\)-element set into \(k\) nonempty \emph{unlabeled} blocks.
+A surjection \(f:A\to B\) induces a partition of \(A\) into the nonempty fibers \(f^{-1}(b)\) for \(b\in B\).
+Conversely, given a partition of \(A\) into \(k\) nonempty blocks, there are \(k!\) ways to bijectively assign
+its \(k\) blocks to the \(k\) labels in \(B\).
+Therefore the number of surjections is
+\[
+k!\,S(n,k).
+\]

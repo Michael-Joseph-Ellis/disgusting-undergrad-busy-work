@@ -1,0 +1,31 @@
+% ===== Problem 6 fragment (include with \input) =====
+\section*{Problem 6}
+\textbf{Problem.} How many ways are there to distribute five balls into seven boxes if each box may contain \emph{at most one} ball?
+
+\medskip
+\textbf{(a) Balls and boxes labeled.}
+With capacity 1, each labeled ball must go to a distinct labeled box. This is an \emph{injection}
+from a 5-element set to a 7-element set, counted by permutations:
+\[
+P(7,5)=7\cdot 6\cdot 5\cdot 4\cdot 3=\frac{7!}{2!}=2520.
+\]
+
+\medskip
+\textbf{(b) Balls labeled, boxes unlabeled.}
+Distinct balls, \emph{identical} boxes, capacity 1. Boxes are indistinguishable and at most one ball per box,
+so exactly 5 boxes are used and each box contains one ball. This is a partition of the 5 distinct balls
+into 5 unlabeled singletons, counted by the Stirling number of the second kind \(S(5,5)=1\).
+Hence the answer is \(\boxed{1}\).
+
+\medskip
+\textbf{(c) Balls unlabeled, boxes labeled.}
+Identical balls, \emph{distinct} boxes, capacity 1. We simply choose which 5 boxes receive a ball:
+\[
+\binom{7}{5}=21.
+\]
+
+\medskip
+\textbf{(d) Balls unlabeled, boxes unlabeled.}
+Identical balls, \emph{identical} boxes, capacity 1. We only care about how many boxes are occupied.
+Exactly 5 boxes are occupied with one ball each, which corresponds to the single integer partition
+\(1+1+1+1+1\). Therefore the answer is \(\boxed{1}\).

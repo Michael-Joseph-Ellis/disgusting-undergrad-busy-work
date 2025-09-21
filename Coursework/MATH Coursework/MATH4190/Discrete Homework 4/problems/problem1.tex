@@ -1,0 +1,26 @@
+% ===== Problem 1 fragment (include with \input) =====
+\section*{Problem 1}
+\textbf{Problem.} How many distinct strings with seven or more characters can be formed from the letters in \texttt{EVERGREEN}?
+
+\medskip
+\textbf{Solution.}
+The multiset of letters is
+\(\{E^4,\,R^2,\,G,\,V,\,N\}\) (total of 9 letters, with multiplicities as shown).
+For length \(k\in\{7,8,9\}\) choose nonnegative integers
+\((a_E,a_R,a_G,a_V,a_N)\) satisfying
+\[
+a_E\le 4,\quad a_R\le 2,\quad a_G,a_V,a_N\le 1,\quad
+a_E+a_R+a_G+a_V+a_N=k.
+\]
+For each feasible choice, the number of distinct strings is
+\(\frac{k!}{a_E!\,a_R!\,a_G!\,a_V!\,a_N!}\).
+Summing over all feasible 5-tuples yields
+\[
+N_7 = 4515,\qquad
+N_8 = 7560,\qquad
+N_9 = 7560.
+\]
+Therefore the total number of strings of length at least \(7\) is
+\[
+N = N_7+N_8+N_9 = \boxed{19635}.
+\]

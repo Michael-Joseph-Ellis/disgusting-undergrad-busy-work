@@ -1,0 +1,23 @@
+:root { --ok:#2e7d32; --warn:#f9a825; --bad:#c62828; --bg:#0b0f14; --card:#121821; --text:#e8eef7; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; color: var(--text); background: var(--bg); }
+header { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; background: var(--card); border-bottom:1px solid #1e2633; }
+h1 { margin:0; font-size:20px; letter-spacing:0.3px; }
+.controls { display:flex; gap:12px; align-items:center; }
+.controls label { font-size:14px; display:flex; gap:6px; align-items:center; }
+main { display:grid; grid-template-columns: 1fr 340px; height: calc(100vh - 96px); }
+#map { height:100%; width:100%; }
+#sidebar { background: var(--card); border-left:1px solid #1e2633; overflow:auto; padding:12px; }
+#sidebar h2 { margin:6px 0 10px; font-size:16px; }
+#lotList { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; }
+.lot { border:1px solid #223045; border-radius:12px; padding:10px; background:#0f141d; }
+.lot h3 { margin:0 0 6px; font-size:15px; }
+.badge { padding:2px 8px; border-radius:999px; font-size:12px; border:1px solid #2a364a; }
+.row { display:flex; gap:10px; align-items:center; }
+.cap { font-variant-numeric: tabular-nums; }
+.dot { width:10px; height:10px; border-radius:50%; display:inline-block; margin-right:6px; }
+.dot.ok { background: var(--ok); } .dot.warn { background: var(--warn); } .dot.bad { background: var(--bad); }
+footer { padding:8px 16px; border-top:1px solid #1e2633; background: var(--card); }
+button, select, input[type=number] { background:#0f141d; color:var(--text); border:1px solid #263246; border-radius:8px; padding:6px 8px; }
+button { cursor:pointer; }
+.notify { user-select:none; }

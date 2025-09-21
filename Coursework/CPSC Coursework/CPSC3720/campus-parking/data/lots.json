@@ -1,0 +1,6 @@
+[
+  { "id":"A1", "name":"Lot A1 - Library", "type":"student", "lat":34.6765, "lng":-82.8399, "capacity":120, "open":36 },
+  { "id":"B2", "name":"Lot B2 - Engineering", "type":"faculty", "lat":34.6769, "lng":-82.8435, "capacity":80, "open":7 },
+  { "id":"V1", "name":"Visitor Deck", "type":"visitor", "lat":34.6731, "lng":-82.8365, "capacity":300, "open":112 },
+  { "id":"C3", "name":"Lot C3 - Rec Center", "type":"student", "lat":34.6719, "lng":-82.8422, "capacity":150, "open":2 }
+]

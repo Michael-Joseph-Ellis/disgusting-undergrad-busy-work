@@ -1,0 +1,30 @@
+% 1) plantassign/2
+?- plantassign(4, L).
+?- plantassign(6, L).
+
+% 2) uniquecheck/1
+?- uniquecheck([roses, carnation, sunflower, violet]).
+?- uniquecheck([roses, roses, violet]).            % should fail
+
+% 3) colorcheck/1
+?- colorcheck([roses, carnation, marigolds, violet]).
+?- colorcheck([roses, poppy, lilies]).             % should fail (red next to red)
+
+% 4) sizecheck/1
+?- sizecheck([lilies, roses, sunflower]).          % short->med->tall OK
+?- sizecheck([lilies, sunflower]).                 % should fail (short vs tall)
+
+% 5) wetcheck/2
+?- wetcheck(4, [roses, carnation, dahlia, poppy]).
+?- wetcheck(5, [carnation, azalea, dahlia, poppy, tulip]). % should fail
+
+% 6) writegarden/1
+?- writegarden([roses, carnation, dahlia, poppy]).
+?- writegarden([buttercup, periwinkle, roses, sunflower]).
+
+% 7) gardenplan/2
+?- gardenplan(4, L).
+?- gardenplan(6, L).
+
+% optional: EXTRA CREDIT
+?- valid_garden(4, [roses, carnation, dahlia, poppy]).

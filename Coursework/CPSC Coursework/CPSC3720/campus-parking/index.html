@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TigerPark — Campus Parking</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>TigerPark</h1>
+    <div class="controls">
+      <label>
+        Lot type
+        <select id="typeFilter">
+          <option value="all">All</option>
+          <option value="student">Student</option>
+          <option value="faculty">Faculty</option>
+          <option value="visitor">Visitor</option>
+        </select>
+      </label>
+      <label>
+        Min open spots
+        <input id="minOpen" type="number" min="0" value="0" />
+      </label>
+      <label class="notify">
+        <input id="notifyToggle" type="checkbox" />
+        Notify me if a lot near me opens
+      </label>
+      <button id="locateBtn">Use my location</button>
+    </div>
+  </header>
+
+  <main>
+    <div id="map"></div>
+    <aside id="sidebar">
+      <h2>Lots</h2>
+      <ul id="lotList"></ul>
+    </aside>
+  </main>
+
+  <footer>
+    <small>Demo data. Not affiliated with the university. Don’t actually drive based on this.</small>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

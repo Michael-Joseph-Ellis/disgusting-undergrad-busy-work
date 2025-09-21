@@ -1,0 +1,49 @@
+% ===== Problem 3 fragment (include with \input) =====
+\section*{Problem 3}
+\textbf{Problem.} How many solutions are there to
+\(x_1+x_2+x_3+x_4+x_5+x_6=29\),
+where \(x_i\) are nonnegative integers and the listed extra conditions hold?
+
+\medskip
+\textbf{(a)} \(x_i>1\) for \(i=1,2,3,4,5,6\).
+
+\textbf{Solution.}
+Let \(y_i=x_i-2\ge 0\). Then \(\sum y_i=29-12=17\).
+By stars and bars, the count is
+\(\binom{17+6-1}{6-1}=\boxed{\binom{22}{5}=26{,}334}\).
+
+\medskip
+\textbf{(b)} \(x_1\ge 1,\;x_2\ge 2,\;x_3\ge 3,\;x_4\ge 4,\;x_5>5,\;x_6\ge 6.\)
+
+\textbf{Solution.}
+Replace each variable by its minimum plus a slack:
+\((1,2,3,4,6,6)\) sums to \(22\), so the slack sum is \(29-22=7\).
+The number of solutions is
+\(\binom{7+6-1}{6-1}=\boxed{\binom{12}{5}=792}\).
+
+\medskip
+\textbf{(c)} \(x_1\le 5\).
+
+\textbf{Solution.}
+Unconstrained solutions are \(\binom{29+6-1}{6-1}=\binom{34}{5}\).
+Subtract those with \(x_1\ge 6\). Put \(y_1=x_1-6\ge 0\), then
+\(y_1+x_2+\cdots+x_6=23\), which has \(\binom{23+6-1}{6-1}=\binom{28}{5}\) solutions.
+Thus the answer is
+\(\boxed{\binom{34}{5}-\binom{28}{5}=179{,}976}\).
+
+\medskip
+\textbf{(d)} \(x_1<8\) and \(x_2>8\).
+
+\textbf{Solution.}
+Write \(x_2=9+y_2\) with \(y_2\ge 0\). Then
+\[
+x_1+y_2+x_3+x_4+x_5+x_6=20,\qquad 0\le x_1\le 7.
+\]
+For a fixed \(a=x_1\in\{0,\dots,7\}\) the remaining equation has
+\(\binom{20-a+5-1}{5-1}=\binom{24-a}{4}\) solutions. Hence
+\[
+\sum_{a=0}^{7}\binom{24-a}{4}
+= \sum_{t=17}^{24}\binom{t}{4}
+= \binom{25}{5}-\binom{17}{5}
+= \boxed{46{,}942}.
+\]
