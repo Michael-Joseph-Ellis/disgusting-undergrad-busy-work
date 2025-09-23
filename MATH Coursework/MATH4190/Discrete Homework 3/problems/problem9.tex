@@ -1,0 +1,11 @@
+\section*{9. If $g:A\to B$ and $f:B\to C$ are injective, then $f\circ g$ is injective}
+
+\begin{proof}
+Assume $g:A\to B$ and $f:B\to C$ are injective. 
+Let $x,y\in A$ and suppose $(f\circ g)(x)=(f\circ g)(y)$.
+Then $f(g(x))=f(g(y))$ with $g(x),g(y)\in B$. 
+Since $f$ is injective, $g(x)=g(y)$. 
+Since $g$ is injective, $x=y$.
+Thus for all $x,y\in A$, $(f\circ g)(x)=(f\circ g)(y)\Rightarrow x=y$, 
+so $f\circ g$ is injective.
+\end{proof}

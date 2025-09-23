@@ -1,0 +1,28 @@
+\section*{7. Bijections $\mathbb{R}\to\mathbb{R}$? Prove or disprove}
+
+\begin{enumerate}[label=(\alph*),leftmargin=*]
+\item $f(x)=2x+1$. \textbf{Bijection.}
+
+\emph{Injective:} If $2x_1+1=2x_2+1$ then $x_1=x_2$. \quad
+\emph{Surjective:} Given $y\in\mathbb{R}$, take $x=(y-1)/2$ and $f(x)=y$.
+Inverse: $f^{-1}(y)=\dfrac{y-1}{2}$.
+
+\item $f(x)=x^2+1$. \textbf{Not a bijection.}
+
+\emph{Not injective:} $f(1)=f(-1)=2$. \quad
+\emph{Not surjective:} $f(\mathbb{R})=[1,\infty)$, so no $x$ with $f(x)=0$.
+
+\item $f(x)=x^3$. \textbf{Bijection.}
+
+\emph{Injective:} If $x_1^3=x_2^3$ then $x_1=x_2$. \quad
+\emph{Surjective:} Given $y\in\mathbb{R}$, $x=\sqrt[3]{y}$ satisfies $f(x)=y$.
+Inverse: $f^{-1}(y)=\sqrt[3]{y}$.
+
+\item $f(x)=\dfrac{x^2+1}{x^2+2}$. \textbf{Not a bijection.}
+
+Note $f(x)=1-\dfrac{1}{x^2+2}$. As $x$ ranges over $\mathbb{R}$, $x^2+2\in[2,\infty)$, so
+\[
+f(\mathbb{R})=\Bigl[\,\frac12,\,1\Bigr).
+\]
+Hence $f$ is \emph{not} surjective onto $\mathbb{R}$. Also $f(1)=f(-1)$, so it is not injective.
+\end{enumerate}

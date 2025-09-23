@@ -1,0 +1,25 @@
+\section*{5. Expressing $A\cap B$ using only $\cup$ and set difference}
+
+\noindent\textbf{Claim.} For all sets $A,B$,
+\[
+A\cap B \;=\; A\setminus(A\setminus B).
+\]
+
+\begin{proof}
+Let $x$ be arbitrary.
+
+($\Rightarrow$) If $x\in A\cap B$, then $x\in A$ and $x\in B$. Hence $x\notin A\setminus B$,
+so $x\in A\setminus(A\setminus B)$.
+
+($\Leftarrow$) If $x\in A\setminus(A\setminus B)$, then $x\in A$ and $x\notin(A\setminus B)$.
+The latter means it is not the case that $x\in A$ and $x\notin B$; since already $x\in A$,
+we must have $x\in B$. Therefore $x\in A\cap B$.
+
+Both containments hold, so $A\cap B=A\setminus(A\setminus B)$.
+\end{proof}
+
+\noindent\emph{(Optional symmetric/union form.)} Also
+\[
+A\cap B \;=\; (A\cup B)\setminus\bigl((A\setminus B)\cup(B\setminus A)\bigr),
+\]
+but the simpler $A\setminus(A\setminus B)$ already uses only the allowed operations.

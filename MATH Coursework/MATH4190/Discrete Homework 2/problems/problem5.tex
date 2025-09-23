@@ -1,0 +1,28 @@
+\section*{5. At least one number is at least the average}
+
+\medskip
+\noindent\textbf{Lemma (Two numbers cannot both be below their midpoint).}
+For any real numbers $x$ and $y$, it is impossible that
+\[
+x<\frac{x+y}{2}\quad\text{and}\quad y<\frac{x+y}{2}.
+\]
+
+\begin{proof}
+Assume for contradiction that both strict inequalities hold.
+
+\smallskip
+\noindent\emph{Step 1 (add the inequalities).}
+Since addition preserves strict inequality (i.e., if $a<b$ and $c<d$ then
+$a+c<b+d$), adding the two assumed inequalities gives
+\[
+x+y\;<\;\frac{x+y}{2}+\frac{x+y}{2}\;=\;x+y.
+\]
+This is impossible, because no real number is strictly less than itself.
+
+\smallskip
+Therefore our assumption is false. Hence at least one of the two inequalities
+fails, which means either
+\[
+x\ge \frac{x+y}{2}\quad\text{or}\quad y\ge \frac{x+y}{2}.
+\]
+\end{proof}

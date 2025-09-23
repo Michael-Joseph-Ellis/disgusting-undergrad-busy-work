@@ -1,0 +1,34 @@
+\section*{1. Translate to logic with $C(x),D(x),F(x)$}
+
+\begin{enumerate}[label=(\alph*),leftmargin=*]
+
+\item \textbf{A student in your class has a cat, a dog, and a ferret.}
+\[
+\exists x\,\bigl(C(x)\land D(x)\land F(x)\bigr).
+\]
+
+\item \textbf{All students in your class have a cat, a dog, or a ferret.}
+\[
+\forall x\,\bigl(C(x)\lor D(x)\lor F(x)\bigr).
+\]
+(Reading “have a cat, a dog, \emph{or} a ferret” as “at least one of the three.”)
+
+\item \textbf{Some student in your class has a cat and a ferret, but not a dog.}
+\[
+\exists x\,\bigl(C(x)\land F(x)\land \lnot D(x)\bigr).
+\]
+
+\item \textbf{No student in your class has a cat, a dog, and a ferret.}
+\[
+\lnot\,\exists x\,\bigl(C(x)\land D(x)\land F(x)\bigr)
+\quad\equiv\quad
+\forall x\,\lnot\bigl(C(x)\land D(x)\land F(x)\bigr).
+\]
+
+\item \textbf{For each of the three animals (cats, dogs, ferrets), there is a student who has this animal.}
+\[
+\bigl(\exists x\,C(x)\bigr)\ \land\ \bigl(\exists y\,D(y)\bigr)\ \land\ \bigl(\exists z\,F(z)\bigr).
+\]
+(Separate witnesses are allowed; they need not be the same student.)
+
+\end{enumerate}

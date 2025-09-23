@@ -1,0 +1,17 @@
+\section*{2. Translate to English}
+Predicates and domains: $F(p)$ “printer $p$ is out of service,” $B(p)$ “printer $p$ is busy,”
+$L(j)$ “print job $j$ is lost,” $Q(j)$ “print job $j$ is queued.” Variables $p$ range over printers; $j$ range over print jobs.
+
+\begin{enumerate}[label=(\alph*),leftmargin=*]
+\item $\exists p\,(F(p)\land B(p)) \to \exists j\,L(j)$ \\
+\emph{If there exists a printer that is both out of service and busy, then at least one print job is lost.}
+
+\item $\forall p\,B(p) \to \exists j\,Q(j)$ \\
+\emph{If every printer is busy, then at least one print job is queued.}
+
+\item $\exists j\,(Q(j)\land L(j)) \to \exists p\,F(p)$ \\
+\emph{If there exists a print job that is both queued and lost, then there exists a printer that is out of service.}
+
+\item $(\forall p\,B(p)\ \land\ \forall j\,Q(j)) \to \exists j\,L(j)$ \\
+\emph{If all printers are busy and all print jobs are queued, then at least one print job is lost.}
+\end{enumerate}

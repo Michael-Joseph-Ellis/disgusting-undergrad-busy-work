@@ -1,0 +1,53 @@
+\section*{2. Enrollment counts and Venn diagram}
+
+Let $L$ = Linear Algebra, $C$ = Calculus, $D$ = Discrete Math. Given:
+\[
+|L|=60,\quad |C|=54,\quad |D|=48,\quad
+|L\cap C|=30,\ |L\cap D|=24,\ |C\cap D|=20,\ |L\cap C\cap D|=5.
+\]
+Region counts (pairwise numbers include the triple):
+\[
+\begin{aligned}
+&\text{only }L: &&60-30-24+5=11,\\
+&\text{only }C: &&54-30-20+5=9,\\
+&\text{only }D: &&48-24-20+5=9,\\
+&L\cap C \text{ only:} &&30-5=25,\\
+&L\cap D \text{ only:} &&24-5=19,\\
+&C\cap D \text{ only:} &&20-5=15,\\
+&L\cap C\cap D: &&5.
+\end{aligned}
+\]
+Students in at least one course:
+\[
+11+9+9+25+19+15+5 = 93.
+\]
+Hence the number who take none is $100-93=\boxed{7}$.
+
+\medskip
+\noindent\textbf{Check (inclusion–exclusion):}
+\[
+|L\cup C\cup D|=60+54+48-30-24-20+5=93\;\Rightarrow\; \text{none }=100-93=7.
+\]
+
+\begin{center}
+\begin{tikzpicture}[scale=1.0]
+  % Universe
+  % Circles
+  \def\rad{1.8}
+  \coordinate (L) at (-1.2,0);
+  \coordinate (C) at ( 1.2,0);
+  \coordinate (D) at (0,1.6);
+  \draw (L) circle (\rad) node[left=0mm]{$L$};
+  \draw (C) circle (\rad) node[right=0mm]{$C$};
+  \draw (D) circle (\rad) node[above]{$D$};
+  % Region numbers
+  \node at ($(L)+(-1.0,0)$)      {11}; % only L
+  \node at ($(C)+( 1.0,0)$)      {9};  % only C
+  \node at ($(D)+( 0, 1.05)$)    {9};  % only D
+  \node at (0,-0.55)             {25}; % L∩C only
+  \node at (-0.85,0.95)          {19}; % L∩D only
+  \node at ( 0.85,0.95)          {15}; % C∩D only
+  \node at (0,0.35)              {5};  % triple
+  \node at (-3.1,-2.2)           {none $=7$};
+\end{tikzpicture}
+\end{center}

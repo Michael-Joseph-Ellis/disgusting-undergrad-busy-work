@@ -1,0 +1,29 @@
+\section*{2. Every binary Boolean operation from $\{\land,\lor,\lnot\}$}
+
+\medskip
+
+\paragraph{Explicit constructions for all 16 binary operations.}
+Below each row shows a distinct binary operation with a standard name, its truth
+vector in the order $(x,y)=(\mathrm{T},\mathrm{T}),(\mathrm{T},\mathrm{F}),(\mathrm{F},\mathrm{T}),(\mathrm{F},\mathrm{F})$,
+and one expression using only $\land,\lor,\lnot$.
+
+\[
+\begin{array}{l c l}
+\top \text{ (constant 1)} & \lnot(x\land \lnot x) \\
+\text{NAND} & \lnot(x\land y) \\
+x \leftarrow y \text{ (implication } y\Rightarrow x\text{)} & \lnot y \lor x \\
+\lnot y & \lnot y \\
+x \Rightarrow y & \lnot x \lor y \\
+y & y \\
+\text{XNOR (equivalence)} & (x\land y)\lor(\lnot x \land \lnot y) \\
+\lor \text{ (OR)} & x\lor y \\
+\land \text{ (AND)} & x\land y \\
+\text{XOR} & (x\land \lnot y)\lor(\lnot x\land y) \\
+x & x \\
+\lnot x \land y & \lnot x \land y \\
+x \land \lnot y & x \land \lnot y \\
+\lnot x & \lnot x \\
+\text{NOR} & \lnot(x\lor y) \\
+\bot \text{ (constant 0)} & x\land \lnot x \\
+\end{array}
+\]

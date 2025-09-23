@@ -1,0 +1,54 @@
+\section*{5. Exactly one truth / exactly one lie}
+
+\paragraph{Setup (propositions and translations).}
+Let
+\[
+a:\ \text{``Alice did it''},\quad
+j:\ \text{``John did it''},\quad
+c:\ \text{``Carlos did it''},\quad
+d:\ \text{``Diana did it''}.
+\]
+Exactly one of $a,j,c,d$ is true in any culprit case.
+
+Translate each statement to a propositional formula $S_\text{Name}$:
+\[
+\begin{aligned}
+S_A &:\ \text{``Carlos did it.''} &&\equiv\ c,\\
+S_J &:\ \text{``I did not do it.''} &&\equiv\ \lnot j,\\
+S_C &:\ \text{``Diana did it.''} &&\equiv\ d,\\
+S_D &:\ \text{``Carlos lied when he said that I did it.''} 
+     &&\equiv\ \lnot(\text{``Diana did it''})\ \equiv\ \lnot d.
+\end{aligned}
+\]
+Thus the four truth-values we must evaluate are simply $c,\ \lnot j,\ d,\ \lnot d$.
+
+\paragraph{Deriving the table.}
+For each possible culprit, set exactly one of $a,j,c,d$ to $\mathrm{T}$ and the others to $\mathrm{F}$, then
+compute $(S_A,S_J,S_C,S_D)=(c,\lnot j,d,\lnot d)$.
+
+\[
+\begin{array}{c|cccc|c}
+\text{Culprit} & S_A=c & S_J=\lnot j & S_C=d & S_D=\lnot d & \#\text{true} \\
+\hline
+\text{Alice }(a{=}\mathrm{T})  & \mathrm{F} & \mathrm{T} & \mathrm{F} & \mathrm{T} & 2\\
+\text{John }(j{=}\mathrm{T})   & \mathrm{F} & \mathrm{F} & \mathrm{F} & \mathrm{T} & 1\\
+\text{Carlos }(c{=}\mathrm{T}) & \mathrm{T} & \mathrm{T} & \mathrm{F} & \mathrm{T} & 3\\
+\text{Diana }(d{=}\mathrm{T})  & \mathrm{F} & \mathrm{T} & \mathrm{T} & \mathrm{F} & 2
+\end{array}
+\]
+
+Explicitly (one example row each, the rest identical in style):
+\[
+\begin{aligned}
+\text{Alice culprit: } & (c,\lnot j,d,\lnot d)=(\mathrm{F},\mathrm{T},\mathrm{F},\mathrm{T}).\\
+\text{John culprit: }  & (c,\lnot j,d,\lnot d)=(\mathrm{F},\lnot \mathrm{T},\mathrm{F},\lnot \mathrm{F})=(\mathrm{F},\mathrm{F},\mathrm{F},\mathrm{T}).\\
+\text{Carlos culprit: }& (c,\lnot j,d,\lnot d)=(\mathrm{T},\mathrm{T},\mathrm{F},\mathrm{T}).\\
+\text{Diana culprit: } & (c,\lnot j,d,\lnot d)=(\mathrm{F},\mathrm{T},\mathrm{T},\mathrm{F}).
+\end{aligned}
+\]
+
+\subsection*{(a) Exactly one truth}
+Only the “John culprit” row has exactly one true statement. Hence \textbf{John did it}.
+
+\subsection*{(b) Exactly one lie}
+Only the “Carlos culprit” row has exactly one false statement (three truths). Hence \textbf{Carlos did it}.

@@ -1,0 +1,50 @@
+\section*{4. The \textsc{nand} operation}
+
+Define $x \uparrow y \;=\; \lnot(x \land y)$.
+
+\subsection*{(a) Truth table}
+\[
+\begin{array}{c c c c}
+x & y & x \land y & x \uparrow y=\lnot(x\land y)\\ \hline
+\mathrm{T} & \mathrm{T} & \mathrm{T} & \mathrm{F}\\
+\mathrm{T} & \mathrm{F} & \mathrm{F} & \mathrm{T}\\
+\mathrm{F} & \mathrm{T} & \mathrm{F} & \mathrm{T}\\
+\mathrm{F} & \mathrm{F} & \mathrm{F} & \mathrm{T}
+\end{array}
+\]
+
+\subsection*{(b) Commutativity and associativity}
+\textbf{Commutative.} Since $\land$ is commutative and negation preserves equality,
+\[
+x \uparrow y \;=\; \lnot(x\land y) \;=\; \lnot(y\land x) \;=\; y \uparrow x.
+\]
+
+\noindent
+\textbf{Not associative.} Using $x=\mathrm{T},\,y=\mathrm{T},\,z=\mathrm{F}$:
+\[
+(x\uparrow y)\uparrow z \;=\; (\mathrm{T}\uparrow \mathrm{T})\uparrow \mathrm{F}
+= \mathrm{F}\uparrow \mathrm{F} = \mathrm{T},
+\]
+\[
+x\uparrow (y\uparrow z) \;=\; \mathrm{T}\uparrow (\mathrm{T}\uparrow \mathrm{F})
+= \mathrm{T}\uparrow \mathrm{T} = \mathrm{F}.
+\]
+The results differ, so $\uparrow$ is \emph{not} associative.
+
+\subsection*{(c) Expressing $\boldsymbol{x\land y}$ and $\boldsymbol{\lnot x}$ using only $\boldsymbol{\uparrow}$}
+Using the definition,
+\[
+\lnot x \;\equiv\; x \uparrow x
+\qquad\text{since}\qquad x\uparrow x=\lnot(x\land x)=\lnot x,
+\]
+and
+\[
+x\land y \;\equiv\; (x\uparrow y)\uparrow (x\uparrow y)
+\qquad\text{since}\qquad (x\uparrow y)\uparrow (x\uparrow y)
+= \lnot\bigl(\lnot(x\land y)\bigr)=x\land y.
+\]
+
+\paragraph{Functional completeness of $\uparrow$.}
+Problem 3 shows that every binary Boolean operation is expressible using only $\{\land,\lnot\}$.
+Because both $\land$ and $\lnot$ are definable using only $\uparrow$, it follows that $\uparrow$
+alone is functionally complete.

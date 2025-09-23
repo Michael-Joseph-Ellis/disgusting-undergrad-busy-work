@@ -1,0 +1,30 @@
+\section*{6. Three consecutive around the circle sum to at least 17 (simple average argument)}
+
+\noindent\textbf{Statement.}
+Place the integers $1,2,\dots,10$ around a circle in any order. Then some three consecutive
+integers on the circle have sum at least $17$.
+
+\begin{proof}
+Label the order $x_1,\dots,x_{10}$ (indices mod $10$) and form the ten three-term sums
+\[
+s_i = x_i+x_{i+1}+x_{i+2}\qquad(i=1,\dots,10).
+\]
+Each number $1,\dots,10$ appears in exactly three of these $s_i$, so
+\[
+\sum_{i=1}^{10} s_i = 3\,(1+2+\cdots+10)=3\cdot 55=165,
+\]
+and the average of $s_1,\dots,s_{10}$ is $165/10=16.5$.
+
+From Problem 5: the average of a list cannot be larger than its maximum
+and cannot be smaller than its minimum. Therefore the maximum of
+$s_1,\dots,s_{10}$ is at least their average:
+\[
+\max\{s_1,\dots,s_{10}\}\ \ge\ 16.5.
+\]
+Since each $s_i$ is an integer, this forces
+\[
+\max\{s_1,\dots,s_{10}\}\ \ge\ 17.
+\]
+In other words, at least one block of three consecutive positions has sum at least $17$.
+
+\end{proof}

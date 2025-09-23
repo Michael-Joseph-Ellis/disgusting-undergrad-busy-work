@@ -1,0 +1,62 @@
+\section*{1. Exclusive or (XOR)}
+
+The Boolean operation \emph{exclusive or} (XOR), written $x \xor y$, is defined by:
+\[
+\begin{array}{c c | c}
+x & y & x \xor y\\ \hline
+\mathrm{T} & \mathrm{T} & \mathrm{F}\\
+\mathrm{T} & \mathrm{F} & \mathrm{T}\\
+\mathrm{F} & \mathrm{T} & \mathrm{T}\\
+\mathrm{F} & \mathrm{F} & \mathrm{F}
+\end{array}
+\]
+
+\subsection*{(a) Commutativity and associativity}
+
+\paragraph{Commutativity.}
+From the table above, $x \xor y$ and $y \xor x$ have identical outputs for all four
+assignments of $(x,y)$, hence $x \xor y \equiv y \xor x$.
+
+\medskip
+\paragraph{Associativity.}
+We verify that $(x \xor y) \xor z \equiv x \xor (y \xor z)$ by a truth table on three variables.
+
+\[
+\begin{array}{c c c | c | c | c | c}
+x & y & z & x \oplus y & y \oplus z & (x \oplus y) \oplus z & x \oplus (y \oplus z)\\ \hline
+\mathrm{T} & \mathrm{T} & \mathrm{T} & \mathrm{F} & \mathrm{F} & \mathrm{T} & \mathrm{T}\\
+\mathrm{T} & \mathrm{T} & \mathrm{F} & \mathrm{F} & \mathrm{T} & \mathrm{F} & \mathrm{F}\\
+\mathrm{T} & \mathrm{F} & \mathrm{T} & \mathrm{T} & \mathrm{T} & \mathrm{F} & \mathrm{F}\\
+\mathrm{T} & \mathrm{F} & \mathrm{F} & \mathrm{T} & \mathrm{F} & \mathrm{T} & \mathrm{T}\\
+\mathrm{F} & \mathrm{T} & \mathrm{T} & \mathrm{T} & \mathrm{F} & \mathrm{F} & \mathrm{F}\\
+\mathrm{F} & \mathrm{T} & \mathrm{F} & \mathrm{T} & \mathrm{T} & \mathrm{T} & \mathrm{T}\\
+\mathrm{F} & \mathrm{F} & \mathrm{T} & \mathrm{F} & \mathrm{T} & \mathrm{T} & \mathrm{T}\\
+\mathrm{F} & \mathrm{F} & \mathrm{F} & \mathrm{F} & \mathrm{F} & \mathrm{F} & \mathrm{F}
+\end{array}
+\]
+
+Both last columns agree in every row, so $(x \xor y)\xor z \equiv x \xor (y \xor z)$.
+Therefore $\xor$ is associative.
+
+\subsection*{(b) Standard connective form}
+
+We show that
+\[
+x \xor y \;\equiv\; (x \land \lnot y) \;\lor\; (\lnot x \land y).
+\]
+First recall the equivalent description of XOR as ``exactly one is true'':
+\[
+x \xor y \equiv (x \lor y)\land \lnot(x \land y).
+\]
+Applying De~Morgan and distributivity,
+\[
+\begin{aligned}
+(x \lor y)\land \lnot(x \land y)
+&\equiv (x \lor y)\land (\lnot x \lor \lnot y) \\
+&\equiv \bigl(x\land(\lnot x \lor \lnot y)\bigr)\;\lor\;\bigl(y\land(\lnot x \lor \lnot y)\bigr) \\
+&\equiv (x\land\lnot x)\;\lor\;(x\land\lnot y)\;\lor\;(\lnot x\land y)\;\lor\;(y\land\lnot y) \\
+&\equiv (x\land\lnot y)\;\lor\;(\lnot x\land y),
+\end{aligned}
+\]
+since $x\land\lnot x \equiv \bot$ and $y\land\lnot y \equiv \bot$.
+This completes the proof.

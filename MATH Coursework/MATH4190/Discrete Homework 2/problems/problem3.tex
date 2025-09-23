@@ -1,0 +1,60 @@
+% Preamble needs:
+% \usepackage{amsmath,amssymb,amsthm}
+
+\section*{3. Prove the following statements}
+
+\begin{theorem}[a]
+The square of an odd integer is odd.
+\end{theorem}
+\begin{proof}
+Let $n$ be an odd integer. Then there exists $k\in\mathbb{Z}$ such that $n=2k+1$.
+Hence
+\[
+n^{2}=(2k+1)^{2}=4k^{2}+4k+1=2\bigl(2k^{2}+2k\bigr)+1,
+\]
+which is of the form $2t+1$ for some integer $t$. Therefore $n^{2}$ is odd.
+\end{proof}
+
+\begin{theorem}[b]
+The difference between consecutive perfect squares is odd.
+\end{theorem}
+\begin{proof}
+For any $n\in\mathbb{Z}$ we have
+\[
+(n+1)^{2}-n^{2}=n^{2}+2n+1-n^{2}=2n+1,
+\]
+which is odd. Thus the difference of consecutive squares is always odd.
+\end{proof}
+
+\begin{theorem}[c]
+An integer is odd if and only if it is the sum of two consecutive integers.
+\end{theorem}
+\begin{proof}
+($\Rightarrow$) Suppose $n$ is odd. Then $n=2k+1$ for some $k\in\mathbb{Z}$, and
+\[
+n=2k+1=k+(k+1),
+\]
+which is a sum of consecutive integers.
+
+($\Leftarrow$) Conversely, suppose $n$ is the sum of two consecutive integers. Then
+$n=m+(m+1)=2m+1$, which is odd. This proves the equivalence.
+\end{proof}
+
+\begin{theorem}[d]
+If $n$ is a perfect square, then $n+2$ is not a perfect square.
+\end{theorem}
+\begin{proof}
+Let $n=k^2$ with $k\in\mathbb{Z}_{\ge 0}$.
+
+If $k=0$, then $n+2=2$ is not a square. Now assume $k\ge 1$.
+Compare $k^2+2$ with the next square $(k+1)^2$:
+\[
+(k+1)^2 - (k^2+2) = (k^2+2k+1) - (k^2+2) = 2k-1.
+\]
+Since $k\ge 1$, we have $2k-1\ge 1$, so
+\[
+k^2 \;<\; k^2+2 \;<\; (k+1)^2.
+\]
+In words: $k^2+2$ lies strictly between two consecutive squares, namely
+$k^2$ and $(k+1)^2$. There is no square between consecutive squares, so
+$k^2+2$ cannot itself be a square. Therefore $n+2$ is not a perfect square.

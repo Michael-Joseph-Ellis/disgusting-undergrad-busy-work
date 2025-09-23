@@ -1,0 +1,62 @@
+\section*{6. Functions $\mathbb{Z}\to\mathbb{Z}_{>0}$ with prescribed properties}
+
+Below, the codomain is the positive integers $\mathbb{Z}_{>0}=\{1,2,3,\dots\}$.
+
+\subsection*{(a) One-to-one but not onto}
+Define $b:\mathbb{Z}\to\mathbb{Z}_{>0}$ by
+\[
+b(n)=\begin{cases}
+2n, & n>0,\\
+1,  & n=0,\\
+-2n+1, & n<0,
+\end{cases}
+\]
+which is a bijection (see part (c)). Then
+\[
+f(n)=2\,b(n)
+\]
+maps $\mathbb{Z}$ injectively into the even positive integers, so $f$ is one-to-one and not onto
+(it misses every odd number).
+
+\subsection*{(b) Onto but not one-to-one}
+Define
+\[
+g(n)=|n|+1.
+\]
+For any $m\in\mathbb{Z}_{>0}$, choose $n=m-1$ to get $g(n)=m$; hence $g$ is onto.
+But $g(m-1)=g(1-m)=m$, so distinct inputs can share the same value; $g$ is not one-to-one.
+
+\subsection*{(c) One-to-one and onto}
+Define
+\[
+h(n)=
+\begin{cases}
+2n, & n\ge 1 \quad\text{(positives map to even numbers)} ,\\[2pt]
+1-2n, & n\le 0 \quad\text{(nonpositives map to odd numbers)} .
+\end{cases}
+\]
+
+\noindent\emph{Why this is a bijection.}
+The two images are disjoint and cover all positives:
+\[
+\{2,4,6,\dots\} \,\cup\, \{1,3,5,\dots\} \;=\; \mathbb{Z}_{>0}.
+\]
+On each branch the formula is injective, and the branches don’t collide (evens vs odds).
+
+\noindent\emph{Explicit inverse (onto + injective in one shot).}
+Given $m\in\mathbb{Z}_{>0}$,
+\[
+h^{-1}(m)=
+\begin{cases}
+m/2, & \text{$m$ even},\\[2pt]
+(1-m)/2, & \text{$m$ odd}.
+\end{cases}
+\]
+So every positive integer is hit exactly once, i.e., $h$ is one-to-one and onto.
+
+\subsection*{(d) Neither one-to-one nor onto}
+Define the constant map
+\[
+k(n)=1.
+\]
+It is not onto (only $1$ is hit) and not one-to-one (all inputs share the same value).

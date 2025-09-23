@@ -1,0 +1,26 @@
+\section*{1. Determine truth values}
+Throughout, \(x\) denotes an arbitrary object. We interpret \(\subset\) as ``proper subset'' and \(\subseteq\) as ``subset (not necessarily proper).''
+
+\begin{enumerate}[label=(\alph*),leftmargin=*]
+
+\item \(x \in \{x\}\) \quad \textbf{True.}\\
+By definition, the singleton \(\{x\}\) has exactly one element, namely \(x\).
+
+\item $\{x\} \subseteq \{x\}$ \quad \textbf{True.}\\
+Every set is a subset of itself (reflexivity of $\subseteq$). Since the two sets are equal,
+$\{x\}\subseteq\{x\}$ holds.
+
+\item \(\{x\} \in \{x\}\) \quad \textbf{False.}\\
+The only element of \(\{x\}\) is \(x\) (not the set \(\{x\}\) itself).
+
+\item \(\{x\} \in \{\{x\}\}\) \quad \textbf{True.}\\
+The set \(\{\{x\}\}\) has exactly one element, namely \(\{x\}\).
+
+\item \(\varnothing \subseteq \{x\}\) \quad \textbf{True.}\\
+The empty set is a subset of every set.
+
+\item \(\varnothing \in \{x\}\) \quad \textbf{False in general (true only if \(x=\varnothing\)).}\\
+If \(x\neq\varnothing\), then the sole element of \(\{x\}\) is \(x\), so \(\varnothing\notin\{x\}\).
+(Example: with \(x=1\) we have \(\varnothing\notin\{1\}\).)
+
+\end{enumerate}

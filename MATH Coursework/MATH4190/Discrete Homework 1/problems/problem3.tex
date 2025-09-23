@@ -1,0 +1,22 @@
+\section*{3. Writing $\boldsymbol{x\lor y}$ using only $\boldsymbol{\land}$ and $\boldsymbol{\lnot}$}
+By De Morgan's law,
+\[
+x\lor y \;\equiv\; \lnot(\lnot x \land \lnot y).
+\]
+For completeness, the truth-table verification:
+
+\[
+\begin{array}{c c c c}
+x & y & x\lor y & \lnot(\lnot x \land \lnot y)\\ \hline
+\mathrm{T} & \mathrm{T} & \mathrm{T} & \lnot(\mathrm{F}\land \mathrm{F})=\lnot\mathrm{F}=\mathrm{T}\\
+\mathrm{T} & \mathrm{F} & \mathrm{T} & \lnot(\mathrm{F}\land \mathrm{T})=\lnot\mathrm{F}=\mathrm{T}\\
+\mathrm{F} & \mathrm{T} & \mathrm{T} & \lnot(\mathrm{T}\land \mathrm{F})=\lnot\mathrm{F}=\mathrm{T}\\
+\mathrm{F} & \mathrm{F} & \mathrm{F} & \lnot(\mathrm{T}\land \mathrm{T})=\lnot\mathrm{T}=\mathrm{F}
+\end{array}
+\]
+
+\paragraph{Conclusion.}
+From Problem 2, any binary Boolean operation is expressible using $\{\land,\lor,\lnot\}$.
+Replacing every occurrence of $\lor$ in such an expression by $\lnot(\lnot n \land \lnot j)$
+yields an equivalent expression containing only $\{\land,\lnot\}$.
+Hence every binary Boolean operation is expressible using just $\{\land,\lnot\}$.

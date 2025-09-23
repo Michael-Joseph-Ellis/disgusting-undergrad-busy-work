@@ -1,0 +1,35 @@
+\section*{4. From $A\subseteq B$ and $B\subseteq C$ to $A\subseteq C$}
+
+\subsection*{(a) Element-chasing proof}
+\begin{proof}
+Assume $A\subseteq B$ and $B\subseteq C$. Let $x\in A$ be arbitrary.
+Then $x\in B$, and therefore $x\in C$. Since every element of $A$ lies in $C$,
+we have $A\subseteq C$.
+\end{proof}
+
+\subsection*{(b) Truth-table proof}
+Let $P$ denote “$x\in A$,” $Q$ denote “$x\in B$,” and $R$ denote “$x\in C$.”
+Then $A\subseteq B$ is $P\to Q$ and $B\subseteq C$ is $Q\to R$.
+We verify $(P\to Q)\land(Q\to R)\to(P\to R)$ is always true.
+
+\[
+\begin{array}{c c c|c c|c}
+P & Q & R & P\to Q & Q\to R & (P\to Q)\land(Q\to R)\to(P\to R)\\ \hline
+T & T & T & T & T & T\\
+T & T & F & T & F & T\\
+T & F & T & F & T & T\\
+T & F & F & F & T & T\\
+F & T & T & T & T & T\\
+F & T & F & T & F & T\\
+F & F & T & T & T & T\\
+F & F & F & T & T & T
+\end{array}
+\]
+Since the final column is $T$ in every row, the statement
+\[
+(P\to Q)\land(Q\to R)\to(P\to R)
+\]
+is true for all possible truth values of $P,Q,R$. Interpreting
+$P,Q,R$ as “$x\in A$,” “$x\in B$,” and “$x\in C$,” this means that
+whenever $x\in A$ implies $x\in B$ and $x\in B$ implies $x\in C$,
+then $x\in A$ implies $x\in C$. Therefore $A\subseteq C$.

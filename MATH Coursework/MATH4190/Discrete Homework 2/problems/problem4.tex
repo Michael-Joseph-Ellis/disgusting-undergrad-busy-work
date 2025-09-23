@@ -1,0 +1,30 @@
+\section*{4. Prove the following statements}
+
+\begin{theorem}[a]
+If you pick three socks from a drawer containing only blue socks and black socks,
+then you obtain a matching pair (two blue or two black).
+\end{theorem}
+\begin{proof}
+Take the first two socks. There are only two possibilities.
+
+\emph{Case 1.} The first two socks match. Then you already have a pair.
+
+\emph{Case 2.} The first two socks are different (one blue, one black).
+The third sock must be either blue or black. Whichever color it is, it matches one
+of the first two. So you still end up with a pair.
+
+In both cases, selecting three socks guarantees a matching pair.
+\end{proof}
+
+\begin{theorem}[b]
+Among any $64$ calendar days, at least $10$ of them fall on the same weekday.
+\end{theorem}
+\begin{proof}
+There are $7$ weekdays. Try to spread the $64$ days out as evenly as possible
+so that no weekday reaches $10$. The best you can do is put at most $9$ days
+on each weekday. That uses $9+9+\cdots+9=7\cdot 9=63$ days.
+
+But you still have one more day to place. Wherever you put that last one, some
+weekday will now have $10$ days. Therefore, among any $64$ days, at least one
+weekday occurs $10$ times.
+\end{proof}
