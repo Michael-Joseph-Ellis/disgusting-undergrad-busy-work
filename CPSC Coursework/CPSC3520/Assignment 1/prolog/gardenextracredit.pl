@@ -32,7 +32,7 @@ flower(sunflower, tall, dry, yellow).
 flower(violet, short, dry, purple).
 flower(zinnia, short, wet, yellow).
 
-% ---------- helpers ----------
+% ---------- helpers 
 species(S)       :- flower(S,_,_,_).
 size_of(S,Size)  :- flower(S,Size,_,_).
 water_of(S,W)    :- flower(S,_,W,_).
@@ -85,37 +85,27 @@ check_down(N,M,List,Pred) :-
               call(Pred,S1,S2) )
     ).
 
-% =========================
 % (1) plantassign/3 (2D)
-% =========================
 plantassign(N,M,List) :-
     NM is N*M,
     length(List,NM),
     maplist(species,List).
 
-% =========================
 % (2) uniquecheck/1
-% =========================
 uniquecheck([]).
 uniquecheck([H|T]) :- \+ member(H,T), uniquecheck(T).
 
-% =========================
 % (3) colorcheck/3 (2D)
-% =========================
 colorcheck(N,M,List) :-
     check_right(N,M,List,colors_ok),
     check_down(N,M,List,colors_ok).
 
-% =========================
 % (4) sizecheck/3 (2D)
-% =========================
 sizecheck(N,M,List) :-
     check_right(N,M,List,sizes_ok),
     check_down(N,M,List,sizes_ok).
 
-% =========================
 % (5) wetcheck/3 (2D)
-% =========================
 wetcheck(N,M,List) :-
     N >= 2, M >= 2,
     forall( (between(1,N,R), between(1,M,C)),
@@ -123,9 +113,7 @@ wetcheck(N,M,List) :-
               species_at(List,M,R,C,S),
               ( Req = either -> true ; water_of(S,Req) ) ) ).
 
-% =========================
 % (6) writegarden/3 (2D pretty print)
-% =========================
 writegarden(N,M,List) :-
     writeln('Garden plan (R,C: species (size, water, color))'),
     forall( between(1,N,R),
@@ -135,9 +123,7 @@ writegarden(N,M,List) :-
                         format('(~d,~d): ~w (~w, ~w, ~w)  ', [R,C,S,Size,Wet,Color]) )),
               nl )).
 
-% =========================
 % (7) gardenplan/3 (2D generator with pruning)
-% =========================
 gardenplan(N,M,List) :-
     N >= 2, M >= 2,
     %           R  C   N   M   PrevRow  Left  CurRowAcc  Used   Acc   Out
@@ -155,7 +141,6 @@ ok_left(S,Left) :- colors_ok(S,Left), sizes_ok(S,Left).
 ok_up(S,none)   :- !.
 ok_up(S,Up)     :- colors_ok(S,Up),  sizes_ok(S,Up).
 
-% build2d(R,C,N,M,PrevRow,Left,CurRowAcc,Used,Acc,Out)
 build2d(R,_,N,_,_,_,_,Used,Acc,Acc) :- R > N, !.
 build2d(R,C,N,M,PrevRow,Left,CurRowAcc,Used,Acc,Out) :-
     ( C =< M ->
@@ -179,10 +164,10 @@ build2d(R,C,N,M,PrevRow,Left,CurRowAcc,Used,Acc,Out) :-
     ).
 
 
-% Optional validator for an existing flat N*M grid
 valid_garden(N,M,List) :-
     length(List,L), L =:= N*M,
     uniquecheck(List),
     colorcheck(N,M,List),
     sizecheck(N,M,List),
     wetcheck(N,M,List).
+

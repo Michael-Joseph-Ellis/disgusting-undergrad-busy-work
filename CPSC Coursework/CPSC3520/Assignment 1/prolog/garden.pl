@@ -42,7 +42,6 @@ size_rank(short,0).
 size_rank(med,1).
 size_rank(tall,2).
 
-% Two neighbors must differ in color and be within one size step
 adjacent_ok(A,B) :-
     color_of(A,CA), color_of(B,CB), CA \= CB,
     size_of(A,SA), size_of(B,SB),
@@ -50,7 +49,6 @@ adjacent_ok(A,B) :-
     Diff is abs(RA-RB), Diff =< 1.
 
 % ---------- (1) plantassign/2 ----------
-% Construct a length-N list with any species in each position.
 plantassign(N, List) :-
     length(List, N),
     maplist(species, List).
@@ -76,7 +74,6 @@ sizecheck([A,B|Rest]) :-
     sizecheck([B|Rest]).
 
 % ---------- (5) wetcheck/2 ----------
-% Positions 1 and N are dry; positions 2 and N-1 are wet; others (if any) can be either.
 wetcheck(N, List) :-
     N >= 4,
     nth1(1,  List, F1), water_of(F1, dry),
@@ -98,14 +95,12 @@ writegarden_(I, [S|Rest]) :-
     writegarden_(I2, Rest).
 
 % ---------- (7) gardenplan/2 ----------
-% Build a valid plan while enforcing all constraints during construction.
 gardenplan(N, List) :-
     N >= 4,
     build(1, N, none, [], [], Rev),
     reverse(Rev, List),
     writegarden(List).
 
-% position-specific watering requirement
 required_water(Pos,N,dry)    :- Pos =:= 1 ; Pos =:= N.
 required_water(Pos,N,wet)    :- Pos =:= 2 ; Pos =:= N-1.
 required_water(Pos,N,either) :- Pos > 2, Pos < N-1.
@@ -120,7 +115,6 @@ build(Pos, N, Prev, Used, Acc, Out) :-
     Pos1 is Pos + 1,
     build(Pos1, N, S, [S|Used], [S|Acc], Out).
 
-% Optional: quick validator for an existing list (handy in screenshots)
 valid_garden(N, List) :-
     length(List, N),
     uniquecheck(List),
