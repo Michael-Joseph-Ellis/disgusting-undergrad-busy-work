@@ -1,0 +1,45 @@
+{
+  "n_rows": 2392,
+  "n_cols": 16,
+  "unique_students": 2392,
+  "rows_with_missing": 0,
+  "any_missing": false,
+  "gpa_stats": {
+    "count": 2392.0,
+    "mean": 1.9061863027265407,
+    "std": 0.9151558203249592,
+    "min": 0.0,
+    "25%": 1.1748034468836228,
+    "50%": 1.8933926937866847,
+    "75%": 2.622216170450785,
+    "max": 4.0
+  },
+  "grade_counts": {
+    "A": 107,
+    "B": 269,
+    "C": 391,
+    "D": 414,
+    "F": 1211
+  },
+  "spearman_with_gpa": {
+    "StudyTimeWeekly": 0.16908213802512376,
+    "Absences": -0.9254668628460838,
+    "ParentalSupport": 0.17600019069933626
+  },
+  "median_study_by_grade": {
+    "A": 12.49401338813216,
+    "B": 11.43657542365382,
+    "C": 10.281613912385463,
+    "D": 9.568838256320277,
+    "F": 8.847874814963872
+  },
+  "median_absences_by_grade": {
+    "A": 2.0,
+    "B": 4.0,
+    "C": 7.0,
+    "D": 11.0,
+    "F": 21.0
+  },
+  "prop_AB_high_parental_support": 0.20715036803364878,
+  "prop_AB_low_parental_support": 0.09415121255349501
+}

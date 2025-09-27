@@ -6,3 +6,11 @@
 *.toc
 *.bbl
 *.blg
+
+# Virtual Environments 
+venv/
+env/
+.venv/
+.env/
+env.bak/
+venv.bak/
