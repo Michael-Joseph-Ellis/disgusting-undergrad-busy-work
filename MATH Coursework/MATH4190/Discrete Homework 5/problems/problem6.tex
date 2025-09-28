@@ -1,0 +1,22 @@
+\section*{Problem 6}
+A deposit of \$100{,}000 is made at the beginning of a year. On the last day of each
+year two dividends are awarded: $20\%$ of the amount in the account during that year and
+$45\%$ of the amount in the account in the previous year. Let $P_n$ be the amount at the end of $n$ years.
+
+\subsection*{(a) Find a recurrence for $\{P_n\}$.}
+During year $n$ the on-account amount is $P_{n-1}$, so the year-$n$ dividends total
+$0.20\,P_{n-1}+0.45\,P_{n-2}$. Hence
+\[
+\boxed{\,P_n=1.20\,P_{n-1}+0.45\,P_{n-2}\quad(n\ge2),\qquad
+P_0=100{,}000,\ P_1=1.20\,P_0=120{,}000.\,}
+\]
+
+\subsection*{(b) Closed form for $P_n$.}
+Solve $P_n-1.20\,P_{n-1}-0.45\,P_{n-2}=0$.
+The characteristic equation $r^2-1.2r-0.45=0$ has roots $r_1=\tfrac32$ and $r_2=-\tfrac{3}{10}$.
+Therefore $P_n=\alpha\left(\tfrac32\right)^n+\beta\left(-\tfrac{3}{10}\right)^n$.
+Using $P_0=100{,}000$ and $P_1=120{,}000$ yields $\alpha=\tfrac{250{,}000}{3}$, $\beta=\tfrac{50{,}000}{3}$.
+Thus
+\[
+\boxed{\,P_n=\frac{250{,}000}{3}\left(\frac32\right)^n+\frac{50{,}000}{3}\left(-\frac{3}{10}\right)^n\ \text{ dollars}.}
+\]

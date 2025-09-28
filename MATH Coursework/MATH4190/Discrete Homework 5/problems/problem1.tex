@@ -1,0 +1,14 @@
+\section*{Problem 1}
+A bowl contains 10 red balls and 10 blue balls. A woman selects balls at random without looking at them.
+
+\textbf{(a) How many balls must she select to be sure of having at least three balls of the same color?}
+
+\emph{Answer: 5.}
+
+\emph{Justification.} There are two colors. In the worst case she alternates colors to delay a triple as long as possible: after 4 draws she could have 2 red and 2 blue, which has no color appearing three times. The next draw (the 5th) must create a third ball of one of the two colors by the pigeonhole principle. Therefore 5 draws are sufficient and 4 are not.
+
+\textbf{(b) How many balls must she select to be sure of having at least three blue balls?}
+
+\emph{Answer: 13.}
+
+\emph{Justification.} To delay getting three blues as long as possible, she could first draw all 10 red balls before drawing any blue balls. After that, she might draw at most 2 blue balls without reaching three. Hence with 12 draws (10 red + 2 blue) she could still have fewer than three blue balls. The next draw (the 13th) must then be blue, giving at least three blue balls. Thus 13 draws are sufficient, and 12 are not.

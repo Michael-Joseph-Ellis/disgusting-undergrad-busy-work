@@ -1,0 +1,33 @@
+\section*{Problem 5. Find the solution to each recurrence.}
+
+\subsection*{(a) $a_n=2a_{n-1}+a_{n-2}-2a_{n-3}$, with $a_0=3$, $a_1=6$, $a_2=0$.}
+Characteristic: $r^3-2r^2-r+2=(r-2)(r-1)(r+1)=0$.
+So $a_n=A\cdot2^n+B\cdot1^n+C(-1)^n$. Solving for the constants from the
+initial values yields $A=-1$, $B=6$, $C=-2$. Therefore
+\[
+\boxed{\,a_n=6-2(-1)^n-2^n\,}.
+\]
+
+\subsection*{(b) $a_n=2a_{n-1}+2^n$, with $a_0=2$.}
+Solve $a_n-2a_{n-1}=2^n$. A particular solution is $p_n=n2^n$; the homogeneous
+part is $c\,2^n$. Using $a_0=2$ gives $c=2$. Hence
+\[
+\boxed{\,a_n=(n+2)2^n\,}.
+\]
+
+\subsection*{(c) $a_n=2a_{n-1}+2n^2$, with $a_1=4$.}
+Try $p_n=an^2+bn+c$. Plugging into $a_n-2a_{n-1}=2n^2$ gives
+$a=-2$, $b=-8$, $c=-12$. With homogeneous part $c_0\,2^n$ and $a_1=4$ we get
+$c_0=13$. Thus
+\[
+\boxed{\,a_n=13\cdot2^n-2n^2-8n-12\,}.
+\]
+
+\subsection*{(d) $a_n=4a_{n-1}-3a_{n-2}+2^n+n+3$, with $a_0=1$, $a_1=4$.}
+Homogeneous: $r^2-4r+3=(r-1)(r-3)$; so $A\cdot1^n+B\cdot3^n$.
+For $2^n$ try $C\,2^n$; for $n+3$ try a quadratic $qn^2+pn+q_0$.
+Solving $a_n-4a_{n-1}+3a_{n-2}=2^n+n+3$ yields $C=-4$, $q=-\tfrac14$, $p=-\tfrac52$.
+Using the initial conditions gives $A=\tfrac18$, $B=\tfrac{39}{8}$. Therefore
+\[
+\boxed{\,a_n=\frac{39}{8}\,3^n-4\cdot2^n-\frac14 n^2-\frac52 n+\frac18\,}.
+\]

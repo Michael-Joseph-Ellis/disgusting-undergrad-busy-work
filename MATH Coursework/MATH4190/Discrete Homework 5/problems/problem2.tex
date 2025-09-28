@@ -1,0 +1,9 @@
+\section*{Problem 2}
+There are 51 houses on a street. Each house has an address between 1000 and 1099, inclusive. Show that at least two houses have addresses that are consecutive integers.
+
+\paragraph{Solution.}
+Partition the 100 available addresses into the 50 disjoint pairs
+\[
+(1000,1001),\ (1002,1003),\ \dots,\ (1098,1099).
+\]
+These pairs are the ``boxes.'' Placing the 51 houses into these 50 boxes by their addresses, the pigeonhole principle implies some box receives at least two houses. The two addresses in any box differ by exactly 1, so there exist at least two houses with consecutive addresses. \qed

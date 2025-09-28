@@ -1,0 +1,43 @@
+% problem7.tex
+% Discrete Math — Homework 5
+% Problem 7: Blue-eyed islanders (induction)
+
+\section*{Problem 7}
+\textbf{Claim.} If exactly $n\ge 1$ islanders have blue eyes, then after the foreigner's announcement
+(``there exists at least one blue-eyed person''), \emph{all and only} the blue-eyed islanders
+commit ritual suicide, and they all do so simultaneously at noon on day $n$ (counted from the day after the announcement).
+
+\paragraph{Why the announcement matters.}
+Before the statement, everyone \emph{sees} blue eyes, but it is not common knowledge that such eyes exist.
+The announcement makes ``there exists a blue-eyed person'' common knowledge and thus creates a base case
+for the inductive reasoning below.
+
+\paragraph{Proof by induction on $n$.}
+
+\emph{Base case $n=1$.}
+The unique blue-eyed islander sees no blue-eyed people. After the announcement, the only way
+the statement can be true is if they themselves are blue-eyed. They therefore commit at noon on day 1.
+No brown-eyed islander ever gains information that would force them to act. Hence the claim holds for $n=1$.
+
+\emph{Inductive step.}
+Assume the claim is true for $1,2,\dots,n-1$ (with $n\ge 2$).
+Suppose there are exactly $n$ blue-eyed islanders.
+Each blue-eyed islander sees exactly $n-1$ blue-eyed islanders.
+Fix any blue-eyed islander $X$ and reason as $X$ does:
+
+\begin{itemize}
+\item If $X$ were \emph{not} blue-eyed, then there would be exactly $n-1$ blue-eyed islanders.
+  By the induction hypothesis, all those $n-1$ would commit at noon on day $n-1$.
+\item If noon of day $n-1$ passes and nobody has committed, that counterfactual is refuted,
+  so $X$ deduces there must be $n$ blue-eyed islanders, i.e., $X$ is blue-eyed.
+\end{itemize}
+
+Because every blue-eyed islander makes the same deduction at the same time, they all commit at noon on day $n$.
+
+Finally, any brown-eyed islander always sees $n$ blue-eyed islanders. They never encounter a refuted
+counterfactual about ``$n-1$ blue-eyed'' that would force the conclusion ``I am blue-eyed'',
+so they never act. This completes the induction.
+
+\paragraph{Conclusion for the stated numbers.}
+Here $n=100$, so precisely the 100 blue-eyed islanders commit at noon on day 100; the 900 brown-eyed islanders do not.
+\qed
