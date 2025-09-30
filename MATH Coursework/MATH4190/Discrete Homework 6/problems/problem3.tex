@@ -1,0 +1,29 @@
+\section*{Problem 3 — Prove $f(x)=O(g(x))$ by definition}
+
+\subsection*{(a) $x^4+9x^3+4x+7$ is $O(x^4)$}
+For $x\ge 1$,
+\[
+x^4+9x^3+4x+7 \le x^4+9x^4+4x^4+7x^4 = 21x^4.
+\]
+Hence with $c=21$ and $x_0=1$, we have $f(x)\le c\,x^4$ for all $x\ge x_0$, so $f(x)=O(x^4)$.
+
+\subsection*{(b) $2^x+17$ is $O(3^x)$}
+For all $x\ge 0$, $2^x\le 3^x$ and $17\le 17\cdot 3^x$. Thus
+\[
+2^x+17 \le 3^x + 17\cdot 3^x = 18\cdot 3^x.
+\]
+With $c=18$ and $x_0=0$, $2^x+17=O(3^x)$.
+
+\subsection*{(c) $\dfrac{x^2+1}{x+1}$ is $O(x)$}
+For $x\ge 1$ we have $x+1\ge x$ and $x^2+1\le 2x^2$, so
+\[
+\frac{x^2+1}{x+1} \le \frac{2x^2}{x}=2x.
+\]
+With $c=2$ and $x_0=1$, the function is $O(x)$.
+
+\subsection*{(d) For each fixed $k\in\mathbb{Z}_{>0}$, $1^k+2^k+\cdots+n^k$ is $O(n^{k+1})$}
+Each term satisfies $i^k\le n^k$ for $1\le i\le n$, so
+\[
+\sum_{i=1}^n i^k \le n\cdot n^k = n^{k+1}.
+\]
+Thus with $c=1$ and $n_0=1$, the sum is $O(n^{k+1})$ for every fixed $k$.

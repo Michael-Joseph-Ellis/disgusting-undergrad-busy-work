@@ -1,0 +1,16 @@
+\section*{Problem 4 — Recursive exponentiation}
+
+We compute $a^n$ by the recurrence: let $h=a^{\lfloor n/2\rfloor}$; if $n$ is even return $h\cdot h$, else return $a\cdot h\cdot h$, and for $n=0$ return $1$. Assume unit-cost arithmetic.
+
+\subsection*{(a) Worst-case time recurrence $T(n)$}
+There is one recursive call on $\lfloor n/2\rfloor$ and $O(1)$ extra work (a constant number of multiplications and parity check), so
+\[
+T(0)=\Theta(1),\qquad T(n)=T(\lfloor n/2\rfloor)+\Theta(1)\quad\text{for }n>0.
+\]
+
+\subsection*{(b) Solve via the Master Theorem}
+This is the case $a=1$, $b=2$, $f(n)=\Theta(1)$. Since $n^{\log_b a}=n^{0}=1$ and $f(n)=\Theta(1)$, it is the balanced case:
+\[
+T(n)=\Theta(\log n).
+\]
+Thus exponentiation by repeated squaring runs in $\Theta(\log n)$ time.

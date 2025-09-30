@@ -1,0 +1,40 @@
+\section*{Problem 6 — Generating functions in closed form}
+
+Let $G(z)=\sum_{n\ge 0} z^n=\frac{1}{1-z}$ for $|z|<1$.
+Then
+\[
+\sum_{n\ge 0} n z^n = z G'(z)=\frac{z}{(1-z)^2},
+\qquad
+\sum_{n\ge 0} n^2 z^n = z\frac{d}{dz}\!\left(\frac{z}{(1-z)^2}\right)
+= \frac{z(1+z)}{(1-z)^3}.
+\]
+
+\subsection*{(a) $a_n=n$}
+\[
+A(z)=\sum_{n\ge 0} n z^n=\boxed{\dfrac{z}{(1-z)^2}}.
+\]
+
+\subsection*{(b) $a_n=2n+3$}
+\[
+A(z)=2\sum_{n\ge 0} n z^n + 3\sum_{n\ge 0} z^n
+= 2\cdot \frac{z}{(1-z)^2} + 3\cdot \frac{1}{1-z}
+= \boxed{\frac{2z}{(1-z)^2}+\frac{3}{1-z}}.
+\]
+
+\subsection*{(c) $a_n=n^2$}
+\[
+A(z)=\sum_{n\ge 0} n^2 z^n
+=\boxed{\dfrac{z(1+z)}{(1-z)^3}}.
+\]
+
+\subsection*{(d) $a_n=2n^2+3n+4$}
+\[
+\begin{aligned}
+A(z)
+&= 2\sum_{n\ge 0} n^2 z^n + 3\sum_{n\ge 0} n z^n + 4\sum_{n\ge 0} z^n \\
+&= 2\cdot \frac{z(1+z)}{(1-z)^3}
+ + 3\cdot \frac{z}{(1-z)^2}
+ + 4\cdot \frac{1}{1-z} \\
+&=\boxed{\frac{2z(1+z)}{(1-z)^3}+\frac{3z}{(1-z)^2}+\frac{4}{1-z}}.
+\end{aligned}
+\]
