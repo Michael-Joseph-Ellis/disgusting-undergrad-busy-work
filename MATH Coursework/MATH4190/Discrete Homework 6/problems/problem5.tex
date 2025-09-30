@@ -1,3 +1,4 @@
+% problem5.tex
 \section*{Problem 5 — Counting with generating functions}
 
 \paragraph{Setup.}
@@ -11,10 +12,15 @@ We need $[z^{10}]$, i.e., $[z^{2}](1-z)^{-4}=\binom{2+4-1}{4-1}=\binom{5}{3}=10$
 \]
 
 \subsection*{(ii) 12 identical action figures to 5 children, each at most 3}
-im unsure (ask professor about this one)
+Each child has OGF $1+z+z^2+z^3$. Total OGF $(1+z+z^2+z^3)^5$.
+We need the coefficient of $z^{12}$:
+\[
+[z^{12}](1+z+z^2+z^3)^5=\boxed{35}.
+\]
 
 \subsection*{(iii) 15 identical stuffed animals to 6 children, each between 1 and 3}
-im unsure (ask professor about this one)
+Each child has OGF $z+z^2+z^3=z(1+z+z^2)$. Total OGF $z^6(1+z+z^2)^6$.
+We need $[z^{15}]$, i.e., $[z^{9}](1+z+z^2)^6=\boxed{50}$.
 
 \subsection*{(iv) Dozen bagels from egg, salty, plain; at least 2 of each, and at most 3 salty}
 Egg and plain each: $z^2/(1-z)$; salty: $z^2+z^3$. Total OGF
