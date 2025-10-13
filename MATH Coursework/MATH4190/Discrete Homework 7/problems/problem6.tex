@@ -1,0 +1,29 @@
+% problems/problem6.tex
+% Problem 6: Bonferroni's inequality 
+
+\section*{Problem 6. Bonferroni's inequality for two events}
+
+For any two events $E$ and $F$, show that
+\[
+\Pr(E \cap F) \ge \Pr(E) + \Pr(F) - 1.
+\]
+
+\begin{proof}
+Start from the inclusion--exclusion formula:
+\[
+\Pr(E \cup F) = \Pr(E) + \Pr(F) - \Pr(E \cap F).
+\]
+Since probabilities cannot exceed $1$, we have
+\[
+\Pr(E \cup F) \le 1.
+\]
+Substituting into the first equation gives
+\[
+1 \ge \Pr(E) + \Pr(F) - \Pr(E \cap F).
+\]
+Rearranging terms yields
+\[
+\Pr(E \cap F) \ge \Pr(E) + \Pr(F) - 1,
+\]
+which is Bonferroni's inequality.
+\end{proof}

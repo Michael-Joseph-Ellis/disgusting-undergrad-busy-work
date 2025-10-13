@@ -1,0 +1,31 @@
+% problems/problem4.tex
+% Problem 4: Conditional probability of four heads in five flips
+
+\section*{Problem 4. Conditional probability of four heads in five flips}
+
+We flip a fair coin $5$ times. We want:
+\[
+\Pr(\text{exactly }4H \mid \text{first flip condition}).
+\]
+
+\textbf{(a) Given that the first flip is heads.}
+
+If the first flip is heads, then we need $3$ more heads in the remaining $4$ flips.  
+Number of ways: $\binom{4}{3}$.
+
+Total possible outcomes for the last $4$ flips: $2^4$.
+
+\[
+\Pr(\text{exactly }4H \mid \text{first is H}) = \frac{\binom{4}{3}}{2^4} = \frac{4}{16} = \frac{1}{4}.
+\]
+
+\textbf{(b) Given that the first flip is tails.}
+
+If the first flip is tails, we now need $4$ heads in the remaining $4$ flips.  
+Number of ways: $\binom{4}{4}=1$.
+
+Total possible outcomes for the last $4$ flips: $2^4$.
+
+\[
+\Pr(\text{exactly }4H \mid \text{first is T}) = \frac{\binom{4}{4}}{2^4} = \frac{1}{16}.
+\]

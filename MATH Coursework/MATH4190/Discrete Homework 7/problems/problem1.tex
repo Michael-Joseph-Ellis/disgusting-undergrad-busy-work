@@ -1,0 +1,52 @@
+\section*{Problem 1. Five-card poker hand probabilities}
+
+Let the sample space be all $5$-card hands from a $52$-card deck:
+\[
+\binom{52}{5}=2{,}598{,}960.
+\]
+
+\textbf{(a) Two pairs.}
+Choose the two ranks for the pairs, then suits for each pair, then the rank and suit of the fifth card (not matching either pair rank).
+\[
+\#=\binom{13}{2}\binom{4}{2}\binom{4}{2}\cdot 11\cdot 4
+=123{,}552.
+\]
+\[
+\Pr(\text{two pairs})=\dfrac{123{,}552}{2{,}598{,}960}\approx 0.047539.
+\]
+
+\textbf{(b) Flush (not a straight flush).}
+Choose a suit, choose $5$ of its $13$ cards, then subtract straight flushes in that suit.
+\[
+\#=4\binom{13}{5}-40=5{,}108.
+\]
+\[
+\Pr(\text{flush})=\dfrac{5{,}108}{2{,}598{,}960}\approx 0.001965.
+\]
+
+\textbf{(c) Straight (Ace low or high, not a straight flush).}
+There are $10$ possible consecutive rank sets; for each, choose any suits except the $4$ same-suit cases.
+\[
+\#=10\bigl(4^5-4\bigr)=10{,}200.
+\]
+\[
+\Pr(\text{straight})=\dfrac{10{,}200}{2{,}598{,}960}\approx 0.003925.
+\]
+
+\textbf{(d) Straight flush.}
+Ten rank sequences, $4$ suits each.
+\[
+\#=10\cdot 4=40.
+\]
+\[
+\Pr(\text{straight flush})=\dfrac{40}{2{,}598{,}960}\approx 0.0000154.
+\]
+
+\textbf{(e) Royal flush.}
+A royal flush is the highest straight flush; one per suit.
+\[
+\#=4.
+\]
+\[
+\Pr(\text{royal flush})=\dfrac{4}{2{,}598{,}960}\approx 0.00000154.
+\]

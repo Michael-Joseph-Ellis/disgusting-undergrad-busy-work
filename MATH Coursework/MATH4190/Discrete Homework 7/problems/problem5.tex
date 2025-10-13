@@ -1,0 +1,48 @@
+% problems/problem5.tex
+% Problem 5: Independence of events about children
+
+\section*{Problem 5. Independence for child-gender events}
+
+Assume $n$ children, each independently boy/girl with probability $1/2$.
+
+Let
+\[
+E=\{\text{both sexes occur}\},\qquad
+F=\{\text{at most one boy}\}.
+\]
+
+Basic probabilities:
+\[
+\Pr(E)=1-\Pr(\text{all same})=1-2\cdot 2^{-n}=1-2^{\,1-n}.
+\]
+Let $B\sim\mathrm{Bin}(n,\tfrac12)$ be the number of boys. Then
+\[
+\Pr(F)=\Pr(B=0)+\Pr(B=1)=\frac{\binom{n}{0}+\binom{n}{1}}{2^n}
+=\frac{1+n}{2^n}.
+\]
+Moreover,
+\[
+E\cap F=\{\text{both sexes and at most one boy}\}=\{\text{exactly one boy}\},
+\]
+so
+\[
+\Pr(E\cap F)=\Pr(B=1)=\frac{\binom{n}{1}}{2^n}=\frac{n}{2^n}.
+\]
+$E$ and $F$ are independent iff
+\[
+\frac{n}{2^n}=\Bigl(1-2^{\,1-n}\Bigr)\frac{n+1}{2^n}
+\quad\Longleftrightarrow\quad
+2^{\,n-1}=n+1.
+\]
+This holds only for $n=3$. For the requested values:
+
+\begin{enumerate}[(a)]
+\item $n=2$: $\Pr(E)=\tfrac12$, $\Pr(F)=\tfrac34$, $\Pr(E\cap F)=\tfrac12$.
+Since $\tfrac12\ne \tfrac12\cdot\tfrac34=\tfrac38$, \textbf{not independent}.
+
+\item $n=4$: $\Pr(E)=\tfrac78$, $\Pr(F)=\tfrac5{16}$, $\Pr(E\cap F)=\tfrac14$.
+Since $\tfrac14\ne \tfrac78\cdot\tfrac5{16}=\tfrac{35}{128}$, \textbf{not independent}.
+
+\item $n=5$: $\Pr(E)=\tfrac{15}{16}$, $\Pr(F)=\tfrac3{16}$, $\Pr(E\cap F)=\tfrac5{32}$.
+Since $\tfrac5{32}\ne \tfrac{15}{16}\cdot\tfrac3{16}=\tfrac{45}{256}$, \textbf{not independent}.
+\end{enumerate}

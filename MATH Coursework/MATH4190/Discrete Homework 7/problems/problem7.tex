@@ -1,0 +1,32 @@
+% problems/problem7.tex
+% Problem 7: Generalized Bonferroni via induction
+
+\section*{Problem 7. Generalized Bonferroni inequality}
+
+For events $E_1,\dots,E_n$,
+\[
+\Pr\!\Bigl(\bigcap_{i=1}^n E_i\Bigr)\ \ge\ \sum_{i=1}^n \Pr(E_i)\ -\ (n-1).
+\]
+
+\begin{proof}
+We use induction on $n$.
+
+\emph{Base case $n=2$:} This is exactly Problem~6.
+
+\emph{Inductive step:} Assume the claim holds for $n-1\ge2$. Let
+$A=\bigcap_{i=1}^{n-1}E_i$. By the $n=2$ case (Bonferroni) applied to $A$ and $E_n$,
+\[
+\Pr(A\cap E_n)\ \ge\ \Pr(A)+\Pr(E_n)-1.
+\]
+By the induction hypothesis,
+\[
+\Pr(A)\ =\ \Pr\!\Bigl(\bigcap_{i=1}^{n-1}E_i\Bigr)\ \ge\ \sum_{i=1}^{n-1}\Pr(E_i)-(n-2).
+\]
+Combining,
+\[
+\Pr\!\Bigl(\bigcap_{i=1}^{n}E_i\Bigr)\ \ge\
+\Bigl(\sum_{i=1}^{n-1}\Pr(E_i)-(n-2)\Bigr)+\Pr(E_n)-1
+=\sum_{i=1}^{n}\Pr(E_i)-(n-1).
+\]
+Thus the result holds for $n$, completing the induction.
+\end{proof}

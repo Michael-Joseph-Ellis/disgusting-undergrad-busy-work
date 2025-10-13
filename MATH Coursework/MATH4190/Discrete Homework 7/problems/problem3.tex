@@ -1,0 +1,37 @@
+% problems/problem3.tex
+% Problem 3: Relative-order events in a random permutation of {1,2,3,4}
+
+\section*{Problem 3. Relative order in a random permutation of \{1,2,3,4\}}
+
+Let $\mathcal{S}_4$ be all $4!=24$ permutations, each equally likely.  
+For any two distinct symbols $i,j$, the events “$i$ precedes $j$” and “$j$ precedes $i$” are symmetric, so each has probability $1/2$.
+
+\begin{enumerate}[(a)]
+\item \textbf{$1$ precedes $4$.}
+\[
+\Pr=\frac{1}{2}=\frac{12}{24}.
+\]
+
+\item \textbf{$4$ precedes $1$.}
+\[
+\Pr=\frac{1}{2}.
+\]
+
+\item \textbf{$4$ precedes $1$ and $4$ precedes $2$.}
+Consider the relative order among $\{4,1,2\}$: $3!=6$ orders equally likely, and exactly $2$ of them have $4$ before both $1$ and $2$ (namely $4\!-\!1\!-\!2$ and $4\!-\!2\!-\!1$).
+\[
+\Pr=\frac{2}{6}=\frac{1}{3}.
+\]
+
+\item \textbf{$4$ precedes $1,2,3$ (i.e., $4$ is earliest among all four).}
+By symmetry among the four symbols,
+\[
+\Pr=\frac{1}{4}.
+\]
+
+\item \textbf{$4$ precedes $3$ and $2$ precedes $1$.}
+These are two independent pairwise-order constraints, each with probability $1/2$:
+\[
+\Pr=\frac{1}{2}\cdot\frac{1}{2}=\frac{1}{4}.
+\]
+\end{enumerate}

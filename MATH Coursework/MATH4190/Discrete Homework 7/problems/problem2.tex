@@ -1,0 +1,41 @@
+% problems/problem2.tex
+% Problem 2: Roulette probabilities (American wheel with 38 pockets)
+
+\section*{Problem 2. Roulette (American wheel)}
+
+An American roulette wheel has $38$ pockets: $18$ red, $18$ black, and $0,00$ (neither).
+Each pocket is equally likely, so the sample space size is $38$.
+
+\begin{enumerate}[(a)]
+\item \textbf{Red number.}
+\[
+\Pr(\text{red})=\frac{18}{38}=\frac{9}{19}.
+\]
+
+\item \textbf{Black twice in a row.}
+Independence across spins:
+\[
+\Pr(\text{black then black})=\Bigl(\frac{18}{38}\Bigr)^2=\Bigl(\frac{9}{19}\Bigr)^2=\frac{81}{361}.
+\]
+
+\item \textbf{Landing on $0$ or $00$.}
+\[
+\Pr(\{0,00\})=\frac{2}{38}=\frac{1}{19}.
+\]
+
+\item \textbf{In five spins, never landing on $0$ or $00$.}
+On any spin, avoid $\{0,00\}$ with probability $36/38=18/19$; raise to the fifth power:
+\[
+\Pr(\text{no }0\text{ or }00\text{ in 5})=\Bigl(\frac{18}{19}\Bigr)^5=\frac{18^5}{19^5}=\frac{1{,}889{,}568}{2{,}476{,}099}.
+\]
+
+\item \textbf{First spin is one of $\{1,2,3,4,5,6\}$ and next spin is none of them.}
+\[
+\Pr(\text{first}\in\{1,\dots,6\})=\frac{6}{38}=\frac{3}{19},\qquad
+\Pr(\text{next}\notin\{1,\dots,6\})=\frac{32}{38}=\frac{16}{19}.
+\]
+By independence,
+\[
+\Pr=\frac{3}{19}\cdot\frac{16}{19}=\frac{48}{361}.
+\]
+\end{enumerate}
