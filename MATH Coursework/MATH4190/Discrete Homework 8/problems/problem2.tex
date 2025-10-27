@@ -1,0 +1,31 @@
+% problems/problem2.tex
+\section*{Problem 2}
+
+Prevalence \(\Pr(I)=0.04\). Sensitivity \(\Pr(+\mid I)=0.97\). False positive rate \(\Pr(+\mid I^c)=0.02\).
+Thus \(\Pr(-\mid I)=0.03\), \(\Pr(-\mid I^c)=0.98\), and \(\Pr(I^c)=0.96\).
+
+\begin{enumerate}[(a)]
+\item
+\[
+\Pr(I\mid +)=\frac{\Pr(+\mid I)\Pr(I)}{\Pr(+\mid I)\Pr(I)+\Pr(+\mid I^c)\Pr(I^c)}
+=\frac{0.04\cdot 0.97}{0.04\cdot 0.97+0.96\cdot 0.02}
+=\frac{97}{145}\approx 0.669.
+\]
+
+\item
+\[
+\Pr(I^c\mid +)=1-\Pr(I\mid +)=\frac{48}{145}\approx 0.331.
+\]
+
+\item
+\[
+\Pr(I\mid -)=\frac{\Pr(-\mid I)\Pr(I)}{\Pr(-\mid I)\Pr(I)+\Pr(-\mid I^c)\Pr(I^c)}
+=\frac{0.04\cdot 0.03}{0.04\cdot 0.03+0.96\cdot 0.98}
+=\frac{1}{785}\approx 0.001274.
+\]
+
+\item
+\[
+\Pr(I^c\mid -)=1-\Pr(I\mid -)=\frac{784}{785}\approx 0.998726.
+\]
+\end{enumerate}

@@ -1,0 +1,21 @@
+% problems/problem6.tex
+\section*{Problem 6}
+
+Assume $\Pr(A)\neq 0$ and $\Pr(B)\neq 0$. If $\Pr(B\mid A)<\Pr(B)$, then $\Pr(A\mid B)<\Pr(A)$.
+
+\begin{proof}
+By Bayes' rule,
+\[
+\Pr(B\mid A)=\frac{\Pr(A\mid B)\Pr(B)}{\Pr(A)}.
+\]
+If $\Pr(B\mid A)<\Pr(B)$, then
+\[
+\frac{\Pr(A\mid B)\Pr(B)}{\Pr(A)}<\Pr(B).
+\]
+Since $\Pr(B)>0$, divide both sides by $\Pr(B)$ to get
+\[
+\frac{\Pr(A\mid B)}{\Pr(A)}<1
+\quad\Longrightarrow\quad
+\Pr(A\mid B)<\Pr(A).
+\]
+\end{proof}

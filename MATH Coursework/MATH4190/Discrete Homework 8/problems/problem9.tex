@@ -1,0 +1,16 @@
+% problems/problem9.tex
+\section*{Problem 9}
+
+Each family has children until the first boy appears. Let \(p=\tfrac12\) be the probability a birth is a boy.
+
+Number of boys per family: always \(1\) in this stopping scheme, so \(\mathbb{E}[\text{boys}]=1\).
+
+Number of girls per family equals the number of failures before the first success in a geometric(\(p\)) model, so
+\[
+\mathbb{E}[\text{girls}]=\frac{1-p}{p}=\frac{\tfrac12}{\tfrac12}=1.
+\]
+
+Across the whole country, the expected counts scale with the number of families, giving the expected ratio
+\[
+\text{boys}:\text{girls}=1:1.
+\]

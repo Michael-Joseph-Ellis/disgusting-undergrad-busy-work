@@ -1,0 +1,17 @@
+% problems/problem4.tex
+\section*{Problem 4}
+
+There are three cards: BB, RR, BR. Picking a card at random and observing one side is equivalent to choosing uniformly from the six sides.
+
+\begin{enumerate}[(a)]
+\item Given that the observed side is black, the black sides available are: two from BB and one from BR, three in total. The opposite side is black only if the side came from BB. 
+\[
+\Pr(\text{other side black}\mid \text{seen black})=\frac{2}{3}.
+\]
+
+\item The probability that the opposite side matches the observed color equals the fraction of sides whose opposite matches:
+BB contributes 2 matching sides, RR contributes 2 matching sides, BR contributes 0. Out of 6 sides total,
+\[
+\Pr(\text{opposite matches observed})=\frac{4}{6}=\frac{2}{3}.
+\]
+\end{enumerate}

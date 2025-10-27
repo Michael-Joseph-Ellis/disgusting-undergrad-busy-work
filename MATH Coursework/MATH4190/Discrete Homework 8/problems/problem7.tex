@@ -1,0 +1,31 @@
+% problems/problem7.tex
+\section*{Problem 7}
+
+Given \(\Pr(A)=\tfrac34\) and \(\Pr(B)=\tfrac13\).
+
+\begin{enumerate}[(a)]
+\item Bounds for \(\Pr(A\cap B)\):
+\[
+\max\Pr(A\cap B)=\min\{\Pr(A),\Pr(B)\}=\tfrac13,\qquad
+\min\Pr(A\cap B)=\max\{0,\Pr(A)+\Pr(B)-1\}=\tfrac1{12}.
+\]
+Examples:
+\begin{itemize}
+\item Max \(\tfrac13\): take \(B\subseteq A\) with \(\Pr(B)=\tfrac13\).
+\item Min \(\tfrac1{12}\): on \([0,1]\) let \(A=[0,\tfrac34]\), \(B=[\tfrac23,1]\). Then
+\(|A\cap B|=\tfrac34-\tfrac23=\tfrac1{12}\).
+\end{itemize}
+
+\item Using \(\Pr(A\cup B)=\Pr(A)+\Pr(B)-\Pr(A\cap B)\),
+\[
+\max\Pr(A\cup B)=\Pr(A)+\Pr(B)-\min\Pr(A\cap B)=\tfrac34+\tfrac13-\tfrac1{12}=1,
+\]
+\[
+\min\Pr(A\cup B)=\Pr(A)+\Pr(B)-\max\Pr(A\cap B)=\tfrac34+\tfrac13-\tfrac13=\tfrac34.
+\]
+Examples:
+\begin{itemize}
+\item Max \(1\): use the same \(A=[0,\tfrac34]\), \(B=[\tfrac23,1]\) so the union fills \([0,1]\).
+\item Min \(\tfrac34\): take \(B\subseteq A\), so \(A\cup B=A\).
+\end{itemize}
+\end{enumerate}

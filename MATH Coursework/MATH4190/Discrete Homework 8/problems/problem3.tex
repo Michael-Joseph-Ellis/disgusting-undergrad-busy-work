@@ -1,0 +1,26 @@
+% problems/problem3.tex
+\section*{Problem 3}
+
+\(\Pr(S=1)=\tfrac13\), \(\Pr(S=0)=\tfrac23\).
+\(\Pr(R=0\mid S=0)=0.9\), \(\Pr(R=1\mid S=0)=0.1\).
+\(\Pr(R=1\mid S=1)=0.8\), \(\Pr(R=0\mid S=1)=0.2\).
+
+\begin{enumerate}[(a)]
+\item
+\[
+\Pr(R=0)=\Pr(S=0)\Pr(R=0\mid S=0)+\Pr(S=1)\Pr(R=0\mid S=1)
+=\tfrac23\cdot 0.9+\tfrac13\cdot 0.2=\tfrac23.
+\]
+
+\item
+\[
+\Pr(S=0\mid R=0)=\frac{\Pr(S=0)\Pr(R=0\mid S=0)}{\Pr(R=0)}
+=\frac{\tfrac23\cdot 0.9}{\tfrac23}=0.9=\tfrac{9}{10}.
+\]
+
+\item
+\[
+\Pr(S=0\mid R=1)=\frac{\Pr(S=0)\Pr(R=1\mid S=0)}{\Pr(R=1)}
+=\frac{\tfrac23\cdot 0.1}{\tfrac13}=0.2=\tfrac15.
+\]
+\end{enumerate}

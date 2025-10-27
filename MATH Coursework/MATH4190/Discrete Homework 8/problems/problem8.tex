@@ -1,0 +1,11 @@
+% problems/problem8.tex
+\section*{Problem 8}
+
+Let \(C\) be the cheat die. Prior: \(\Pr(C)=\tfrac19\), \(\Pr(C^c)=\tfrac89\).
+Likelihood of two sixes: \(\Pr(\text{two 6}\mid C)=1\), \(\Pr(\text{two 6}\mid C^c)=(\tfrac16)^2=\tfrac1{36}\).
+
+By Bayes,
+\[
+\Pr(C\mid \text{two 6})=\frac{\frac19\cdot 1}{\frac19\cdot 1+\frac89\cdot \frac1{36}}
+=\frac{\frac{36}{324}}{\frac{36}{324}+\frac{8}{324}}=\frac{36}{44}=\frac{9}{11}.
+\]
