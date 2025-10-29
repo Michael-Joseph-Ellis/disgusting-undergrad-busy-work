@@ -1,0 +1,35 @@
+\section*{Problem 4}
+
+The sample space is the disjoint union $S = \bigsqcup_{j=1}^n S_j$. For any random variable $X$,
+\[
+\mathbb{E}[X] \;=\; \sum_{j=1}^n \mathbb{E}[\,X \mid S_j\,]\;\Pr(S_j).
+\]
+
+\textbf{Proof.}
+Let $1_{S_j}$ be the indicator of $S_j$. Since the $S_j$'s form a partition,
+\[
+X=\sum_{j=1}^n X\,1_{S_j}.
+\]
+Take expectations and use linearity:
+\[
+\mathbb{E}[X] \;=\; \sum_{j=1}^n \mathbb{E}[\,X\,1_{S_j}\,].
+\]
+For each $j$, on $S_j$ the variable $1_{S_j}$ equals $1$, so
+\[
+\mathbb{E}[\,X\,1_{S_j}\,] \;=\; \mathbb{E}\!\left[\,\mathbb{E}[\,X\,1_{S_j}\mid S_j\,]\right]
+= \mathbb{E}\!\left[\,1_{S_j}\,\mathbb{E}[\,X\mid S_j\,]\right]
+= \mathbb{E}[\,X\mid S_j\,]\;\Pr(S_j).
+\]
+Summing over $j$ gives the claim. \qed
+
+\bigskip
+\textbf{Application.}
+Let $M$ be the event “male” and $F$ the event “female,” with $\Pr(M)=0.12$, $\Pr(F)=0.88$.
+Given $\mathbb{E}[X\mid M]=4200$ lb and $\mathbb{E}[X\mid F]=1100$ lb,
+\[
+\mathbb{E}[X]
+= \mathbb{E}[X\mid M]\Pr(M)+\mathbb{E}[X\mid F]\Pr(F)
+= 4200(0.12)+1100(0.88)
+= 504+968
+= \boxed{1472\ \text{lb}}.
+\]

@@ -1,0 +1,20 @@
+\section*{Problem 1}
+
+Suppose that we roll a pair of fair dice until the sum of the numbers on the dice is seven. 
+We want the expected number of times we roll the dice.
+
+\textbf{Solution.}  
+There are $6 \times 6 = 36$ possible outcomes for two dice.  
+Six outcomes give a total of 7, so 
+\[
+p = \Pr(\text{sum} = 7) = \frac{6}{36} = \frac{1}{6}.
+\]
+
+The number of rolls until the first 7 follows a geometric distribution with success probability $p = \tfrac{1}{6}$.  
+The expected number of trials for a geometric random variable is $\frac{1}{p}$.
+
+\[
+\mathbb{E}[X] = \frac{1}{p} = 6.
+\]
+
+Therefore, the expected number of rolls is $\boxed{6}$.

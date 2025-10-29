@@ -1,0 +1,11 @@
+\section*{Problem 5}
+
+Let $X\ge 0$ and $a>0$. Show $\Pr(X\ge a)\le \dfrac{\mathbb{E}[X]}{a}$ (Markov).
+
+\textbf{Proof.}
+Let $I=1_{\{X\ge a\}}$. Then $X\ge a\,I$, so $I\le X/a$.
+Take expectations:
+\[
+\Pr(X\ge a)=\mathbb{E}[I]\;\le\; \mathbb{E}\!\left[\frac{X}{a}\right]
+=\frac{\mathbb{E}[X]}{a}.
+\]

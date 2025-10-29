@@ -1,0 +1,25 @@
+\section*{Problem 6}
+
+Let $X$ be the number of cans filled in a day. Given $\mathbb{E}[X]=10{,}000$ and $\operatorname{Var}(X)=1000$.
+
+\begin{enumerate}[(a)]
+\item \textbf{Markov bound for } $\Pr(X>11{,}000)$.
+Since $X\ge 0$, by Markov's inequality,
+\[
+\Pr(X\ge 11{,}000)\le \frac{\mathbb{E}[X]}{11{,}000}
+=\frac{10{,}000}{11{,}000}
+=\frac{10}{11}\approx 0.9091.
+\]
+
+\item \textbf{Chebyshev lower bound for } $\Pr(9000\le X\le 11{,}000)$.
+Here $\mu=10{,}000$ and the half-width is $k=1000$. Chebyshev gives
+\[
+\Pr\big(|X-\mu|\ge k\big)\le \frac{\operatorname{Var}(X)}{k^{2}}
+=\frac{1000}{(1000)^2}=0.001.
+\]
+Hence
+\[
+\Pr(9000\le X\le 11{,}000)=\Pr\big(|X-\mu|\le 1000\big)
+\ge 1-0.001 = 0.999.
+\]
+\end{enumerate}

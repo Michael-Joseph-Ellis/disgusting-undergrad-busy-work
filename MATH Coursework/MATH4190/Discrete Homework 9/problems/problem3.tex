@@ -1,0 +1,41 @@
+\section*{Problem 3}
+
+When $m$ balls are distributed into $n$ bins uniformly at random:
+
+\begin{enumerate}[(a)]
+\item \textbf{Probability that the first bin remains empty.}
+
+Each ball independently avoids the first bin with probability $1 - \frac{1}{n} = \frac{n-1}{n}$.  
+Thus,
+\[
+\Pr(\text{bin 1 empty}) = \left( \frac{n-1}{n} \right)^m.
+\]
+
+\item \textbf{Expected number of balls in the first bin.}
+
+Let $X_i$ be an indicator variable for ball $i$ landing in bin 1.
+Then $X = \sum_{i=1}^{m} X_i$, and $\mathbb{E}[X_i] = \frac{1}{n}$.
+By linearity of expectation,
+\[
+\mathbb{E}[X] = \sum_{i=1}^{m} \mathbb{E}[X_i] = \frac{m}{n}.
+\]
+
+\item \textbf{Variance of the number of balls in the first bin.}
+
+Since $X$ is the sum of $m$ independent Bernoulli variables with $p = \frac{1}{n}$,
+\[
+\operatorname{Var}(X) = m p (1 - p) = m \frac{1}{n} \left(1 - \frac{1}{n}\right)
+= \frac{m(n - 1)}{n^2}.
+\]
+
+\item \textbf{Expected number of bins that remain empty.}
+
+Let $J_j$ be an indicator variable that bin $j$ is empty. Then
+\[
+Y = \sum_{j=1}^{n} J_j.
+\]
+Each bin has the same probability of being empty, so
+\[
+\mathbb{E}[Y] = n \Pr(\text{a bin is empty}) = n \left(\frac{n - 1}{n}\right)^m.
+\]
+\end{enumerate}

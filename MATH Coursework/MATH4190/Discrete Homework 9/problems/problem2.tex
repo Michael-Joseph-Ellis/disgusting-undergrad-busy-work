@@ -1,0 +1,26 @@
+\section*{Problem 2}
+
+Let $A$ be an event. Define the indicator random variable of $A$ as
+\[
+1_A =
+\begin{cases}
+1, & \text{if } A \text{ occurs},\\
+0, & \text{otherwise.}
+\end{cases}
+\]
+
+\textbf{To show:} $\mathbb{E}[1_A] = \Pr(A)$.
+
+\textbf{Solution.}
+By the definition of expectation for a discrete random variable,
+\[
+\mathbb{E}[1_A] = (1)\Pr(1_A = 1) + (0)\Pr(1_A = 0) = \Pr(1_A = 1).
+\]
+Since $1_A = 1$ exactly when $A$ occurs,
+\[
+\Pr(1_A = 1) = \Pr(A).
+\]
+Therefore,
+\[
+\boxed{\mathbb{E}[1_A] = \Pr(A)}.
+\]

@@ -1,0 +1,37 @@
+\section*{Problem 7}
+
+Underwriting probability of a hole-in-one: $p=\dfrac{1}{12{,}500}=0.00008$.  
+Premium $P=\$180$. Prize (if a hole-in-one occurs) is \$1{,}000{,}000.
+
+\begin{enumerate}[(a)]
+\item \textbf{Expected profit per contest.}
+\[
+\mathbb{E}[\text{profit}]
+= P - p\cdot 1{,}000{,}000
+= 180 - 80
+= \boxed{\$100}.
+\]
+
+\item \textbf{Kelly-optimal fraction.}
+Model liability that scales with bankroll $W$: choose fraction $f$ so the policy limit is $L=fW$.
+Per \$1 of liability, the premium rate is $r=\dfrac{P}{1{,}000{,}000}=0.00018$.
+The per-contest multiplicative return is
+\[
+\begin{cases}
+1+fr, & \text{with prob } q=1-p,\\
+1-f(1-r), & \text{with prob } p.
+\end{cases}
+\]
+Maximize $q\log(1+fr)+p\log\big(1-f(1-r)\big)$. Setting the derivative to zero gives
+\[
+f^*=\frac{qr - p(1-r)}{r(1-r)}.
+\]
+With $p=0.00008$, $q=0.99992$, $r=0.00018$,
+\[
+f^* \approx \frac{0.99992\cdot 0.00018 - 0.00008\cdot(1-0.00018)}
+{0.00018(1-0.00018)}
+\approx \frac{0.00010000}{0.00017997}
+\approx \boxed{0.556}.
+\]
+So the Kelly-optimal policy limit is about $55.6\%$ of current bankroll per contest.
+\end{enumerate}
