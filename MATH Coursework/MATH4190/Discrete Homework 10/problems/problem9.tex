@@ -1,0 +1,29 @@
+\section*{Problem 9}
+
+\begin{enumerate}[(a)]
+\item Compute $5^{2003}\bmod 7$, $\bmod 11$, and $\bmod 13$.
+
+By Fermat:
+\[
+\begin{aligned}
+&5^{6}\equiv 1 \ (\bmod 7) \Rightarrow 5^{2003}\equiv 5^{5}\equiv 3 \ (\bmod 7),\\
+&5^{10}\equiv 1 \ (\bmod 11) \Rightarrow 5^{2003}\equiv 5^{3}\equiv 125\equiv 4 \ (\bmod 11),\\
+&5^{12}\equiv 1 \ (\bmod 13) \Rightarrow 5^{2003}\equiv 5^{11}\equiv 5^{-1}\equiv 8 \ (\bmod 13).
+\end{aligned}
+\]
+
+\item Use (a) and the Chinese remainder theorem to find $5^{2003}\bmod 1001$.
+
+Solve
+\[
+x\equiv 3\ (\bmod 7),\qquad x\equiv 4\ (\bmod 11),\qquad x\equiv 8\ (\bmod 13).
+\]
+Combine the first two: $x\equiv 59 \ (\bmod 77)$. Now solve $59+77t\equiv 8\ (\bmod 13)$.
+Since $59\equiv 7$ and $77\equiv 12\equiv -1\ (\bmod 13)$, we get $7 - t \equiv 8$, so $t\equiv -1\equiv 12$.
+Thus $x=59+77\cdot 12=983$ is a solution modulo $1001=7\cdot 11\cdot 13$.
+
+Therefore,
+\[
+\boxed{5^{2003}\equiv 983 \pmod{1001}}.
+\]
+\end{enumerate}

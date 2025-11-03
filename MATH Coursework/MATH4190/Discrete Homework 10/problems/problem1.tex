@@ -1,0 +1,17 @@
+\section*{Problem 1}
+
+What time does a 12-hour clock read:
+
+\begin{enumerate}[(a)]
+\item 80 hours after 11{:}00?
+\item 40 hours before 12{:}00?
+\item 100 hours after 6{:}00?
+\end{enumerate}
+
+\textbf{Solution.} Reduce offsets modulo 12 hours.
+
+\begin{enumerate}[(a)]
+\item $80 \equiv 8 \pmod{12}$, so $11{:}00+8$ hours $=19{:}00\equiv \boxed{7{:}00}$.
+\item $40 \equiv 4 \pmod{12}$, so 40 hours before is 4 hours before: $12{:}00-4=\boxed{8{:}00}$.
+\item $100 \equiv 4 \pmod{12}$, so $6{:}00+4=\boxed{10{:}00}$.
+\end{enumerate}

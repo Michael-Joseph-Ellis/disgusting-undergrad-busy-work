@@ -1,0 +1,47 @@
+\section*{Problem 11}
+
+Use the generalized Chinese Remainder Theorem.
+
+\subsection*{(a)}
+Solve
+\[
+x \equiv 5 \pmod{6},\qquad x \equiv 3 \pmod{10},\qquad x \equiv 8 \pmod{15}.
+\]
+Consistency checks:
+\[
+\begin{aligned}
+&\gcd(6,10)=2: &&5\equiv 3 \equiv 1 \pmod{2}\quad \checkmark\\
+&\gcd(6,15)=3: &&5\equiv 8 \equiv 2 \pmod{3}\quad \checkmark\\
+&\gcd(10,15)=5:&&3\equiv 8 \equiv 3 \pmod{5}\quad \checkmark
+\end{aligned}
+\]
+So a solution exists and is unique modulo $\mathrm{lcm}(6,10,15)=30$.
+
+From $x\equiv 5 \pmod{6}$ the candidates modulo $30$ are $5,11,17,23,29$.  
+Among these, those $\equiv 3 \pmod{10}$ are $23$. Check $23\equiv 8 \pmod{15}$, true.
+
+\[
+\boxed{x \equiv 23 \pmod{30}}.
+\]
+
+\subsection*{(b)}
+Solve
+\[
+x \equiv 7 \pmod{9},\qquad x \equiv 4 \pmod{12},\qquad x \equiv 16 \pmod{21}.
+\]
+Consistency checks (all use $\gcd=3$): $7\equiv4\equiv16\equiv 1 \pmod{3}$, so consistent.
+Uniqueness is modulo $\mathrm{lcm}(9,12,21)=252$.
+
+First combine mod $9$ and $12$.
+Write $x=7+9a$. Then $7+9a\equiv 4 \pmod{12}\iff 9a\equiv 9 \pmod{12}$,
+which reduces to $3a\equiv 3 \pmod{4}\iff a\equiv 1 \pmod{4}$.
+Thus $x\equiv 16 \pmod{36}$.
+
+Now impose $x\equiv 16 \pmod{21}$ as well:
+$x=16+36k \equiv 16+15k \pmod{21}$, so $15k\equiv 0 \pmod{21}$,
+which gives $k\equiv 0 \pmod{7}$.
+Hence $x=16+252t$.
+
+\[
+\boxed{x \equiv 16 \pmod{252}}.
+\]

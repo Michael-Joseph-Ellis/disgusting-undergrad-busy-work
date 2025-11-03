@@ -1,0 +1,38 @@
+\section*{Problem 4}
+
+Use the extended Euclidean algorithm to express the following gcds as linear combinations.
+
+\begin{enumerate}[(a)]
+\item $\gcd(26,91)$.
+\item $\gcd(252,356)$.
+\item $\gcd(144,89)$.
+\item $\gcd(1001,100001)$.
+\end{enumerate}
+
+\textbf{Solution.}
+
+\begin{enumerate}[(a)]
+\item $91=3\cdot 26+13$, $26=2\cdot 13$. Hence
+\[
+13=91-3\cdot 26.
+\]
+
+\item $356=1\cdot 252+104$, $252=2\cdot 104+44$, $104=2\cdot 44+16$, $44=2\cdot 16+12$, $16=1\cdot 12+4$.
+Back-substitute:
+\[
+4=17\cdot 356-24\cdot 252.
+\]
+
+\item Euclid: $144=1\cdot 89+55$, $89=1\cdot 55+34$, $55=1\cdot 34+21$, $34=1\cdot 21+13$, $21=1\cdot 13+8$,
+$13=1\cdot 8+5$, $8=1\cdot 5+3$, $5=1\cdot 3+2$, $3=1\cdot 2+1$.
+Back-substitute to get
+\[
+1=34\cdot 144-55\cdot 89.
+\]
+
+\item $100001=99\cdot 1001+902$, $1001=1\cdot 902+99$, $902=9\cdot 99+11$, $99=9\cdot 11$.
+Back-substitute:
+\[
+11=10\cdot 100001-999\cdot 1001.
+\]
+\end{enumerate}

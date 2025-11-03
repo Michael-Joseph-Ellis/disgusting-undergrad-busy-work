@@ -1,0 +1,19 @@
+\section*{Problem 8}
+
+Show that for every positive integer $n$, $42\mid (n^{7}-n)$.
+
+\textbf{Solution.}
+Factor $42=2\cdot 3\cdot 7$. It suffices to show divisibility by $2$, $3$, and $7$.
+
+\emph{Modulo $2$.} $n$ and $n^{7}$ have the same parity, so $n^{7}-n$ is even.
+
+\emph{Modulo $3$.} If $3\mid n$ we are done. Otherwise, by Fermat’s little theorem
+$n^{2}\equiv 1 \pmod{3}$, hence $n^{6}\equiv 1$ and
+\[
+n^{7}-n = n(n^{6}-1) \equiv n(1-1) \equiv 0 \pmod{3}.
+\]
+
+\emph{Modulo $7$.} If $7\mid n$ we are done. Otherwise, Fermat gives $n^{6}\equiv 1 \pmod{7}$,
+so $n^{7}\equiv n$ and therefore $n^{7}-n\equiv 0 \pmod{7}$.
+
+Thus $n^{7}-n$ is divisible by $2$, $3$, and $7$, hence by $42$.

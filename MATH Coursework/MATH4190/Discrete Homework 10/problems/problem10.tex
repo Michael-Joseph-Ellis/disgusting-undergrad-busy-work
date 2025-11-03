@@ -1,0 +1,16 @@
+\section*{Problem 10}
+
+Find the number of trailing zeros in $100!$.
+
+\textbf{Solution.}
+The number of zeros is the exponent of $10=2\cdot 5$ in $100!$, which is
+$\min\{v_2(100!), v_5(100!)\} = v_5(100!)$.
+
+\[
+v_5(100!)=\left\lfloor \frac{100}{5}\right\rfloor
++\left\lfloor \frac{100}{25}\right\rfloor
++\left\lfloor \frac{100}{125}\right\rfloor
+=20+4+0=24.
+\]
+
+So $100!$ ends with $\boxed{24}$ zeros.

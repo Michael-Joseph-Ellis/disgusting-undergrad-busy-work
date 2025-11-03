@@ -1,0 +1,35 @@
+\section*{Problem 7}
+
+Solve each congruence.
+
+\begin{enumerate}[(a)]
+\item $34x \equiv 77 \pmod{89}$.
+
+Since $\gcd(34,89)=1$, $34$ has an inverse modulo $89$. From
+\[
+1=13\cdot 89-34\cdot 34,
+\]
+the inverse of $34$ modulo $89$ is $-34\equiv 55$. Hence
+\[
+x \equiv 55\cdot 77 \equiv 4235 \equiv \boxed{52} \pmod{89}.
+\]
+
+\item $144x \equiv 4 \pmod{233}$.
+
+Using the extended Euclidean algorithm,
+\[
+1 = 89\cdot 144 - 55\cdot 233,
+\]
+so the inverse of $144$ modulo $233$ is $89$. Therefore
+\[
+x \equiv 89\cdot 4 \equiv 356 \equiv \boxed{123} \pmod{233}.
+\]
+
+\item $200x \equiv 13 \pmod{1001}$.
+
+Since $1001 \equiv 1 \pmod{200}$, we have $200\cdot(-5)\equiv -1000 \equiv 1 \pmod{1001}$,
+so $200^{-1}\equiv -5 \equiv 996 \pmod{1001}$. Thus
+\[
+x \equiv 996\cdot 13 \equiv 12{,}948 \equiv \boxed{936} \pmod{1001}.
+\]
+\end{enumerate}
