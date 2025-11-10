@@ -1,0 +1,27 @@
+\section*{Problem 11}
+
+Vigen\`ere, key is a six-letter English word. The plaintext is the same letter repeated many times.
+
+\begin{enumerate}[(a)]
+\item \textbf{Property revealing repeated-letter plaintext and key length $6$.}
+If the plaintext is constant, the ciphertext is the key letters repeated periodically.
+Hence the ciphertext has exact period $6$. A simple coincidence test (shift the text and count matches) shows huge spikes at displacements $6,12,18,\ldots$, revealing both that the plaintext is constant and that the key length is $6$.
+
+\item \textbf{Recovering the key once the plaintext is recognized as a single repeated letter.}
+Let the repeated plaintext letter be $P$ (unknown). For position $i$,
+$c_i \equiv P + k_i \pmod{26}$, so $k_i \equiv c_i - P \pmod{26}$.
+Try $P\in\{\texttt{A},\dots,\texttt{Z}\}$; for each $P$, the six letters
+$k_1,\dots,k_6$ form a candidate key. The correct $P$ yields a six-letter English word; that is the key.
+
+\item \textbf{If Eve just uses displacement matches, what happens? Why is the length obvious?}
+Let $M(d)$ be the number of matches between the ciphertext and itself shifted by $d$.
+Because the ciphertext is periodic with period $6$, we have
+\[
+M(d)\approx
+\begin{cases}
+N, & d\equiv 0 \pmod{6},\\
+N/26, & \text{otherwise},
+\end{cases}
+\]
+for a long text of length $N$. Thus the plot of $M(d)$ vs.\ $d$ shows towering peaks at $6,12,18,\ldots$, making the key length unmistakable.
+\end{enumerate}

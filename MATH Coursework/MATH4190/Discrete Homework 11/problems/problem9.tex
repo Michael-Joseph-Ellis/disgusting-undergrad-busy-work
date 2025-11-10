@@ -1,0 +1,20 @@
+\section*{Problem 9}
+
+Using the Vigen\`ere cipher (A=0,\ldots,Z=25). Encryption is $c_i \equiv p_i + k_i \pmod{26}$; decryption is $p_i \equiv c_i - k_i \pmod{26}$.
+
+\begin{enumerate}[(a)]
+\item \textbf{Encrypt with key \texttt{BLUE}} the message \texttt{SNOWFALL}.
+
+Key shifts: B=1, L=11, U=20, E=4, repeating.\\
+Applying $c=p+k$ gives the ciphertext
+\[
+\boxed{\texttt{TYIAGLFP}}.
+\]
+
+\item \textbf{Decrypt} \texttt{OIKYVWMHBX} given key \texttt{HOT}.
+
+Key shifts: H=7, O=14, T=19, repeating. Apply $p=c-k$ letterwise to get
+\[
+\boxed{\texttt{HURRHDFTIQ}}.
+\]
+\end{enumerate}

@@ -1,0 +1,59 @@
+\section*{Problem 1}
+
+Double hashing with prime table size \(p=4969\).  
+Initial hash \(h(k)=k \bmod p\).  
+Second hash \(g(k)=(k+1)\bmod(p-2)=(k+1)\bmod 4967\).  
+Probe sequence \(h(k,i)=(h(k)+i\cdot g(k))\bmod p\), \(i=0,1,2,\ldots\).
+
+SSNs (in order):
+\[
+\begin{aligned}
+&k_1=132489971,\ k_2=509496993,\ k_3=546332190,\ k_4=034367980,\\
+&k_5=047900151,\ k_6=3229938157,\ k_7=212228844,\ k_8=325510778,\\
+&k_9=353354519,\ k_{10}=053708912.
+\end{aligned}
+\]
+
+First hashes and steps:
+\[
+\begin{array}{c|c|c}
+\text{key} & h(k)=k\bmod 4969 & g(k)=(k+1)\bmod 4967\\\hline
+k_1 & 1524 &  \\
+k_2 &  \ 578 & 2002\\
+k_3 &  \ 578 & 1927\\
+k_4 & 2376 &  \\
+k_5 & 3960 &  \\
+k_6 & 3684 &  \\
+k_7 & 2854 &  \\
+k_8 & 1526 &  \\
+k_9 & 3960 & 2140\\
+k_{10} & 3960 & \ 742
+\end{array}
+\]
+
+Insert in the given order, probing on collisions:
+
+\[
+\begin{array}{c|c|c}
+\text{key} & \text{placed at index} & \text{probes}\\\hline
+k_1 & 1524 & 1\\
+k_2 & \ \ 578 & 1\\
+k_3 & 2505 & 2\ (\text{since }578\text{ taken})\\
+k_4 & 2376 & 1\\
+k_5 & 3960 & 1\\
+k_6 & 3684 & 1\\
+k_7 & 2854 & 1\\
+k_8 & 1526 & 1\\
+k_9 & 1131 & 2\ (\text{3960 taken})\\
+k_{10} & 4702 & 2\ (\text{3960 taken})
+\end{array}
+\]
+
+Final locations:
+\[
+\boxed{
+\begin{aligned}
+&k_1\to 1524,\quad k_2\to 578,\quad k_3\to 2505,\quad k_4\to 2376,\quad k_5\to 3960,\\
+&k_6\to 3684,\quad k_7\to 2854,\quad k_8\to 1526,\quad k_9\to 1131,\quad k_{10}\to 4702.
+\end{aligned}}
+\]

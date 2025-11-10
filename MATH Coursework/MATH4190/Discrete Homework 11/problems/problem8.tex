@@ -1,0 +1,18 @@
+\section*{Problem 8}
+
+Compose two affine ciphers mod \(26\):
+\[
+E_{a_1,b_1}(p)=a_1p+b_1,\qquad E_{a_2,b_2}(p)=a_2p+b_2,
+\]
+with \(a_1,a_2\) invertible mod \(26\).
+Then
+\[
+E_{a_2,b_2}(E_{a_1,b_1}(p))
+= a_2(a_1p+b_1)+b_2
+= (a_2a_1)p+(a_2b_1+b_2),
+\]
+which is again an affine map with parameters \(a=a_2a_1\) and \(b=a_2b_1+b_2\) (mod \(26\)).
+
+\[
+\boxed{\text{No advantage: the composition is just another affine cipher.}}
+\]

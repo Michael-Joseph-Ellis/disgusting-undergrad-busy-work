@@ -1,0 +1,45 @@
+\section*{Problem 3: ISSN check digit}
+
+For digits \(d_1d_2d_3d_4\!-\!d_5d_6d_7d_8\), the check digit satisfies
+\[
+d_8 \equiv 3d_1+4d_2+5d_3+6d_4+7d_5+8d_6+9d_7 \pmod{11},
+\]
+and \(d_8=X\) if the residue is \(10\).
+
+\subsection*{(a) Compute the check digit}
+\[
+\begin{array}{l|c|c}
+\text{Code} & \text{Weighted sum mod }11 & d_8\\\hline
+1570\!-\!868 & 3(1)+4(5)+5(7)+6(0)+7(8)+8(6)+9(8)=234\equiv 3 & 3\\
+1553\!-\!734 & 175\equiv 10 & X\\
+1089\!-\!708 & 218\equiv 9 & 9\\
+1383\!-\!811 & 146\equiv 3 & 3
+\end{array}
+\]
+
+\subsection*{(b) Validity of given 8–digit strings}
+\[
+\begin{array}{l|c|c}
+\text{Code} & \text{Required } d_8 & \text{Given} \\\hline
+1059\!-\!1027 & 107\equiv 8 & 7\quad(\text{invalid})\\
+0002\!-\!9890 & 220\equiv 0 & 0\quad(\text{valid})\\
+1530\!-\!8669 & 196\equiv 9 & 9\quad(\text{valid})\\
+1007\!-\!120X & 68\equiv 2  & X\quad(\text{invalid})
+\end{array}
+\]
+
+\subsection*{(c) Single–digit errors detected}
+If one digit \(d_j\) (including \(d_8\)) is changed by \(\Delta\neq 0\), the congruence changes by
+\(w_j\Delta \pmod{11}\) where \(w_j\in\{3,4,5,6,7,8,9,1\}\).
+Since none of these weights are \(0\pmod{11}\), \(w_j\Delta\not\equiv 0\) and the error is always detected.
+Hence \textbf{all single–digit errors are detected}.
+
+\subsection*{(d) Transposition errors detected}
+Swapping positions \(i\neq j\le 7\) changes the checksum by \((w_i-w_j)(d_i-d_j)\).
+Because the weights \(3,4,5,6,7,8,9\) are pairwise distinct mod \(11\),
+this vanishes only when \(d_i=d_j\) (not an actual error).
+Swapping \(d_7\) and \(d_8\) would require
+\(d_7 \equiv 3d_1+\cdots+8d_6+9d_8\) and
+\(d_8 \equiv 3d_1+\cdots+8d_6+9d_7\),
+which imply \(10(d_7-d_8)\equiv 0\!\!\pmod{11}\Rightarrow d_7=d_8\).
+Therefore \textbf{all transpositions are detected} (except swapping identical digits, which leaves the string unchanged).

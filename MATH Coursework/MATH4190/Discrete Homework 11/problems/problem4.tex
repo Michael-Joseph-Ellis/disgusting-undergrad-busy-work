@@ -1,0 +1,57 @@
+\section*{Problem 4: Encrypt “WATCH YOUR STEP”}
+
+Use \(A=0,\ldots,Z=25\). Ignore spaces; reinsert them in the same places.
+
+The plaintext letters are:
+\[
+\text{W A T C H \quad Y O U R \quad S T E P}
+\]
+which correspond to:
+\[
+22,\ 0,\ 19,\ 2,\ 7 \quad 24,\ 14,\ 20,\ 17 \quad 18,\ 19,\ 4,\ 15.
+\]
+
+\subsection*{(a) } \(f(p) = (p + 14) \bmod 26\)
+
+\[
+\begin{array}{llll}
+22 \to 10(K) & 0 \to 14(O) & 19 \to 7(H) & 2 \to 16(Q)\\
+7 \to 21(V)  & 24 \to 12(M) & 14 \to 2(C) & 20 \to 8(I)\\
+17 \to 5(F)  & 18 \to 6(G)  & 19 \to 7(H) & 4 \to 18(S)\\
+15 \to 3(D)
+\end{array}
+\]
+Ciphertext:
+\[
+\boxed{\text{KOHQV MCIF GHSD}}
+\]
+
+\subsection*{(b) } \(f(p) = (14p + 21) \bmod 26\)
+
+\[
+\begin{array}{llll}
+22 \to 17(R) & 0 \to 21(V) & 19 \to 1(B) & 2 \to 23(X)\\
+7 \to 15(P)  & 24 \to 19(T) & 14 \to 9(J) & 20 \to 15(P)\\
+17 \to 25(Z) & 18 \to 13(N) & 19 \to 1(B) & 4 \to 25(Z)\\
+15 \to 23(X)
+\end{array}
+\]
+Ciphertext:
+\[
+\boxed{\text{RVBXP TJPZ NBZX}}
+\]
+
+\subsection*{(c) } \(f(p) = (-7p + 1) \bmod 26\)
+
+\[
+\begin{array}{llll}
+22 \to 3(D) & 0 \to 1(B) & 19 \to 24(Y) & 2 \to 13(N)\\
+7 \to 4(E)  & 24 \to 15(P) & 14 \to 7(H) & 20 \to 17(R)\\
+17 \to 12(M) & 18 \to 5(F) & 19 \to 24(Y) & 4 \to 25(Z)\\
+15 \to 0(A)
+\end{array}
+\]
+Ciphertext:
+\[
+\boxed{\text{DBYNE PHRM FYZA}}
+\]

@@ -1,0 +1,23 @@
+\section*{Problem 10}
+
+Alphabet $\{a,b\}$ with $a=0$, $b=1$ (working mod $2$). Frequencies: $P(a)=0.1$, $P(b)=0.9$. Ciphertext (Vigen\`ere mod 2):
+\[
+\texttt{bababaaaba}.
+\]
+
+\begin{enumerate}[(a)]
+\item \textbf{Key length is probably 2.}
+Look at odd vs.\ even positions. Odd positions are $\texttt{b b b a b}$ (4/5 are $b$), even positions are $\texttt{a a a a a}$ (all $a$).
+With a Vigen\`ere key of length $2$ over $\mathbb{Z}_2$, each substream is either the identity or a flip. Given the heavy skew $P(b)=0.9$, one substream being almost all $b$ and the other almost all $a$ strongly indicates a 2-period.
+
+\item \textbf{Determine the key and decrypt.}
+Let the key be $(k_1,k_2)\in\{0,1\}^2$ (letters $a,b$). Since $c=p\oplus k$,
+a substream with mostly $b$ must use $k=0$ (identity), and a substream with mostly $a$ must use $k=1$ (flip).
+Thus $k_1=0$ (odd positions), $k_2=1$ (even positions), i.e., key \texttt{ab}.
+
+Decrypt by $p=c\oplus k$:
+\[
+\texttt{b b b b b b a b b b}.
+\]
+So the plaintext is \(\boxed{\texttt{bbbbbbabbb}}\) and the key is \(\boxed{\texttt{ab}}\).
+\end{enumerate}
