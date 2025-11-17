@@ -1,0 +1,21 @@
+\section*{Problem 13}
+
+We need a Shamir scheme where:
+- The general alone can launch,
+- Or the two colonels together,
+- Or all five clerks together,
+- But no smaller group can.
+
+Use a \((1,1)\), \((2,2)\), and \((5,5)\) structure combined under a higher global threshold.
+
+Construct a \((1,10)\) Shamir scheme:
+- Give the general share \((0,s)\) directly (he can recover alone).
+- For the two colonels, embed the secret into a \((2,2)\) subsystem,
+  distribute both shares among them.
+- For the clerks, embed into a \((5,5)\) subsystem,
+  distribute the five shares.
+
+All these subschemes encode the same secret.  
+Any authorized group gets all shares of at least one full subsystem; any unauthorized group does not.
+
+Thus the launch conditions are satisfied.

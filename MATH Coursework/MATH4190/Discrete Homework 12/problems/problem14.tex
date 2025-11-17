@@ -1,0 +1,56 @@
+\section*{Problem 14}
+
+We want the launch code to be reconstructible only if
+\[
+3 \text{ from A},\quad 4 \text{ from B},\quad 2 \text{ from C}
+\]
+cooperate. Use a two–level Shamir construction.
+
+\medskip
+\noindent\textbf{Level 1: Between the three delegations.}
+
+Let the launch code be the secret \(S\), working modulo a large prime \(p\).
+Choose a random quadratic polynomial
+\[
+f(x)=ax^{2}+bx+S \pmod{p},
+\]
+so this is a \((3,3)\)-threshold scheme.
+
+Give the three delegations the ``group shares''
+\[
+S_A=f(1),\quad S_B=f(2),\quad S_C=f(3).
+\]
+Any three of these (i.e., all of them) are needed to reconstruct \(S\).
+
+\medskip
+\noindent\textbf{Level 2: Inside each delegation.}
+
+Now treat \(S_A,S_B,S_C\) as secrets and share them within each group:
+
+\begin{itemize}
+  \item For delegation A, use a \((3,10)\) Shamir scheme with secret \(S_A\).
+        Each of the 10 members of A receives one share. Any 3 of them can
+        recover \(S_A\), but 2 or fewer cannot.
+
+  \item For delegation B, use a \((4,10)\) Shamir scheme with secret \(S_B\).
+        Any 4 members of B together can reconstruct \(S_B\).
+
+  \item For delegation C, use a \((2,10)\) Shamir scheme with secret \(S_C\).
+        Any 2 members of C together can reconstruct \(S_C\).
+\end{itemize}
+
+\medskip
+\noindent\textbf{Reconstruction.}
+
+To reconstruct the launch code:
+
+\begin{enumerate}
+  \item At least 3 members of A combine their shares to obtain \(S_A\).
+  \item At least 4 members of B combine theirs to obtain \(S_B\).
+  \item At least 2 members of C combine theirs to obtain \(S_C\).
+  \item Using the three points \((1,S_A),(2,S_B),(3,S_C)\) on \(f(x)\),
+        they interpolate \(f\) and compute \(f(0)=S\), the launch code.
+\end{enumerate}
+
+Any set that is missing at least one of these group secrets cannot obtain all three
+points on \(f(x)\), so they cannot reconstruct the launch code.

@@ -1,0 +1,7 @@
+\section*{Problem 6}
+
+$e=1$ is invalid because encryption is $c\equiv m^1\equiv m\pmod{n}$ (no secrecy).
+$e=2$ should not be used because for RSA with $n=pq$ (odd primes) we have
+$\varphi(n)=(p-1)(q-1)$ even (indeed a multiple of $4$), so $\gcd(2,\varphi(n))\neq 1$ and
+$d=e^{-1}\ (\bmod\ \varphi(n))$ does not exist. Even if it did in some contrived case,
+such a tiny exponent would be insecure.

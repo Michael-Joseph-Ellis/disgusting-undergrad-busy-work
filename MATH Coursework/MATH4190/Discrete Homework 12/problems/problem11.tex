@@ -1,0 +1,27 @@
+\section*{Problem 11}
+
+A \((2,10)\) Shamir scheme over prime \(73\). Two known shares:
+\[
+(1,10),\qquad (2,18).
+\]
+
+Polynomial is linear: \(f(x)=ax+b\pmod{73}\).  
+From \(f(1)=10\) we get \(a+b\equiv 10\).  
+From \(f(2)=18\) we get \(2a+b\equiv 18\).
+
+Subtract to find \(a\equiv 8\).  
+Then \(b\equiv 10-8=2\).
+
+Thus
+\[
+f(x)=8x+2\pmod{73}.
+\]
+
+The third share at \(x=5\) is:
+\[
+f(5)=8\cdot 5+2=42.
+\]
+So the missing value is
+\[
+\boxed{42}.
+\]

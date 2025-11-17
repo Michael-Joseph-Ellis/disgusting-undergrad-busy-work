@@ -1,0 +1,31 @@
+\section*{Problem 8}
+
+Suppose \(n = pqr\) is the product of three distinct primes. How would an RSA-type
+scheme work in this case? What relation would \(e\) and \(d\) satisfy?
+
+\textbf{Solution.}
+
+If \(n = pqr\) with distinct primes \(p, q, r\), then an RSA-type system works the same way as usual,
+but the Euler totient becomes
+\[
+\varphi(n) = (p-1)(q-1)(r-1).
+\]
+
+To choose an encryption exponent \(e\), we require
+\[
+\gcd(e, \varphi(n)) = 1.
+\]
+
+Then the decryption exponent \(d\) must satisfy
+\[
+ed \equiv 1 \pmod{\varphi(n)}.
+\]
+
+Encryption and decryption work as usual:
+\[
+c \equiv m^e \pmod{n}, \qquad m \equiv c^d \pmod{n}.
+\]
+
+The only change from standard RSA (two primes) is the definition of \(\varphi(n)\).  
+Otherwise, the construction and correctness of the scheme remain the same.
+

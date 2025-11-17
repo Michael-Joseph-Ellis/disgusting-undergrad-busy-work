@@ -1,0 +1,22 @@
+\section*{Problem 10}
+
+Secret: \(5\). Four people \(A,B,C,D\). Any two of them must reconstruct the secret;
+no one alone can.
+
+Use a \((2,4)\) Shamir scheme over a prime modulus (choose a prime e.g.\ \(p=17\)).
+Let the secret be \(f(0)=5\) and choose a random slope \(a\in\{1,\ldots,16\}\).  
+Example: take \(a=7\).
+
+Polynomial:
+\[
+f(x)=7x+5 \pmod{17}.
+\]
+
+Give each person one point:
+\[
+A:(1,f(1)=12),\quad B:(2,f(2)=19\equiv 2),\quad
+C:(3,f(3)=26\equiv 9),\quad D:(4,f(4)=33\equiv 16).
+\]
+
+Any two points determine the line and recover \(f(0)=5\).  
+No single point reveals the secret.

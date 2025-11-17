@@ -1,0 +1,11 @@
+\section*{Problem 5}
+
+Here $n=p=1093$ is prime, $e=361$. Then $\varphi(n)=n-1=1092$ and Eve should take
+\[
+d\equiv e^{-1}\pmod{1092}.
+\]
+Euclid: $1092=3\cdot 361+9$, $361=40\cdot 9+1$, so
+\[
+1=361-40(1092-3\cdot 361)=121\cdot 361-40\cdot 1092.
+\]
+Hence $d\equiv \boxed{121}\pmod{1092}$, and Eve decrypts by $m\equiv c^{121}\ (\bmod\ 1093)$.

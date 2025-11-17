@@ -1,0 +1,16 @@
+\section*{Problem 1}
+
+Given $n=11413=101\cdot 113$ and $e=7467$. Then
+\[
+\varphi(n)=(101-1)(113-1)=11200.
+\]
+Find $d\equiv e^{-1}\pmod{\varphi(n)}$. Since
+\[
+7467-2(11200-7467)=3\cdot 7467-2\cdot 11200=1,
+\]
+we have $d\equiv 3\pmod{11200}$, so $d=3$. Decrypt:
+\[
+m\equiv 5859^3 \pmod{11413}.
+\]
+Compute $5859^2\equiv 8990\pmod{11413}$ and $8990\cdot 5859\equiv \boxed{1415}\pmod{11413}$.
+Thus the plaintext is $\boxed{1415}$.

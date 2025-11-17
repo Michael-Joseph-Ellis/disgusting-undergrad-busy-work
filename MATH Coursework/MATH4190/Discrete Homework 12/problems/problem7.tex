@@ -1,0 +1,15 @@
+\section*{Problem 7}
+
+Alice encodes each letter $a=1,\ldots,z=26$ separately and sends $m^e \ (\bmod\ n)$ with
+$n=8881$, $e=13$. Since the message space is only $\{1,\ldots,26\}$, Eve can build a
+lookup table of $m^{13}\ (\bmod\ 8881)$ for $m=1,\ldots,26$ and match each ciphertext block.
+
+Applying this table to the intercepted sequence
+\[
+4461,\ 794,\ 2015,\ 2015,\ 3603
+\]
+yields the letters
+\[
+\boxed{\text{H E L L O}}.
+\]
+Thus the message is \(\boxed{\text{HELLO}}\) (no factoring of $n$ needed; just a 26-entry lookup).

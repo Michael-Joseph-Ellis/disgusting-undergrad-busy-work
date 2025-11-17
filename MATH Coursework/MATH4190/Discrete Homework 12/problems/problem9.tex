@@ -1,0 +1,44 @@
+\section*{Problem 9}
+
+A trusted entity chooses primes \(p,q\), sets \(n=pq\), and chooses integers \(k_1,k_2,k_3\)
+satisfying
+\[
+k_1 k_2 k_3 \equiv 1 \pmod{(p-1)(q-1)}.
+\]
+Keys:
+\[
+\text{Alice: }(n,k_1,k_2),\qquad
+\text{Bob: }(n,k_2,k_3),\qquad
+\text{Carla: }(n,k_1,k_3).
+\]
+
+\subsection*{(a)}
+Alice wants Bob and Carla to decrypt the same message \(m\).
+She encrypts using the key component they \emph{both} possess:
+Bob has \(k_2\), Carla also has \(k_2\)?
+No—Carla has \(k_1,k_3\).  
+Bob has \(k_2,k_3\).
+
+The common exponent between Bob and Carla is \(k_3\).
+
+Thus Alice sends:
+\[
+c \equiv m^{k_3} \pmod{n}.
+\]
+
+Bob decrypts using \(k_2\) since \(k_2 k_3 k_1 \equiv 1\).  
+Carla decrypts using \(k_1\).
+
+\subsection*{(b)}
+Alice wants only Carla to decrypt. She should use an exponent that:
+- Carla knows,
+- Bob does \emph{not} know.
+
+Carla knows \(k_1\) and \(k_3\); Bob knows \(k_2\) and \(k_3\).  
+So the exponent Bob does not know is \(k_1\).
+
+Alice sends:
+\[
+c \equiv m^{k_1} \pmod{n}.
+\]
+Carla decrypts using \(k_2 k_3\), but Bob cannot decrypt.
