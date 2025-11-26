@@ -1,0 +1,73 @@
+\section*{Problem 6}
+
+Consider the \((7,4)\) Hamming code over \(\mathbb{F}_2\) with generator and
+parity–check matrices
+\[
+G =
+\begin{bmatrix}
+1 & 0 & 0 & 0 & 1 & 1 & 0\\
+0 & 1 & 0 & 0 & 1 & 0 & 1\\
+0 & 0 & 1 & 0 & 0 & 1 & 1\\
+0 & 0 & 0 & 1 & 1 & 1 & 1
+\end{bmatrix},
+\qquad
+H =
+\begin{bmatrix}
+1 & 1 & 0 & 1 & 1 & 0 & 0\\
+1 & 0 & 1 & 1 & 0 & 1 & 0\\
+0 & 1 & 1 & 1 & 0 & 0 & 1
+\end{bmatrix}.
+\]
+
+Received words:
+\[
+y_1 = 0100111,\qquad y_2 = 0101010.
+\]
+
+The syndrome is \(s = H y^{\mathsf T}\) (mod \(2\)).
+
+\subsection*{First word}
+
+For \(y_1 = (0,1,0,0,1,1,1)\),
+\[
+s_1 =
+\begin{bmatrix}
+1 & 1 & 0 & 1 & 1 & 0 & 0\\
+1 & 0 & 1 & 1 & 0 & 1 & 0\\
+0 & 1 & 1 & 1 & 0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}0\\1\\0\\0\\1\\1\\1\end{bmatrix}
+=
+\begin{bmatrix}0\\1\\0\end{bmatrix}.
+\]
+The columns of \(H\) are
+\[
+(1,1,0),(1,0,1),(0,1,1),(1,1,1),(1,0,0),(0,1,0),(0,0,1).
+\]
+The syndrome \((0,1,0)^{\mathsf T}\) equals column \(6\), so the error is in bit \(6\).
+Flip bit \(6\):
+\[
+\hat c_1 = 0100101.
+\]
+Since \(G=[I_4\mid P]\), the first four bits are the message:
+\[
+m_1 = 0100.
+\]
+
+\subsection*{Second word}
+
+For \(y_2=(0,1,0,1,0,1,0)\), we get
+\[
+s_2 = H y_2^{\mathsf T} = \begin{bmatrix}0\\0\\0\end{bmatrix},
+\]
+so there is no error and \(y_2\) is already a codeword:
+\[
+\hat c_2 = 0101010,\qquad m_2 = 0101.
+\]
+
+\medskip
+Thus the corrected codewords and messages are
+\[
+\boxed{\hat c_1 = 0100101,\ m_1 = 0100;\qquad
+       \hat c_2 = 0101010,\ m_2 = 0101.}
+\]

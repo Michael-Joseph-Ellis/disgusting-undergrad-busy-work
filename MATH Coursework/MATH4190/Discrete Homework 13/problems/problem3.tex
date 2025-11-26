@@ -1,0 +1,45 @@
+\section*{Problem 3}
+
+Binary symmetric channel with crossover probability \(p<\tfrac12\).
+Code
+\[
+C=\{00000,\,11100,\,00111,\,11011\},
+\]
+received word \(y=00100\).
+
+For a codeword \(x\), \(\Pr(y\mid x)\) on a BSC is
+\[
+\Pr(y\mid x)=p^{d(x,y)}(1-p)^{5-d(x,y)},
+\]
+where \(d(x,y)\) is the Hamming distance.
+
+\subsection*{(a) Probabilities}
+
+Distances:
+\[
+\begin{aligned}
+d(00000,00100)&=1,\\
+d(11100,00100)&=2,\\
+d(00111,00100)&=2,\\
+d(11011,00100)&=5.
+\end{aligned}
+\]
+So
+\[
+\begin{aligned}
+\Pr(y\mid 00000)&=p(1-p)^4,\\
+\Pr(y\mid 11100)&=p^2(1-p)^3,\\
+\Pr(y\mid 00111)&=p^2(1-p)^3,\\
+\Pr(y\mid 11011)&=p^5.
+\end{aligned}
+\]
+
+\subsection*{(b) Maximum likelihood estimate}
+
+Because \(p<\tfrac12\), the probability is largest for the smallest distance.  
+The unique closest codeword is \(00000\) with distance \(1\).  
+
+So the ML estimate of the transmitted word is
+\[
+\boxed{00000}.
+\]

@@ -1,0 +1,24 @@
+\section*{Problem 2}
+
+Let
+\[
+C=\{(0,0,1),\ (1,1,1),\ (1,0,0),\ (0,1,0)\}.
+\]
+
+\subsection*{(a) Non-linearity}
+A linear code over \(\mathbb{F}_2\) must contain the zero vector.  
+Here \(000\notin C\), so \(C\) is not linear.
+
+(Equivalently, \( (0,0,1)+(1,0,0)=(1,0,1)\notin C\), so \(C\) is not closed under addition.)
+
+\subsection*{(b) Minimum distance and capability}
+
+Compute pairwise Hamming distances among the four codewords:
+\[
+001,\ 111,\ 100,\ 010.
+\]
+All pairwise distances are either \(2\) or \(3\); the minimum is \(2\). Thus
+\[
+d(C)=2.
+\]
+So this code can detect at most \(1\) bit error and can correct \(0\) bit errors.

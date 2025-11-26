@@ -1,0 +1,61 @@
+\section*{Problem 8}
+
+Random variable \(X\) takes values in \(\mathcal{A}=\{A,B,C,D,E\}\) with
+\[
+\Pr(A)=0.40,\quad
+\Pr(B)=0.20,\quad
+\Pr(C)=0.20,\quad
+\Pr(D)=0.10,\quad
+\Pr(E)=0.10.
+\]
+
+\subsection*{(a) Shannon entropy}
+
+\[
+\begin{aligned}
+H(X) &= -\sum_{x} p(x)\log_2 p(x) \\
+&= 0.4\log_2\frac{1}{0.4}
+  + 0.2\log_2\frac{1}{0.2}
+  + 0.2\log_2\frac{1}{0.2}
+  + 0.1\log_2\frac{1}{0.1}
+  + 0.1\log_2\frac{1}{0.1}\\
+&\approx 0.4(1.3219)+2\cdot 0.2(2.3219)+2\cdot 0.1(3.3219)\\
+&\approx 2.12\ \text{bits}.
+\end{aligned}
+\]
+
+\subsection*{(b) Huffman code and average length}
+
+Probabilities: \(0.40,0.20,0.20,0.10,0.10\).
+
+Huffman steps:
+
+1. Combine \(D(0.10)\) and \(E(0.10)\Rightarrow DE(0.20)\).
+2. Combine \(B(0.20)\) and \(C(0.20)\Rightarrow BC(0.40)\).
+3. Combine \(DE(0.20)\) and \(A(0.40)\Rightarrow ADE(0.60)\).
+4. Combine \(ADE(0.60)\) and \(BC(0.40)\Rightarrow 1.0\).
+
+Assign \(0/1\) arbitrarily at each split, e.g.
+\[
+\begin{array}{c|c}
+\text{Symbol} & \text{Codeword} \\ \hline
+A & 01\\
+B & 10\\
+C & 11\\
+D & 000\\
+E & 001
+\end{array}
+\]
+
+Average code length:
+\[
+\begin{aligned}
+L &= 0.4\cdot 2 + 0.2\cdot 2 + 0.2\cdot 2 + 0.1\cdot 3 + 0.1\cdot 3 \\
+  &= 1.6 + 0.6 = 2.2\ \text{bits}.
+\end{aligned}
+\]
+
+Check the Shannon bounds:
+\[
+H(X)\approx 2.12 \le L = 2.2 < H(X)+1 \approx 3.12.
+\]

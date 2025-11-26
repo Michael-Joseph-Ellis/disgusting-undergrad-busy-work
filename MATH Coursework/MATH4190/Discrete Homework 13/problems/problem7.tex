@@ -1,0 +1,51 @@
+\section*{Problem 7}
+
+Random variables:
+
+- \(X\): fair coin, \(\Pr(X=H)=\Pr(X=T)=\tfrac12\).
+- \(Y\): biased coin, \(\Pr(Y=H)=\tfrac34\), \(\Pr(Y=T)=\tfrac14\).
+- \(Z\in\{a,b,c\}\) with
+  \(\Pr(Z=a)=\tfrac12,\ \Pr(Z=b)=\tfrac14,\ \Pr(Z=c)=\tfrac14\).
+
+Entropy (in bits) is \(H(W) = -\sum p_i \log_2 p_i\).
+
+\subsection*{(a) Entropies}
+
+\[
+H(X) = -\left(\tfrac12\log_2\tfrac12 + \tfrac12\log_2\tfrac12\right)
+      = 1.
+\]
+
+\[
+\begin{aligned}
+H(Y)
+&= -\left(\tfrac34\log_2\tfrac34 + \tfrac14\log_2\tfrac14\right)\\
+&= \tfrac34\log_2\tfrac{4}{3} + \tfrac14\cdot 2
+ \approx 0.811\ \text{bits}.
+\end{aligned}
+\]
+
+\[
+\begin{aligned}
+H(Z)
+&= -\Big(
+\tfrac12\log_2\tfrac12
++ \tfrac14\log_2\tfrac14
++ \tfrac14\log_2\tfrac14
+\Big)\\
+&= \tfrac12\cdot 1 + \tfrac14\cdot 2 + \tfrac14\cdot 2
+= 1.5\ \text{bits}.
+\end{aligned}
+\]
+
+\subsection*{(b) Comparison}
+
+Numerically,
+\[
+H(Z)=1.5 > H(X)=1 > H(Y)\approx 0.81.
+\]
+
+So \(Z\) is the most “uncertain” (three outcomes, fairly spread),
+\(X\) is in the middle (fair coin), and \(Y\) is the least uncertain
+(heavily biased toward heads). This matches the intuitive idea that the
+more skewed the probabilities, the smaller the entropy.

@@ -1,0 +1,68 @@
+\section*{Problem 5}
+
+The parity-check matrix of a binary code \(C\) is
+\[
+H =
+\begin{pmatrix}
+1 & 1 & 1 & 0 & 0\\
+1 & 0 & 0 & 1 & 0\\
+0 & 1 & 0 & 0 & 1
+\end{pmatrix}.
+\]
+
+\subsection*{(a)}
+\(H\) has \(5\) columns, so \(n=5\). Its three rows are linearly independent over \(\mathbb{F}_2\),
+so \(\operatorname{rank}(H)=3\). For a binary \([n,k]\) code,
+\[
+k = n - \operatorname{rank}(H) = 5-3 = 2.
+\]
+So the code is \([5,2]\).
+
+\subsection*{(b)}
+A generator matrix \(G\) must satisfy \(HG^{\mathsf T}=0\).  
+Let a codeword be \(x=(x_1,\dots,x_5)\). From \(Hx^{\mathsf T}=0\) we get
+\[
+\begin{cases}
+x_1 + x_2 + x_3 = 0,\\
+x_1 + x_4 = 0,\\
+x_2 + x_5 = 0,
+\end{cases}
+\]
+so
+\[
+x_4 = x_1,\quad x_5 = x_2,\quad x_3 = x_1 + x_2.
+\]
+Taking \(x_1,x_2\) as free variables:
+
+- If \((x_1,x_2)=(1,0)\), then \(x=(1,0,1,1,0)\);
+- If \((x_1,x_2)=(0,1)\), then \(x=(0,1,1,0,1)\).
+
+These form a basis, so one possible generator matrix is
+\[
+G =
+\begin{pmatrix}
+1 & 0 & 1 & 1 & 0\\
+0 & 1 & 1 & 0 & 1
+\end{pmatrix}.
+\]
+
+\subsection*{(c)}
+All codewords are the \(\mathbb{F}_2\)-linear combinations of the rows of \(G\):
+\[
+\begin{aligned}
+(0,0) &\to 00000,\\
+(1,0) &\to 10110,\\
+(0,1) &\to 01101,\\
+(1,1) &\to 11011.
+\end{aligned}
+\]
+So
+\[
+C = \{00000,\ 10110,\ 01101,\ 11011\}.
+\]
+
+\subsection*{(d)}
+The code rate is
+\[
+R = \frac{k}{n} = \frac{2}{5}.
+\]

@@ -1,0 +1,88 @@
+\section*{Problem 9}
+
+Alphabet \(\{ \#,A,B,\ldots,Z\}\) with initial dictionary
+
+\[
+\#\mapsto 0,\quad A\mapsto 1,\ \ldots,\ Z\mapsto 26.
+\]
+
+Apply Lempel–Ziv–Welch (LZW) to the string
+\[
+\texttt{PETERPIPERPICKEDAPECKOFPICKLEDPEPPERS\#}.
+\]
+
+\subsection*{(a) Output codes and new dictionary entries}
+
+Start with the initial 27 entries (codes \(0\)–\(26\)).
+Scan the string, each time outputting the longest dictionary word that
+matches the current input, then adding that word extended by the next
+character as a new entry.
+
+The output code sequence is:
+\[
+\boxed{16,\ 5,\ 20,\ 5,\ 18,\ 16,\ 9,\ 27,\ 31,\ 9,\ 3,\ 11,\ 5,\ 4,\ 1,\ 27,\ 37,\ 15,\ 6,\ 32,\ 37,\ 12,\ 39,\ 46,\ 11,\ 48,\ 4,\ 27,\ 16,\ 34,\ 19,\ 0}.
+\]
+
+New dictionary entries (beyond the initial symbols) in order are:
+
+\[
+\begin{array}{c|l}
+\text{Code} & \text{Entry} \\ \hline
+27 & \texttt{PE}\\
+28 & \texttt{ET}\\
+29 & \texttt{TE}\\
+30 & \texttt{ER}\\
+31 & \texttt{RP}\\
+32 & \texttt{PI}\\
+33 & \texttt{IP}\\
+34 & \texttt{PER}\\
+35 & \texttt{RPI}\\
+36 & \texttt{IC}\\
+37 & \texttt{CK}\\
+38 & \texttt{KE}\\
+39 & \texttt{ED}\\
+40 & \texttt{DA}\\
+41 & \texttt{AP}\\
+42 & \texttt{PEC}\\
+43 & \texttt{CKO}\\
+44 & \texttt{OF}\\
+45 & \texttt{FP}\\
+46 & \texttt{PIC}\\
+47 & \texttt{CKL}\\
+48 & \texttt{LE}\\
+49 & \texttt{EDP}\\
+50 & \texttt{PICK}\\
+51 & \texttt{KL}\\
+52 & \texttt{LED}\\
+53 & \texttt{DP}\\
+54 & \texttt{PEP}\\
+55 & \texttt{PP}\\
+56 & \texttt{PERS}\\
+57 & \texttt{S\#}
+\end{array}
+\]
+
+Codes \(0\)–\(31\) fit in \(5\) bits. Once code \(32\) appears, we need \(6\)-bit codes.
+The first code \(\ge 32\) in the output is \(32\), so:
+
+- First \(19\) codes are \(<32\): \(19\times 5 = 95\) bits.
+- Remaining \(13\) codes are \(\ge 32\): \(13\times 6 = 78\) bits.
+
+Total LZW output length:
+\[
+\boxed{95+78=173\ \text{bits}}.
+\]
+
+\subsection*{(b) Comparison with naive encoding}
+
+The original string has \(45\) characters.
+Naively encoding each character with a fixed 5-bit code (using only the
+initial alphabet) would use
+\[
+45\times 5 = 225\ \text{bits}.
+\]
+
+LZW uses \(173\) bits, so the savings are
+\[
+225-173 = \boxed{52\ \text{bits}}.
+\]

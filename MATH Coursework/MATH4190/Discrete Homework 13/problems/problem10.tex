@@ -1,0 +1,61 @@
+\section*{Problem 10}
+
+We have 16 coins, one of which is odd (either heavier or lighter), and a two–pan
+balance that only reports “balance’’ or “do not balance.’’ We do \emph{not} need
+to know whether the odd coin is heavier or lighter, only which coin it is.
+
+Each weighing can be viewed as a yes/no question of the form
+“Is the odd coin among this set of coins?’’ so every weighing gives one bit of
+information. With \(k\) weighings we can distinguish at most \(2^k\) possibilities.
+Since there are 16 coins, we must have
+\[
+2^k \ge 16 \quad\Rightarrow\quad k \ge 4.
+\]
+So at least 4 weighings are necessary.
+
+\medskip
+\noindent\textbf{Strategy using 4 weighings.}
+
+Label the coins \(1,2,\dots,16\) and write each label in 4-bit binary:
+
+\[
+\begin{array}{c|c}
+\text{Coin} & \text{Binary label}\\\hline
+1 & 0001\\
+2 & 0010\\
+3 & 0011\\
+4 & 0100\\
+\vdots & \vdots\\
+16&1111
+\end{array}
+\]
+
+For \(i=1,2,3,4\) (from least significant bit to most), perform weighing \(i\) as
+the yes/no test:
+
+\[
+\text{Weighing }i:\quad
+\text{``Is the odd coin among those whose $i$-th bit is $1$?''}
+\]
+
+Operationally, we put all coins with \(i\)-th bit \(1\) on the left pan and the
+same number of other coins (chosen so that the total number of coins on each
+side is the same) on the right pan. If the scale balances, the odd coin is not
+in this subset; if it does not balance, then the odd coin is in this subset.
+
+Record the 4-bit pattern of answers, using
+\[
+\text{``no''} \to 0,\qquad \text{``yes''} \to 1.
+\]
+
+For example, if the outcomes are
+\[
+\text{(yes, no, yes, yes)} = 1011_2,
+\]
+then the odd coin is the one with label \(1011_2 = 11\).
+
+Every coin has a unique 4-bit label, and the 4 yes/no answers reproduce that
+label, so after 4 weighings we can identify the odd coin uniquely.
+
+\medskip
+Thus 4 weighings are both necessary and sufficient.

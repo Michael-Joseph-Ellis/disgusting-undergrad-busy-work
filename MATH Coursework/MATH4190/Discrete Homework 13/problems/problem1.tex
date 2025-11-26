@@ -1,0 +1,34 @@
+\section*{Problem 1}
+
+Let \(C \subset \{0,1\}^4\) be
+\[
+C=\{0000,\,0101,\,1010,\,1111\}.
+\]
+
+\subsection*{(a)}
+The minimum distance \(d(C)\) is the minimum Hamming distance between distinct codewords.
+
+Pairwise distances:
+\[
+\begin{array}{c|cccc}
+&0000&0101&1010&1111\\\hline
+0000&-&2&2&4\\
+0101& &-&4&2\\
+1010& & &-&2
+\end{array}
+\]
+The smallest distance is \(2\). Hence
+\[
+d(C)=2.
+\]
+
+\subsection*{(b)}
+With minimum distance \(d\),
+\[
+\text{detect up to } d-1 \text{ errors},\qquad
+\text{correct up to } \left\lfloor \frac{d-1}{2}\right\rfloor.
+\]
+Here \(d=2\), so the code can
+\[
+\text{detect at most }1\text{ bit error, and correct }0\text{ bit errors}.
+\]

@@ -1,0 +1,83 @@
+\section*{Problem 4}
+
+Work over \(\mathbb{F}_2\). Generator matrix
+\[
+G=
+\begin{bmatrix}
+1 & 0 & 1 & 1 & 0\\
+0 & 1 & 1 & 0 & 1
+\end{bmatrix}.
+\]
+Let \(C=\{mG : m\in\mathbb{F}_2^2\}\).
+
+\subsection*{(a) Number of codewords}
+
+\(\dim C = 2\), so
+\[
+|C| = 2^{2}=4.
+\]
+
+\subsection*{(b) List all codewords}
+
+Messages \(m=(m_1,m_2)\in\mathbb{F}_2^2\):
+
+\[
+\begin{array}{c|c}
+m & mG \\\hline
+(0,0) & 00000\\
+(1,0) & 10110\\
+(0,1) & 01101\\
+(1,1) & 11011
+\end{array}
+\]
+
+So
+\[
+C=\{00000,\,10110,\,01101,\,11011\}.
+\]
+
+\subsection*{(c) Minimum distance and capability}
+
+Since \(C\) is linear, \(d(C)\) is the minimum Hamming weight among nonzero codewords.
+
+Weights:
+\[
+w(10110)=3,\quad w(01101)=3,\quad w(11011)=4.
+\]
+Thus
+\[
+d(C)=3.
+\]
+This code can detect up to \(d-1=2\) errors and can correct
+\[
+\left\lfloor\frac{d-1}{2}\right\rfloor=\left\lfloor\frac{2}{2}\right\rfloor=1
+\]
+bit error.
+
+\subsection*{(d) Parity-check matrix}
+
+\(G\) is in standard form \(G=[I_2\; P]\) with
+\[
+P=
+\begin{bmatrix}
+1 & 1 & 0\\
+1 & 0 & 1
+\end{bmatrix}.
+\]
+A parity-check matrix is
+\[
+H=
+\begin{bmatrix}
+P^{\mathsf T} & I_3
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & 1 & 1 & 0 & 0\\
+1 & 0 & 0 & 1 & 0\\
+0 & 1 & 0 & 0 & 1
+\end{bmatrix}.
+\]
+Then
+\[
+C = \{c\in\mathbb{F}_2^5 : H c^{\mathsf T} = 0\}.
+\]
