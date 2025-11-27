@@ -1,0 +1,68 @@
+{
+  "model": "CatBoostClassifier",
+  "params": {
+    "iterations": 500,
+    "learning_rate": 0.1,
+    "depth": 6,
+    "l2_leaf_reg": 3.0,
+    "loss_function": "MultiClass",
+    "random_seed": 42,
+    "verbose": false,
+    "auto_class_weights": "Balanced",
+    "eval_metric": "TotalF1:average=Macro"
+  },
+  "cv_f1_macro_mean": 0.6055532674931099,
+  "cv_f1_macro_std": 0.03488005426474207,
+  "test_accuracy": 0.6805845511482255,
+  "test_f1_macro": 0.5323235791219962,
+  "classification_report": {
+    "0": {
+      "precision": 0.2727272727272727,
+      "recall": 0.14285714285714285,
+      "f1-score": 0.1875,
+      "support": 21.0
+    },
+    "1": {
+      "precision": 0.532258064516129,
+      "recall": 0.6111111111111112,
+      "f1-score": 0.5689655172413793,
+      "support": 54.0
+    },
+    "2": {
+      "precision": 0.524390243902439,
+      "recall": 0.5512820512820513,
+      "f1-score": 0.5375,
+      "support": 78.0
+    },
+    "3": {
+      "precision": 0.43243243243243246,
+      "recall": 0.5783132530120482,
+      "f1-score": 0.4948453608247423,
+      "support": 83.0
+    },
+    "4": {
+      "precision": 0.9342723004694836,
+      "recall": 0.8189300411522634,
+      "f1-score": 0.8728070175438597,
+      "support": 243.0
+    },
+    "accuracy": 0.6805845511482255,
+    "macro avg": {
+      "precision": 0.5392160628095514,
+      "recall": 0.5404987198829233,
+      "f1-score": 0.5323235791219962,
+      "support": 479.0
+    },
+    "weighted avg": {
+      "precision": 0.706245737247412,
+      "recall": 0.6805845511482255,
+      "f1-score": 0.6884152570827683,
+      "support": 479.0
+    }
+  },
+  "three_cases_file": "C:\\Users\\unkno\\OneDrive\\Documents\\GitHub\\disgusting-undergrad-busy-work\\CPSC Coursework\\CPSC4300\\Semester-Project\\Checkpoint 2\\catboost_three_cases.csv",
+  "figures": {
+    "confusion_matrices": "C:\\Users\\unkno\\OneDrive\\Documents\\GitHub\\disgusting-undergrad-busy-work\\CPSC Coursework\\CPSC4300\\Semester-Project\\Checkpoint 1\\figures\\catboost_confusion_mats.png",
+    "feature_importance": "C:\\Users\\unkno\\OneDrive\\Documents\\GitHub\\disgusting-undergrad-busy-work\\CPSC Coursework\\CPSC4300\\Semester-Project\\Checkpoint 1\\figures\\catboost_feature_importance.png"
+  }
+}
