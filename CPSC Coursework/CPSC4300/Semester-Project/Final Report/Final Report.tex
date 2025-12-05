@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{float}
+\usepackage{hyperref}
 
 \title{Predicting Student Performance with Gradient Boosted Decision Trees}
 \author{Michael Ellis \\ Semester Project -- CPSC 4300}
@@ -17,7 +18,8 @@
 
 Supporting students who are at risk of poor academic outcomes is a
 recurring challenge in educational settings.  In this project we study
-the publicly available Students Performance Dataset from Kaggle, which
+the publicly available Students Performance Dataset from Kaggle\footnote{Rabie El
+Kharoua, ``Students Performance Dataset,'' Kaggle, available at \url{https://www.kaggle.com/datasets/rabieelkharoua/students-performance-dataset}.}, which
 contains demographic information, indicators of parental and school
 support, and prior achievement for several hundred students.  The goal
 is to predict each student's final course performance category and to
@@ -36,7 +38,7 @@ majority class, while still performing poorly for the students we care
 most about---those at risk of failing the course.
 
 Our baseline model is an XGBoost gradient boosted decision tree
-classifier, which is widely used for structured tabular data.  Using a
+classifier\footnote{XGBoost documentation: \url{https://xgboost.readthedocs.io}. Chen, T., \\& Guestrin, C. (2016). XGBoost: A Scalable Tree Boosting System. In \emph{Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (KDD)}. arXiv:\href{https://arxiv.org/abs/1603.02754}{1603.02754}.}, which is widely used for structured tabular data.  Using a
 stratified train/validation/test split and modest hyperparameters, the
 baseline XGBoost model achieved a macro--averaged F$_1$ score of
 approximately 0.49 on the held--out test set.  However, inspection of
@@ -45,7 +47,7 @@ confusion among mid--range and low grades.
 
 To address these limitations and satisfy the requirement to implement
 an alternative analysis, we train a CatBoost classifier as a natural
-escalation of the baseline model.  CatBoost is a gradient boosting
+escalation of the baseline model.  CatBoost\footnote{Prokhorenkova, L., Gusev, G., Vorobev, A., Dorogush, A. V., \\& Gulin, A. (2018). CatBoost: unbiased boosting with categorical features. In \emph{Advances in Neural Information Processing Systems (NeurIPS)}. arXiv:\href{https://arxiv.org/abs/1706.09516}{1706.09516}.} is a gradient boosting
 method specifically designed for heterogeneous tabular data with
 categorical features.  It can consume categorical variables directly
 without one--hot encoding and provides built--in mechanisms for
@@ -60,9 +62,8 @@ for the minority grade categories.
 
 \subsection{Dataset and Target Definition}
 
-We use the Students Performance Dataset from Kaggle\footnote{Rabie El
-Kharoua, ``Students Performance Dataset,'' Kaggle,
-\\\texttt{https://www.kaggle.com/datasets/rabieelkharoua/students-performance-dataset}}.
+We use the Students Performance Dataset from Kaggle (see footnote in the
+Introduction for full citation).
 The raw data contains a unique student identifier, demographic
 variables (e.g., gender and ethnicity), indicators of parental
 education and support, binary variables for tutoring and several types
@@ -318,6 +319,14 @@ baseline modeling with XGBoost, and a targeted alternative analysis
 with CatBoost that better aligns with the data's characteristics.  The
 accompanying code and figures document each step of this process and
 can be adapted to similar educational datasets.
+
+\vspace{1em}
+\noindent\textbf{References}
+\begin{itemize}
+	\item Rabie El Kharoua. ``Students Performance Dataset.'' Kaggle. Available at: \url{https://www.kaggle.com/datasets/rabieelkharoua/students-performance-dataset}.
+	\item Chen, T., \& Guestrin, C. (2016). XGBoost: A Scalable Tree Boosting System. In \emph{Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (KDD)}. arXiv:\href{https://arxiv.org/abs/1603.02754}{1603.02754}.
+	\item Prokhorenkova, L., Gusev, G., Vorobev, A., Dorogush, A. V., \& Gulin, A. (2018). CatBoost: unbiased boosting with categorical features. In \emph{Advances in Neural Information Processing Systems (NeurIPS)}. arXiv:\href{https://arxiv.org/abs/1706.09516}{1706.09516}.
+\end{itemize}
 
 \end{document}
 
