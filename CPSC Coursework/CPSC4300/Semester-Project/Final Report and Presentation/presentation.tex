@@ -1,0 +1,315 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{metropolis}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\title{Predicting Student Performance with Gradient Boosted Trees}
+\subtitle{XGBoost Baseline vs. CatBoost Alternative}
+\author{Michael Ellis}
+\institute{CPSC 4300 -- Semester Project}
+\date{December 2025}
+
+\begin{document}
+
+% Title slide
+\maketitle
+
+% Slide: Problem & Motivation
+\begin{frame}{Problem \\ \& Motivation}
+  \begin{itemize}
+    \item Goal: predict final course grade category (A--F) from demographic, support, and prior performance features.
+    \item Motivation: identify at--risk students early to support interventions.
+    \item Challenges:
+    \begin{itemize}
+      \item Strong class imbalance (majority in top grade category).
+      \item Many categorical features and non--linear relationships.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+% Slide: Dataset
+\begin{frame}{Dataset}
+  \begin{itemize}
+    \item Source: Students Performance Dataset from Kaggle\footnote{Rabie El Kharoua, ``Students Performance Dataset,'' Kaggle, \url{https://www.kaggle.com/datasets/rabieelkharoua/students-performance-dataset}.}
+    \item Observations: several hundred students (one row per student).
+    \item Features:
+    \begin{itemize}
+      \item Demographic: gender, ethnicity, parental education.
+      \item Support: tutoring, parental support, extracurriculars, sports, music, volunteering.
+      \item Performance: prior scores, absences, etc.
+    \end{itemize}
+    \item Target:
+    \begin{itemize}
+      \item Numeric grade mapped to 5 ordered categories (A, B, C, D, F).
+      \item Encoded as integer labels 0--4 via a fixed grade map.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+% Slide: Class Imbalance
+\begin{frame}{Class Imbalance}
+  \begin{itemize}
+    \item Grade distribution is highly skewed:
+    \begin{itemize}
+      \item Majority of students in the highest grade category.
+      \item Relatively few students in A and B categories.
+    \end{itemize}
+    \item Consequences:
+    \begin{itemize}
+      \item Accuracy alone can be misleading.
+      \item Models may ignore minority grades yet appear to perform well.
+    \end{itemize}
+    \item Design choice: focus on macro--averaged F$_1$ instead of only accuracy.
+  \end{itemize}
+\end{frame}
+
+% Slide: Problem Setup & Metrics
+\begin{frame}{Problem Setup \\ \& Metrics}
+  \begin{itemize}
+    \item Task: 5--class classification of \texttt{GradeClass} (0=A, 1=B, 2=C, 3=D, 4=F).
+    \item Splits:
+    \begin{itemize}
+      \item 20\% stratified held--out test set.
+      \item Remaining 80\% split into train and validation (stratified, same random seed).
+    \end{itemize}
+    \item Primary evaluation metric:
+    \begin{itemize}
+      \item Macro--averaged F$_1$ on held--out test set:
+      \[ \text{F}_1^{\text{macro}} = \frac{1}{K} \sum_{k=1}^{5} \text{F}_1^{(k)}. \]
+    \end{itemize}
+    \item Secondary metrics: accuracy, per--class precision/recall/F$_1$, confusion matrices.
+  \end{itemize}
+\end{frame}
+
+% Slide: Features & Preprocessing
+\begin{frame}{Features \\ \& Preprocessing}
+  \begin{itemize}
+    \item Dropped features to avoid leakage: \texttt{StudentID}, \texttt{GPA}.
+    \item Categorical features:
+    \begin{itemize}
+      \item Gender, Ethnicity, ParentalEducation, Tutoring, ParentalSupport, Extracurricular,
+      Sports, Music, Volunteering.
+    \end{itemize}
+    \item Preprocessing (shared for both models):
+    \begin{itemize}
+      \item Categorical columns cast to categorical type.
+      \item Remaining columns coerced to numeric.
+      \item All models run on the same feature matrix and label vector.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+% Slide: Baseline XGBoost
+\begin{frame}{Baseline Model: XGBoost}
+  \begin{itemize}
+    \item Model: \texttt{XGBClassifier} (gradient boosted decision trees)\footnote{Chen, T., \\& Guestrin, C. (2016). XGBoost: A Scalable Tree Boosting System. KDD. arXiv:\href{https://arxiv.org/abs/1603.02754}{1603.02754}.}
+    \item Key hyperparameters:
+    \begin{itemize}
+      \item Objective: \texttt{multi:softprob}; tree method: \texttt{hist}.
+      \item Max depth = 6, learning rate = 0.1, 500 trees.
+      \item Subsample = 0.9, colsample	extunderscore bytree = 0.9, \(\lambda = 1.0\).
+    \end{itemize}
+    \item Training:
+    \begin{itemize}
+      \item Early stopping on validation set with multi--class log--loss.
+      \item 5--fold stratified cross--validation on training split using macro F$_1$.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+% Slide: Alternative CatBoost
+\begin{frame}{Alternative Model: CatBoost}
+  \begin{itemize}
+    \item Model: \texttt{CatBoostClassifier}\footnote{Prokhorenkova, L., Gusev, G., Vorobev, A., Dorogush, A. V., \\& Gulin, A. (2018). CatBoost: unbiased boosting with categorical features. NeurIPS. arXiv:\href{https://arxiv.org/abs/1706.09516}{1706.09516}.}
+    \item Motivation:
+    \begin{itemize}
+      \item Native handling of categorical features.
+      \item Built--in support for class imbalance via \texttt{auto\_class\_weights}.
+    \end{itemize}
+    \item Key hyperparameters:
+    \begin{itemize}
+      \item Loss: \texttt{MultiClass}; eval metric: macro F$_1$.
+      \item Depth = 6, learning rate = 0.1, 500 iterations.
+      \item L2 regularization = 3.0, \texttt{auto\_class\_weights = "Balanced"}.
+    \end{itemize}
+    \item Training:
+    \begin{itemize}
+      \item Same train/validation split as XGBoost.
+      \item 5--fold stratified cross--validation on training split.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+% Slide: Cross-Validation Results
+\begin{frame}{Cross--Validation Results}
+  \begin{center}
+    \begin{tabular}{lcc}
+      \toprule
+      Model & CV macro F$_1$ (mean) & CV macro F$_1$ (std) \\
+      \midrule
+      XGBoost & 0.566 & 0.057 \\
+      CatBoost & 0.606 & 0.035 \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  \vspace{1em}
+  \begin{itemize}
+    \item CatBoost achieves higher average macro F$_1$ with slightly lower variance.
+    \item Suggests better generalization across folds, especially for minority classes.
+  \end{itemize}
+\end{frame}
+
+% Slide: Test Set Results
+\begin{frame}{Held--Out Test Results}
+  \begin{center}
+    \begin{tabular}{lccc}
+      \toprule
+      Model & Accuracy & Macro F$_1$ \\
+      \midrule
+      XGBoost & 0.658 & 0.487 \\
+      CatBoost & 0.681 & 0.532 \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  \vspace{1em}
+  \begin{itemize}
+    \item CatBoost improves both overall accuracy and macro F$_1$ on the test set.
+    \item Improvement in macro F$_1$ indicates better handling of minority grades.
+  \end{itemize}
+\end{frame}
+
+% Slide: Confusion Matrices
+\begin{frame}{Confusion Matrices}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+      XGBoost
+      \begin{center}
+        \includegraphics[width=\linewidth]{"../Checkpoint 2/figures/xgb_confusion_mats.png"}
+      \end{center}
+    \column{0.5\textwidth}
+      CatBoost
+      \begin{center}
+        \includegraphics[width=\linewidth]{"../data analysis/catboost_confusion_mats.png"}
+      \end{center}
+  \end{columns}
+  \vspace{0.5em}
+  \begin{itemize}
+    \item XGBoost tends to over--predict the majority grade.
+    \item CatBoost distributes predictions more across B, C, and D, boosting recall.
+  \end{itemize}
+\end{frame}
+
+% Slide: Per-Class Performance
+\begin{frame}{Per--Class Performance (F$_1$)}
+  \begin{itemize}
+    \item Selected F$_1$ scores (XGBoost $\rightarrow$ CatBoost):
+    \begin{itemize}
+      \item Grade B: 0.46 $\rightarrow$ 0.57
+      \item Grade C: 0.47 $\rightarrow$ 0.54
+      \item Grade D: 0.39 $\rightarrow$ 0.49
+    \end{itemize}
+    \item Largest gains occur for mid--range grades, which are most challenging to classify.
+    \item Failing grade remains easy to detect for both models due to distinct patterns.
+  \end{itemize}
+\end{frame}
+
+% Slide: Feature Importance
+\begin{frame}{Feature Importance}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+      XGBoost (gain)
+      \begin{center}
+        \includegraphics[width=\linewidth]{"../Checkpoint 2/figures/xgb_feature_importance.png"}
+      \end{center}
+    \column{0.5\textwidth}
+      CatBoost
+      \begin{center}
+        \includegraphics[width=\linewidth]{"../data analysis/catboost_feature_importance.png"}
+      \end{center}
+  \end{columns}
+  \vspace{0.5em}
+  \begin{itemize}
+    \item Both models highlight prior performance, tutoring, and parental support as key signals. CatBoost places slightly more emphasis on categorical support variables.
+  \end{itemize}
+\end{frame}
+
+% Slide: Example Predictions
+\begin{frame}{Example Predictions}
+  \begin{itemize}
+    \item Three illustrative test cases (high--confidence predictions):
+  \end{itemize}
+  \begin{center}
+    \begin{tabular}{lccc}
+      \toprule
+      Index & True Grade & Predicted Grade & Confidence \\
+      \midrule
+      475 & B & A & 0.999 \\
+      118 & A & B & 0.998 \\
+      464 & F & F & 1.000 \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  \vspace{0.5em}
+  \begin{itemize}
+    \item Boundary errors (A vs. B) are common and reflect overlapping feature patterns.
+    \item Failing students are predicted very confidently and accurately.
+  \end{itemize}
+\end{frame}
+
+% Slide: Limitations
+\begin{frame}{Limitations}
+  \begin{itemize}
+    \item Data:
+    \begin{itemize}
+      \item Modest dataset size; limited diversity of features.
+      \item No temporal/behavioral sequence information.
+    \end{itemize}
+    \item Modeling:
+    \begin{itemize}
+      \item Only modest hyperparameter tuning; no large search.
+      \item Single train/test split (though cross--validation used on train).
+    \end{itemize}
+    \item Interpretability:
+    \begin{itemize}
+      \item Tree ensembles are complex; feature importance is only a coarse explanation.
+      \item No calibration of predicted probabilities.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+% Slide: Future Work
+\begin{frame}{Future Work}
+  \begin{itemize}
+    \item Expanded hyperparameter tuning for both XGBoost and CatBoost.
+    \item Explore additional models (LightGBM, calibrated linear models, ensembles).
+    \item Try alternative imbalance strategies: custom class weights, oversampling, focal loss.
+    \item Incorporate richer features (attendance trends, assignment histories, engagement data).
+    \item Calibrate probabilities and design decision thresholds focused on at--risk students.
+  \end{itemize}
+\end{frame}
+
+% Slide: Summary
+\begin{frame}{Summary}
+  \begin{itemize}
+    \item Built an end--to--end pipeline: EDA, preprocessing, XGBoost baseline, CatBoost alternative.
+    \item CatBoost improves cross--validated macro F$_1$ (0.57 $\rightarrow$ 0.61) and test macro F$_1$ (0.49 $\rightarrow$ 0.53), with slightly higher accuracy.
+    \item Gains are largest for mid--range grades (B, C, D), which matter for identifying borderline students.
+    \item Results highlight the value of models that respect categorical structure and class imbalance in educational prediction tasks.
+  \end{itemize}
+\end{frame}
+
+% Slide: References
+\begin{frame}{References}
+  \begin{itemize}
+    \item Rabie El Kharoua. ``Students Performance Dataset.'' Kaggle. \url{https://www.kaggle.com/datasets/rabieelkharoua/students-performance-dataset}.
+    \item Chen, T., \& Guestrin, C. (2016). XGBoost: A Scalable Tree Boosting System. KDD. arXiv:\href{https://arxiv.org/abs/1603.02754}{1603.02754}.
+    \item Prokhorenkova, L., Gusev, G., Vorobev, A., Dorogush, A. V., \& Gulin, A. (2018). CatBoost: unbiased boosting with categorical features. NeurIPS. arXiv:\href{https://arxiv.org/abs/1706.09516}{1706.09516}.
+  \end{itemize}
+\end{frame}
+
+\end{document}
