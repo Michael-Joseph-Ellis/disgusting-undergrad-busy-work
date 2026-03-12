@@ -1,0 +1,173 @@
+\documentclass[12pt]{article}
+
+% -----------------------------
+% Packages
+% -----------------------------
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{times}
+\usepackage{titlesec}
+\titleformat{\section}
+  {\centering\bfseries\normalsize}
+  {}
+  {0pt}
+  {}
+\titlespacing*{\section}{0pt}{0.5em}{0.5em}
+\titleformat{\subsection}
+  {\bfseries\normalsize}
+  {}
+  {0pt}
+  {}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{fancyhdr}
+
+\doublespacing
+
+% -----------------------------
+% Title Information
+% ----------------------------- 
+\title{Artificial Intelligence and Neuroimaging in Depression Prediction:\\
+Scientific Promise and Ethical Challenges}
+
+\author{Michael Ellis \\
+Clemson University}
+
+\date{3/8/2026}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% -----------------------------
+% Title Page
+% -----------------------------
+\begin{titlepage}
+\centering
+
+\vspace*{2in}
+
+{\Large Artificial Intelligence and Neuroimaging in Depression Prediction:\\
+Scientific Promise and Ethical Challenges}
+
+\vspace{1.5in}
+
+Michael Joseph Ellis \\
+
+Clemson University \\
+
+PSYC 4890 Neuroethics \\
+
+Dr. Okerstrom-Jezewski \\
+
+March 7, 2026
+
+\vfill
+
+\end{titlepage}
+
+% -----------------------------
+% Abstract Page
+% -----------------------------
+\newpage
+\section*{Abstract}
+
+% Write your abstract here
+\noindent Artificial intelligence and machine learning are increasingly being used to assist in the detection and prediction of depressive disorders through the analysis of biological and behavioral data. Emerging research suggests that models using neuroimaging, speech signals, and other multimodal data sources may improve the accuracy and timeliness of mental health diagnosis. However, the use of AI in mental health prediction raises significant ethical concerns including privacy risks, algorithmic bias, and the possibility of stigmatization. This paper examines the psychological science behind AI-based depression prediction, identifies relevant stakeholders, and analyzes ethical challenges related to the implementation of predictive technologies in mental health care.
+
+\vspace{0.5cm}
+
+\textit{Keywords:} artificial intelligence, depression, neuroimaging, machine learning, neuroethics
+
+% -----------------------------
+% Public Significance Statement
+% -----------------------------
+\newpage
+\section*{Public Significance Statement}    
+
+% Write this for a general audience
+\noindent Artificial intelligence tools are increasingly being explored as a way to help detect depression using biological and behavioral data such as brain scans and speech patterns. While these technologies may improve early identification and treatment of mental health conditions, they also raise important concerns about privacy, fairness, and how predictive information could affect individuals. Understanding both the benefits and ethical risks of these technologies is important for ensuring that future mental health tools are used responsibly and support patient well-being.
+
+% -----------------------------
+% Introduction
+% -----------------------------
+\newpage
+\section{Artificial Intelligence and Neuroimaging in Depression Prediction: Scientific Promise and Ethical Challenges}
+
+% Intro text goes here
+
+Major depressive disorder is one of the most prevalent mental health conditions worldwide and represents a significant public health challenge. Depression is associated with substantial personal suffering, reduced quality of life, and increased risk of disability and suicide. Despite its widespread impact, the diagnosis of depression continues to rely primarily on clinical interviews and symptom-based criteria rather than objective biological indicators. As a result, diagnosis often depends on patient self-report and clinician judgment, which can introduce variability and delay accurate identification of the disorder. These limitations have motivated researchers to explore whether biological data and computational tools can improve the detection and prediction of depressive disorders.
+
+Recent advances in artificial intelligence (AI) and machine learning have created new opportunities to analyze complex biological and behavioral datasets related to mental health. In particular, neuroimaging methods such as functional magnetic resonance imaging (fMRI), diffusion-weighted imaging, and electroencephalography (EEG) allow researchers to examine structural and functional properties of the brain that may be associated with depressive disorders. Machine learning techniques can then be used to detect patterns within these high-dimensional datasets that may help classify individuals with depression or predict risk for developing the disorder. For example, pattern classification approaches using neuroimaging measurements have demonstrated the potential to identify depression-related brain features \citep{wu2015}, while more recent studies have applied machine learning algorithms to multimodal data including speech, EEG signals, and behavioral information to improve diagnostic accuracy \citep{ahire2025, liu2025, weber2025}. In addition, growing research suggests that AI-based approaches may support earlier detection and personalized treatment strategies for depressive disorders (Ricci et al., 2024).
+
+While these technological developments offer promising possibilities for improving mental health diagnosis, they also introduce important ethical questions regarding how predictive tools should be developed and implemented. The use of AI to analyze sensitive biological and behavioral data raises concerns about privacy, algorithmic bias, and the potential consequences of labeling individuals as at risk for mental illness. Studies examining public and stakeholder attitudes toward predictive mental health technologies highlight both optimism about early detection and concerns about potential misuse or stigmatization \citep{kohrt2025}. Consequently, the integration of artificial intelligence into psychiatric research and clinical practice must be evaluated not only in terms of scientific accuracy but also through the lens of neuroethical principles that emphasize patient autonomy, fairness, and responsible clinical decision-making. This paper examines the psychological science regarding AI-based depression prediction, identifies key stakeholders affected by these technologies, and analyzes the ethical challenges that must be addressed before predictive mental health tools can be responsibly implemented.
+
+% -----------------------------
+% Body Section
+% -----------------------------
+\newpage
+\section{Psychological Science Behind AI-Based Depression Prediction}
+
+The traditional clinical diagnosis of Major Depressive Disorder (MDD) relies on symptom-based criteria defined by the DSM-5, which depends heavily on subjective patient self-reports and clinician observation \citep{eder2026, ricci2025}. While this framework is the standard for psychiatric care, it faces significant challenges regarding diagnostic heterogeneity and subjectivity, often leading to variability in treatment outcomes \citep{ricci2025}. These limitations have catalyzed a shift toward predictive psychiatry, which seeks to identify objective biological markers—or biomarkers—that can improve diagnostic accuracy and enable early intervention \citep{boby2025, ricci2025}.
+
+Neuroimaging has emerged as a cornerstone of this biological approach. Early efforts in machine learning for depression focused on structural and functional MRI data. For instance, researchers successfully utilized Support Vector Machines (SVM) to classify pediatric unipolar depression by analyzing neuromorphometric measurements, such as cortical thickness and surface area, achieving significant accuracy at the individual subject level \citep{wu2015}. Similarly, diffusion-weighted imaging (DWI) paired with graph theory has been used to identify abnormal brain network connectivity in MDD patients, demonstrating that machine learning can detect complex topological changes in white matter that are invisible to the naked eye \citep{sacchet2015}.
+
+Beyond static imaging, the analysis of dynamic neural activity via Electroencephalography (EEG) has provided a more accessible and cost-effective window into the "depressed brain." Modern frameworks now utilize hybrid machine learning and deep learning models to analyze EEG-derived brainwave patterns \citep{ahire2025}. By extracting cognitive biomarkers from specific frequency bands—such as alpha-range alterations—these models can identify neural signatures of altered emotional processing and cognitive dysfunction \citep{ahire2025, boby2025}. Recent studies have specifically highlighted the efficacy of wavelet-based features and deep learning architectures, such as Convolutional Neural Networks (CNNs), in distinguishing the unique neurophysiological fingerprints of depression from healthy controls \citep{ahire2025}.
+
+The current "state-of-the-art" in the field has moved toward multimodal deep learning, which integrates neural data with behavioral signals. Approaches such as "audio-visual deep learning" analyze subconscious reactions—including micro-expressions and vocal variations—during patient interviews to generate depression probabilities \citep{liu2025}. Furthermore, new clinical models like "Clinical 15" demonstrate the power of integrating self-reported questionnaire data with biological signals within primary care settings to reduce false positives \citep{eder2026, weber2025}.
+
+Despite this progress, several scientific hurdles remain that complicate clinical adoption. Meta-analyses of machine learning applications in depression suggest that while accuracy is high, there is significant variability across studies, often due to small sample sizes and "publication bias" \citep{lee2020corrigendum}. Additionally, many deep learning models function as "black boxes," providing high accuracy but low interpretability, which makes it difficult for clinicians to understand the underlying neurobiological reasoning for a specific prediction \citep{ahire2025, weber2025}. Ensuring that these models generalize across diverse global populations is a critical next step for the field, as current datasets often lack the demographic breadth required for universal clinical reliability \citep{ricci2025}.
+
+\section{Relevant Stakeholders}
+
+The implementation of AI-based depression prediction involves a complex web of stakeholders, each with distinct interests and vulnerabilities. The primary stakeholders are the patients and individuals at risk, particularly adolescents. Research indicates that while many adolescents and their families are optimistic about the "scientific promise" of early detection, they express deep-seated concerns regarding how these labels might affect their self-identity and social standing \citep{kohrt2025}. For this group, the stakeholder interest is not merely clinical accuracy, but the preservation of autonomy and the right to a future unburdened by a "pre-symptomatic" diagnosis.
+
+Secondary stakeholders include healthcare providers, specifically general practitioners (GPs) and mental health clinicians. As the first point of clinical contact, GPs are increasingly viewed as the primary users of "triage" tools like the "Clinical 15" model \citep{eder2026}. For these stakeholders, the value of AI lies in its ability to reduce false positives and streamline the diagnostic process in high-pressure primary care environments \citep{weber2025}. However, clinicians also face the risk of "automation bias," where they might over-rely on a machine-learning recommendation, potentially eroding the traditional clinician-patient relationship and shifting the burden of clinical responsibility \citep{ricci2025}.
+
+Finally, institutional and commercial stakeholders—including AI developers, insurance companies, and healthcare systems—represent a systemic layer of interest. Developers are focused on the technical refinement of multimodal models and the extraction of "black-box" biomarkers \citep{ahire2025, liu2025}. Meanwhile, insurance providers and employers present a significant ethical risk; if predictive neuroimaging data becomes accessible to these entities, it could lead to "biological discrimination," where individuals are denied coverage or opportunities based on a predicted statistical risk rather than an active clinical condition \citep{ricci2025}. Ensuring that these diverse stakeholders are aligned requires a neuroethical framework that prioritizes the patient’s well-being over institutional efficiency or technological advancement.
+
+\section{Ethical Issues in Predictive Mental Health Technologies}
+
+The integration of AI and neuroimaging into psychiatric practice introduces a paradigm shift from reactive to proactive care, but this shift is laden with significant neuroethical concerns. A primary issue involves the "right not to know" and the psychological impact of predictive labeling. \citet{kohrt2025} found that while stakeholders are optimistic about early intervention, they fear that being labeled "high-risk" could lead to a self-fulfilling prophecy or a "damaged identity," particularly in adolescents. This concern is futher expressed by the "black-box" nature of deep learning architectures, such as the Convolutional Neural Networks (CNNs) used in EEG analysis, which provide high diagnostic accuracy but offer little interpretability for the clinician or patient \citep{ahire2025, weber2025}.
+
+Privacy and data security are further complicated by the multimodal nature of modern AI. Systems like CDD-AVDL capture subconscious audio-visual signals—micro-expressions and vocal tremors—that are difficult for individuals to mask \citep{liu2025}. This raises the specter of "biological discrimination," where sensitive neuroimaging or behavioral data could be misused by third-party entities, such as insurance providers or employers, to penalize individuals based on their statistical risk profile \citep{ricci2025}. 
+
+Finally, the literature highlights a critical gap in global justice. Most predictive models are developed using data from high-income, Western populations, which may lead to algorithmic bias when applied to diverse global settings \citep{kohrt2025, ricci2025}. Without ensuring that these tools are valid across different cultural and socioeconomic backgrounds, the implementation of AI risks widening the mental health care gap. Furthermore, as clinicians begin to rely on models like "Clinical 15" for triage, the risk of "automation bias" looms, potentially eroding the empathetic, human-centric nature of the psychiatric interview and shifting clinical responsibility from the doctor to the algorithm \citep{eder2026, ricci2025}.
+
+% -----------------------------
+% Discussion
+% -----------------------------
+\newpage
+\section{Discussion}
+
+\subsection{Summary and Synthesis}
+The evidence synthesized from current literature indicates that Major Depressive Disorder (MDD) diagnosis is transitioning from a subjective, symptom-based model to an objective, multimodal framework. Research by \citet{ahire2025} and \citet{boby2025} suggests that EEG-based biomarkers provide a high level of diagnostic accuracy, often exceeding 90\% in controlled settings. This is complemented by the work of \citet{liu2025}, which demonstrates that audio-visual deep learning (CDD-AVDL) can detect "subconscious" physiological markers—such as micro-expressions and vocal tremors—that are invisible to the naked eye. When integrated into primary care through tools like the "Clinical 15" model, AI has the potential to reduce the burden on general practitioners and facilitate early intervention \citep{eder2026}.
+
+\subsection{Clinical and Technical Limitations}
+Despite these technological leaps, several barriers to implementation remain. A recurring theme in the literature is the "black-box" nature of deep learning, which limits the clinical interpretability of diagnostic outputs \citep{ahire2025, weber2025}. Furthermore, the meta-analysis by \citet{lee2020corrigendum} highlights significant heterogeneity in machine learning outcomes, suggesting that variations in data processing and small sample sizes—particularly in high-cost neuroimaging like Diffusion-Weighted Imaging \citep{sacchet2015}—can lead to inflated accuracy reports that may not hold up in real-world clinical validation.
+
+Ethical and logistical limitations are equally prominent. \citet{kohrt2025} emphasize that predictive tools in adolescent populations risk creating "damaged identities" through premature labeling, especially when preventive services are unavailable. Additionally, the narrative review by \citet{ricci2025} warns against the erosion of the clinician-patient relationship, noting that automation bias could lead to a loss of the empathy-driven qualitative assessment that is central to psychiatric treatment.
+
+\subsection{Future Directions}
+To move toward a gold standard in AI-assisted psychiatry, future research must prioritize:
+\begin{itemize}
+    \item \textbf{Explainability:} Shifting from "black-box" models to Explainable AI (XAI) to ensure clinicians can justify diagnostic decisions to patients \citep{weber2025}.
+    \item \textbf{Global Diversity:} Developing and validating models on diverse, non-Western datasets to avoid algorithmic bias and ensure equitable access across different cultural contexts \citep{kohrt2025, ricci2025}.
+    \item \textbf{Longitudinal Validation:} Implementing large-scale, prospective studies to track how AI-assisted early detection translates into long-term patient recovery and reduced relapse rates.
+\end{itemize}
+
+% summary
+% limitations
+% future directions
+
+% -----------------------------
+% References
+% -----------------------------
+\newpage
+\bibliographystyle{apalike}
+\bibliography{references}
+
+\end{document}
