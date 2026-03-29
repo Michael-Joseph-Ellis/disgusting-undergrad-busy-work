@@ -1,0 +1,270 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amsbsy,amssymb,verbatim,fullpage,ifthen,graphicx,bm,amsfonts,amsthm}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\newcommand{\mfile}[1]  {{\small \verbatiminput{./#1}}} % Jeff Fessler, input matlab file
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\minimize}{\operatorname*{minimize\ }}
+\newcommand{\maximize}{\operatorname*{maximize}}
+
+%\newcommand{\mfile}[1]  {{\small \verbatiminput{./#1}}} 
+\newcommand{\mtx}[1]{\mathbf{#1}}
+\newcommand{\vct}[1]{\mathbf{#1}}
+\def \lg       {\langle}
+\def \rg       {\rangle}
+\def \mA {\mtx{A}}
+\def \mC {\mtx{C}}
+\def \mI {\mtx{I}}
+\def \mU {\mtx{U}}
+\def \mS {\mtx{S}}
+\def \mV {\mtx{V}}
+\def \mW {\mtx{W}}
+\def \mLambda {\mtx{\Lambda}}
+\def \mX {\mtx{X}}
+\def \mY {\mtx{Y}}
+\def \mZ {\mtx{Z}}
+\def \zero     {\mathbf{0}}
+\def \vzero    {\vct{0}}
+\def \vone    {\vct{1}}
+\def \vu {\vct{u}}
+\def \vv {\vct{v}}
+\def \vx {\vct{x}}
+\def \vy {\vct{y}}
+\def \vz {\vct{z}}
+\def \vphi {\vct{\phi}}
+\def \vmu {\vct{\mu}}
+\def \R {\mathbb{R}}
+
+
+\usepackage{xspace}
+
+\makeatletter
+\DeclareRobustCommand\onedot{\futurelet\@let@token\@onedot}
+\def\@onedot{\ifx\@let@token.\else.\null\fi\xspace}
+
+\def\eg{\emph{e.g}\onedot} \def\Eg{\emph{E.g}\onedot}
+\def\ie{\emph{i.e}\onedot} \def\Ie{\emph{I.e}\onedot}
+\def\cf{\emph{c.f}\onedot} \def\Cf{\emph{C.f}\onedot}
+\def\etc{\emph{etc}\onedot} \def\vs{\emph{vs}\onedot}
+\def\wrt{w.r.t\onedot} \def\dof{d.o.f\onedot}
+\def\etal{\emph{et al}\onedot} \def\st{\emph{s.t}\onedot}
+\pagestyle{plain}
+
+\title{{\bf Homework Set 3, CPSC 6430/4430}}
+\author{\Large\underline{Ellis, Michael Joseph}}
+\date{\textbf{\Large\textcolor{red}{Due 03/31/2026, 11:59PM EST}}}
+
+\begin{document}
+\maketitle
+
+\section*{PCA}
+Please refer to Jupyter Notebook.
+%We reconsider Linear regression:
+%\begin{equation}
+%	\min\limits_{\vx}\frac{1}{2}\|\mA\vx-\vy\|^2_2
+%\end{equation}
+%\begin{enumerate}
+%	\item Please randomly generate $\mA\in\R^{10000\times 5000}$, compare the time consumption of closed solution given by $(\mA^T\mA)^{-1}\mA^T\vy$ and gradient descent method $\vx^{k+1}=\vx^k-\lambda\mA^T(\mA\vx-\vy)$ by constant stepsize $\lambda=1/\|\mA\|_F^2$ assuming 1000 iterations, which one is faster?
+%	\item Please randomly generate $\mA\in\R^{100\times 50}$, compare the time consumption of closed solution given by $(\mA^T\mA)^{-1}\mA^T\vy$ and gradient descent method $\vx^{k+1}=\vx^k-\lambda\mA^T(\mA\vx-\vy)$ by constant stepsize $\lambda=1/\|\mA\|_F^2$ assuming 1000 iterations, which one is faster?
+%\end{enumerate}
+%(For any matrix $\mZ$, we define $\|\mZ\|_F^2:=\sum\limits_i\sum\limits_j\mZ_{ij}^2$.)
+%For PCA, from the perspective of minimizing reconstruction error, please derive the solution to $\minimize \limits_{\bm{\mu},\{\vv_i\},\mU_q} \sum_{i=1}^{N}\|\mX_i-\bm{\mu}-\mU_q \vv_i\|^2_2, \st \ \mU_q^T\mU_q=\mI_q$, where $\mX\in\R^{p\times N}, \bm{\mu}\in\R^p, \mU \in\R^{p\times q}, \vv_i \in \R^q$. 
+\newpage
+\section*{Naive Bayes}
+The table below provides a training dataset containing sixteen observations. Now please determine by Naive Bayes whether the new coming data is Male (M) or Female (F) given `Basketball, 6 feet (height), 150lbs, 4 inches hair, 10 inches footsize and Drinking'. 
+
+\vspace{.4cm}
+{
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|}
+	\hline
+	Sports& Height (feet) & Weight (lbs)& Hair (inches) & Footsize (inches)& Drinking & Class\\
+	\hline
+	Basketball&  6& 145 & 6 & 11& No& F\\
+	\hline
+	Tennis& 5.6 & 150 &  8& 11& Yes&M\\
+	\hline
+	Basketball& 6.4 & 170 &  3& 13& Yes&M\\
+	\hline
+	Basketball &6.2  &150  & 7 & 12& No&M\\
+	\hline
+	Basketball&6 & 140 & 6 & 11& Yes& F\\
+	\hline
+	Tennis& 6.4 &130  &7  &12& No &F\\
+	\hline
+	Soccer&  5.8& 140 &4  &  12& Yes&M\\
+	\hline
+	Soccer& 6.2 &130  &7  &12& No &F\\
+	\hline
+	Soccer&  6& 150 &4  &  10& Yes&M\\
+	\hline
+\end{tabular}\par
+}
+%\vspace{.3cm}
+%
+%\noindent Suppose we wish to use this data set to make a prediction for Y when $X_1=X_2=X_3=0$ using $K$-nearest neighbors ($K$-NN).
+%\begin{enumerate}
+%	\item Compute the Euclidean distance between each observation and the test point $X_1=X_2=X_3=0$.
+%	\item What is our prediction with $K=1$ and why? 
+%	\item What is our prediction with $K=3$ and why? Please determine the probability assigning to each class (Red or Green) by using uniform weight or distance weight (where each neighbor's weight is determined by $w_i=\frac{exp\{-d_i^2\}}{\sum_{j=1}^{K}exp\{-d_j^2\}}$ and $d_i$ denotes the Euclidean distance of testing data to $i$-th nearest neighbor data) respectively.
+%	\item Now if we only use the first two features $X_1$ and $X_2$, please scatter plot the six observation points and plot the contour for decision boundary by referring to \href{https://stackoverflow.com/questions/45075638/graph-k-nn-decision-boundaries-in-matplotlib}{here}.
+%\end{enumerate} 
+
+
+
+%For Ridge Regression:
+%\begin{equation}
+%	\min\limits_{\vx}\|\mA\vx-\vy\|^2_2+\gamma\|\vx\|^2_2,
+%\end{equation}
+%\begin{enumerate}
+%	\item What is the derivative with respect to $\vx$?
+%	\item What is the closed solution of ridge regression?
+%	\item Assume $\mA\in\R^{100\times50}$, and stepsize $\lambda=0.5/(\gamma+\sigma_1(\mA\mA^T))$, where $\sigma_1(\mZ)$ denotes the largest singular value of $\mZ$. Please change $\lambda$ from $\{0.01, 0.1,1,10,100\}$ and plot the objective changes with update via gradient descent method (100 iterations), what do you find?
+%\end{enumerate}
+
+%\end{itemize}
+
+\section*{Naive Bayes Solution}
+
+We want to classify the new data point
+\[
+X=(\text{Basketball},\,6,\,150,\,4,\,10,\,\text{Yes})
+\]
+as either Male (M) or Female (F).
+
+\subsection*{Step 1: Class Priors}
+
+From the table, there are 9 observations total.
+
+\[
+P(M)=\frac{5}{9}, \qquad P(F)=\frac{4}{9}
+\]
+
+since there are 5 males and 4 females.
+
+\subsection*{Step 2: Conditional Probabilities}
+
+Using Naive Bayes, we compute:
+
+\[
+P(M\mid X)\propto P(M)\,P(\text{Basketball}\mid M)\,P(6\mid M)\,P(150\mid M)\,P(4\mid M)\,P(10\mid M)\,P(\text{Yes}\mid M)
+\]
+
+\[
+P(F\mid X)\propto P(F)\,P(\text{Basketball}\mid F)\,P(6\mid F)\,P(150\mid F)\,P(4\mid F)\,P(10\mid F)\,P(\text{Yes}\mid F)
+\]
+
+\subsubsection*{For class M}
+
+Among the 5 male observations:
+
+\[
+P(\text{Basketball}\mid M)=\frac{2}{5}
+\]
+
+\[
+P(6\mid M)=\frac{1}{5}
+\]
+
+\[
+P(150\mid M)=\frac{3}{5}
+\]
+
+\[
+P(4\mid M)=\frac{2}{5}
+\]
+
+\[
+P(10\mid M)=\frac{1}{5}
+\]
+
+\[
+P(\text{Yes}\mid M)=\frac{4}{5}
+\]
+
+Thus,
+
+\[
+P(M\mid X)\propto
+\frac{5}{9}\cdot
+\frac{2}{5}\cdot
+\frac{1}{5}\cdot
+\frac{3}{5}\cdot
+\frac{2}{5}\cdot
+\frac{1}{5}\cdot
+\frac{4}{5}
+\]
+
+\[
+P(M\mid X)\propto \frac{16}{9375}\approx 0.0017067
+\]
+
+\subsubsection*{For class F}
+
+Among the 4 female observations:
+
+\[
+P(\text{Basketball}\mid F)=\frac{2}{4}=\frac{1}{2}
+\]
+
+\[
+P(6\mid F)=\frac{2}{4}=\frac{1}{2}
+\]
+
+\[
+P(150\mid F)=\frac{0}{4}=0
+\]
+
+\[
+P(4\mid F)=\frac{0}{4}=0
+\]
+
+\[
+P(10\mid F)=\frac{0}{4}=0
+\]
+
+\[
+P(\text{Yes}\mid F)=\frac{1}{4}
+\]
+
+So,
+
+\[
+P(F\mid X)\propto
+\frac{4}{9}\cdot
+\frac{1}{2}\cdot
+\frac{1}{2}\cdot
+0\cdot
+0\cdot
+0\cdot
+\frac{1}{4}=0
+\]
+
+\subsection*{Step 3: Classification}
+
+Since
+
+\[
+P(M\mid X) > P(F\mid X),
+\]
+
+the new data point is classified as
+
+\[
+\boxed{\text{Male (M)}}
+\]
+
+\subsection*{Final Answer}
+
+\[
+\boxed{\text{The new observation is classified as Male (M).}}
+\]
+\end{document}
