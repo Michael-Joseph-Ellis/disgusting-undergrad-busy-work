@@ -1,0 +1,17 @@
+Data Cleaning Report
+====================
+Original rows: 736
+Rows after cleaning: 735
+
+steps completed:
+- Converted numeric columns to numeric types
+- Standardized text categories
+- Dropped rows missing key analysis variables
+- Imputed missing BPM values with the median
+- Filled remaining categorical missing values with 'Unknown'
+- Removed impossible values outside plausible ranges
+
+notes:
+- Missing data was checked before cleaning to assess fairness
+- Cleaning steps were documented for transparency
+- Data was not fabricated or altered beyond necessary preprocessing
