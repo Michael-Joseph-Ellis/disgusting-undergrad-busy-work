@@ -1,0 +1,15 @@
+Part 5 Talking Points
+=====================
+Dataset size used for exploration: 735 respondents
+
+Main visual patterns to mention:
+- Daily music listening time has a wide spread, so respondents vary a lot in how much they listen.
+- Mental health scores are spread across the 0-10 scale, which supports comparison across respondents.
+- The scatter plots help check whether more listening time appears related to anxiety, depression, insomnia, or OCD.
+- Boxplots by Music Effects show whether respondents who say music improves their mental health report different scores.
+- Genre counts show which music tastes are most common in the sample.
+
+Ethical interpretation reminders:
+- Avoid claiming causation from these plots alone.
+- Do not overgeneralize to all music listeners.
+- Mention that the data are self-reported and come from a survey sample.

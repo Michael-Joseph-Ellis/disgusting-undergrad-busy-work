@@ -1,0 +1,433 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amsbsy,amssymb,verbatim,fullpage,ifthen,graphicx,bm,amsfonts,amsthm}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{algorithm}
+\usepackage{float}
+\usepackage{algpseudocode}
+\newcommand{\mfile}[1]  {{\small \verbatiminput{./#1}}} % Jeff Fessler, input matlab file
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\minimize}{\operatorname*{minimize\ }}
+\newcommand{\maximize}{\operatorname*{maximize}}
+
+%\newcommand{\mfile}[1]  {{\small \verbatiminput{./#1}}} 
+\newcommand{\mtx}[1]{\mathbf{#1}}
+\newcommand{\vct}[1]{\mathbf{#1}}
+\def \lg       {\langle}
+\def \rg       {\rangle}
+\def \mA {\mtx{A}}
+\def \mC {\mtx{C}}
+\def \mI {\mtx{I}}
+\def \mU {\mtx{U}}
+\def \mS {\mtx{S}}
+\def \mV {\mtx{V}}
+\def \mW {\mtx{W}}
+\def \mLambda {\mtx{\Lambda}}
+\def \mX {\mtx{X}}
+\def \mY {\mtx{Y}}
+\def \mZ {\mtx{Z}}
+\def \zero     {\mathbf{0}}
+\def \vzero    {\vct{0}}
+\def \vone    {\vct{1}}
+\def \vu {\vct{u}}
+\def \vv {\vct{v}}
+\def \vx {\vct{x}}
+\def \vy {\vct{y}}
+\def \vz {\vct{z}}
+\def \vphi {\vct{\phi}}
+\def \vmu {\vct{\mu}}
+\def \R {\mathbb{R}}
+
+
+\usepackage{xspace}
+
+\makeatletter
+\DeclareRobustCommand\onedot{\futurelet\@let@token\@onedot}
+\def\@onedot{\ifx\@let@token.\else.\null\fi\xspace}
+
+\def\eg{\emph{e.g}\onedot} \def\Eg{\emph{E.g}\onedot}
+\def\ie{\emph{i.e}\onedot} \def\Ie{\emph{I.e}\onedot}
+\def\cf{\emph{c.f}\onedot} \def\Cf{\emph{C.f}\onedot}
+\def\etc{\emph{etc}\onedot} \def\vs{\emph{vs}\onedot}
+\def\wrt{w.r.t\onedot} \def\dof{d.o.f\onedot}
+\def\etal{\emph{et al}\onedot} \def\st{\emph{s.t}\onedot}
+\pagestyle{plain}
+
+\title{{\bf Homework Set 4, CPSC 6430/4430}}
+\author{\Large\underline{Ellis, Michael Joseph}}
+\date{\textbf{\Large\textcolor{red}{Due 04/10/2026, 11:59PM EST}}}
+
+\begin{document}
+\maketitle
+
+
+%We reconsider Linear regression:
+%\begin{equation}
+%	\min\limits_{\vx}\frac{1}{2}\|\mA\vx-\vy\|^2_2
+%\end{equation}
+%\begin{enumerate}
+%	\item Please randomly generate $\mA\in\R^{10000\times 5000}$, compare the time consumption of closed solution given by $(\mA^T\mA)^{-1}\mA^T\vy$ and gradient descent method $\vx^{k+1}=\vx^k-\lambda\mA^T(\mA\vx-\vy)$ by constant stepsize $\lambda=1/\|\mA\|_F^2$ assuming 1000 iterations, which one is faster?
+%	\item Please randomly generate $\mA\in\R^{100\times 50}$, compare the time consumption of closed solution given by $(\mA^T\mA)^{-1}\mA^T\vy$ and gradient descent method $\vx^{k+1}=\vx^k-\lambda\mA^T(\mA\vx-\vy)$ by constant stepsize $\lambda=1/\|\mA\|_F^2$ assuming 1000 iterations, which one is faster?
+%\end{enumerate}
+%(For any matrix $\mZ$, we define $\|\mZ\|_F^2:=\sum\limits_i\sum\limits_j\mZ_{ij}^2$.)
+%For PCA, from the perspective of minimizing reconstruction error, please derive the solution to $\minimize \limits_{\bm{\mu},\{\vv_i\},\mU_q} \sum_{i=1}^{N}\|\mX_i-\bm{\mu}-\mU_q \vv_i\|^2_2, \st \ \mU_q^T\mU_q=\mI_q$, where $\mX\in\R^{p\times N}, \bm{\mu}\in\R^p, \mU \in\R^{p\times q}, \vv_i \in \R^q$. 
+%\newpage
+\section*{$K$-NN and Decision Boundary }
+The table below provides a training dataset containing six observations, three predictors and one qualitative response variable.
+
+\vspace{.4cm}
+{
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+	\hline
+	Obs.& $X_1$ & $X_2$ & $X_3$ & Y \\
+	\hline
+	1&  0& 3 & 0 & Red \\
+	\hline
+	2& 2 & 0 &  0& Red \\
+	\hline
+	3&0  &1  & 3 & Red \\
+	\hline
+	4&  0& 1 & 2 & Green \\
+	\hline
+	5& -1 &0  &1  &Green  \\
+	\hline
+	6&  1& 1 &1  &  Red\\
+	\hline
+\end{tabular}\par
+}
+\vspace{.3cm}
+
+\noindent Suppose we wish to use this data set to make a prediction for Y when $X_1=X_2=X_3=0$ using $K$-nearest neighbors ($K$-NN).
+\begin{enumerate}
+	\item Compute the Euclidean distance between each observation and the test point $X_1=X_2=X_3=0$.
+	\item What is our prediction with $K=1$ and why? 
+	\item What is our prediction with $K=3$ and why? Please determine the probability assigning to each class (Red or Green) by using uniform weight or distance weight (where each neighbor's weight is determined by $w_i=\frac{exp\{-d_i^2\}}{\sum_{j=1}^{K}exp\{-d_j^2\}}$ and $d_i$ denotes the Euclidean distance of testing data to $i$-th nearest neighbor data) respectively.
+	\item Now if we only use the first two features $X_1$ and $X_2$, please scatter plot the six observation points and plot the contour for decision boundary by referring to \href{https://stackoverflow.com/questions/45075638/graph-k-nn-decision-boundaries-in-matplotlib}{here}.
+\end{enumerate} 
+
+\section*{Solution}
+
+Let the test point be
+\[
+x_0=(0,0,0).
+\]
+
+For each observation \(x_i=(X_{i1},X_{i2},X_{i3})\), the Euclidean distance to \(x_0\) is
+\[
+d_i=\sqrt{(X_{i1}-0)^2+(X_{i2}-0)^2+(X_{i3}-0)^2}.
+\]
+
+\begin{enumerate}
+    \item \textbf{Euclidean distances from each observation to \((0,0,0)\):}
+
+    \[
+    \begin{aligned}
+    d_1 &= \sqrt{0^2+3^2+0^2} = \sqrt{9}=3,\\
+    d_2 &= \sqrt{2^2+0^2+0^2} = \sqrt{4}=2,\\
+    d_3 &= \sqrt{0^2+1^2+3^2} = \sqrt{10},\\
+    d_4 &= \sqrt{0^2+1^2+2^2} = \sqrt{5},\\
+    d_5 &= \sqrt{(-1)^2+0^2+1^2} = \sqrt{2},\\
+    d_6 &= \sqrt{1^2+1^2+1^2} = \sqrt{3}.
+    \end{aligned}
+    \]
+
+    So the distances are summarized below:
+    \[
+    \begin{array}{c|c|c}
+    \text{Obs.} & \text{Class} & \text{Distance to }(0,0,0) \\
+    \hline
+    1 & \text{Red} & 3 \\
+    2 & \text{Red} & 2 \\
+    3 & \text{Red} & \sqrt{10} \\
+    4 & \text{Green} & \sqrt{5} \\
+    5 & \text{Green} & \sqrt{2} \\
+    6 & \text{Red} & \sqrt{3}
+    \end{array}
+    \]
+
+    Ordering from nearest to farthest:
+    \[
+    \sqrt{2}\;(\text{Obs. }5,\ \text{Green}),\quad
+    \sqrt{3}\;(\text{Obs. }6,\ \text{Red}),\quad
+    2\;(\text{Obs. }2,\ \text{Red}),\quad
+    \sqrt{5}\;(\text{Obs. }4,\ \text{Green}),\quad
+    3\;(\text{Obs. }1,\ \text{Red}),\quad
+    \sqrt{10}\;(\text{Obs. }3,\ \text{Red}).
+    \]
+
+    \item \textbf{Prediction when \(K=1\):}
+
+    The single nearest neighbor is Observation 5, since
+    \[
+    d_5=\sqrt{2}
+    \]
+    is the smallest distance.
+
+    Observation 5 has class \(\text{Green}\), so the \(K=1\) prediction is
+    \[
+    \boxed{\text{Green}}.
+    \]
+
+    \item \textbf{Prediction when \(K=3\):}
+
+    The three nearest neighbors are:
+    \[
+    \text{Obs. }5\;(\text{Green}),\quad
+    \text{Obs. }6\;(\text{Red}),\quad
+    \text{Obs. }2\;(\text{Red}).
+    \]
+
+    \textbf{(a) Uniform weights}
+
+    Each of the 3 neighbors gets weight \(1/3\). Since among the 3 nearest neighbors we have
+    \[
+    \text{Red: }2, \qquad \text{Green: }1,
+    \]
+    the class probabilities are
+    \[
+    P(\text{Red}\mid x_0)=\frac{2}{3},\qquad
+    P(\text{Green}\mid x_0)=\frac{1}{3}.
+    \]
+
+    Hence the prediction is
+    \[
+    \boxed{\text{Red}}.
+    \]
+
+    \textbf{(b) Distance weights}
+
+    The weight formula is
+    \[
+    w_i=\frac{e^{-d_i^2}}{\sum_{j=1}^{K}e^{-d_j^2}}.
+    \]
+
+    For the 3 nearest neighbors:
+    \[
+    d_5=\sqrt{2},\qquad d_6=\sqrt{3},\qquad d_2=2.
+    \]
+
+    Therefore,
+    \[
+    e^{-d_5^2}=e^{-2},\qquad e^{-d_6^2}=e^{-3},\qquad e^{-d_2^2}=e^{-4}.
+    \]
+
+    The denominator is
+    \[
+    e^{-2}+e^{-3}+e^{-4}.
+    \]
+
+    So the normalized weights are
+    \[
+    w_5=\frac{e^{-2}}{e^{-2}+e^{-3}+e^{-4}}\approx 0.6652,
+    \]
+    \[
+    w_6=\frac{e^{-3}}{e^{-2}+e^{-3}+e^{-4}}\approx 0.2447,
+    \]
+    \[
+    w_2=\frac{e^{-4}}{e^{-2}+e^{-3}+e^{-4}}\approx 0.0900.
+    \]
+
+    Since Observation 5 is Green and Observations 6 and 2 are Red:
+    \[
+    P(\text{Green}\mid x_0)=w_5\approx 0.6652,
+    \]
+    \[
+    P(\text{Red}\mid x_0)=w_6+w_2\approx 0.2447+0.0900=0.3348.
+    \]
+
+    Thus under distance weighting, the prediction is
+    \[
+    \boxed{\text{Green}}.
+    \]
+
+    \medskip
+    \noindent
+    \textbf{Conclusion for \(K=3\):}
+    \[
+    \boxed{
+    \begin{array}{l}
+    \text{Uniform weights: predict Red, with }P(\text{Red})=\frac{2}{3},\;P(\text{Green})=\frac{1}{3},\\[4pt]
+    \text{Distance weights: predict Green, with }P(\text{Green})\approx 0.6652,\;P(\text{Red})\approx 0.3348.
+    \end{array}}
+    \]
+
+    \item \textbf{Scatter plot and decision boundary using only \(X_1\) and \(X_2\):}
+
+    Using only the first two features, the six observations become:
+    \[
+    \begin{array}{c|c|c|c}
+    \text{Obs.} & X_1 & X_2 & Y\\
+    \hline
+    1 & 0 & 3 & \text{Red}\\
+    2 & 2 & 0 & \text{Red}\\
+    3 & 0 & 1 & \text{Red}\\
+    4 & 0 & 1 & \text{Green}\\
+    5 & -1 & 0 & \text{Green}\\
+    6 & 1 & 1 & \text{Red}
+    \end{array}
+    \]
+
+    Note that Observations 3 and 4 have the same \((X_1,X_2)=(0,1)\) but different class labels, which is one of those delightful little data problems humans keep inventing.
+
+    The following Python code produces the scatter plot and the \(K\)-NN decision boundary (for example, with \(K=3\)):
+
+\begin{verbatim}
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.neighbors import KNeighborsClassifier
+
+# Data using only X1 and X2
+X = np.array([
+    [0, 3],
+    [2, 0],
+    [0, 1],
+    [0, 1],
+    [-1, 0],
+    [1, 1]
+])
+
+y = np.array(['Red', 'Red', 'Red', 'Green', 'Green', 'Red'])
+
+# Encode labels for plotting
+y_num = np.array([1 if label == 'Red' else 0 for label in y])
+
+# Choose K
+k = 3
+knn = KNeighborsClassifier(n_neighbors=k)
+knn.fit(X, y_num)
+
+# Mesh grid
+h = 0.02
+x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
+y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
+xx, yy = np.meshgrid(np.arange(x_min, x_max, h),
+                     np.arange(y_min, y_max, h))
+
+Z = knn.predict(np.c_[xx.ravel(), yy.ravel()])
+Z = Z.reshape(xx.shape)
+
+# Plot decision boundary
+plt.figure(figsize=(8,6))
+plt.contourf(xx, yy, Z, alpha=0.3)
+
+# Scatter points
+for i in range(len(X)):
+    if y[i] == 'Red':
+        plt.scatter(X[i,0], X[i,1], marker='o', s=100, label='Red' if i == 0 else "")
+    else:
+        plt.scatter(X[i,0], X[i,1], marker='^', s=100, label='Green' if i == 3 else "")
+
+plt.xlabel(r'$X_1$')
+plt.ylabel(r'$X_2$')
+plt.title(f'{k}-NN Decision Boundary using $X_1$ and $X_2$')
+plt.legend()
+plt.show()
+\end{verbatim}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Figure_1.png}
+    \caption{K-NN decision boundary using $X_1$ and $X_2$}
+    \label{fig:knn_boundary}
+\end{figure}
+
+\end{enumerate}
+
+
+%For Ridge Regression:
+%\begin{equation}
+%	\min\limits_{\vx}\|\mA\vx-\vy\|^2_2+\gamma\|\vx\|^2_2,
+%\end{equation}
+%\begin{enumerate}
+%	\item What is the derivative with respect to $\vx$?
+%	\item What is the closed solution of ridge regression?
+%	\item Assume $\mA\in\R^{100\times50}$, and stepsize $\lambda=0.5/(\gamma+\sigma_1(\mA\mA^T))$, where $\sigma_1(\mZ)$ denotes the largest singular value of $\mZ$. Please change $\lambda$ from $\{0.01, 0.1,1,10,100\}$ and plot the objective changes with update via gradient descent method (100 iterations), what do you find?
+%\end{enumerate}
+\newpage
+ \section*{Objective for $k$-means}
+ Given the objective of $k$-means:
+ \begin{equation}
+ 	\min\limits_{\mu_1,\mu_2,\dots,\mu_k}\sum_{i=1}^k\sum_{x\in\mathcal{C}_i}\|x-\mu_i\|^2_2.
+ \end{equation}
+Please prove that $k$-means algorithm will monotonically make the above objective non-increasing.
+
+
+\vspace{.2cm}
+\noindent If we change the objective to:
+ \begin{equation}
+	\min\limits_{\mu_1,\mu_2,\dots,\mu_k}\sum_{i=1}^k\sum_{x\in\mathcal{C}_i}\|x-\mu_i\|_1,
+\end{equation}
+please design an algorithm (similar to $k$-means) to make the objective non-increasing and prove it. 
+
+\section*{Solution}
+
+Let the objective be
+\[
+J = \sum_{i=1}^k \sum_{x \in \mathcal{C}_i} \|x - \mu_i\|_2^2.
+\]
+
+\subsection*{(1) $k$-means is monotonically non-increasing}
+
+$k$-means alternates between two steps:
+
+\textbf{Assignment step:}  
+Fix $\mu_1,\dots,\mu_k$ and assign each point $x$ to the nearest center:
+\[
+x \in \mathcal{C}_i \;\; \text{if} \;\; i = \arg\min_j \|x - \mu_j\|_2^2.
+\]
+This minimizes each point’s contribution, so the objective cannot increase.
+
+\textbf{Update step:}  
+Fix clusters $\mathcal{C}_1,\dots,\mathcal{C}_k$ and update
+\[
+\mu_i = \frac{1}{|\mathcal{C}_i|} \sum_{x \in \mathcal{C}_i} x.
+\]
+The mean minimizes $\sum_{x \in \mathcal{C}_i} \|x - \mu_i\|_2^2$, so the objective cannot increase.
+
+\medskip
+Since both steps do not increase $J$, we have
+\[
+J^{(t+1)} \le J^{(t)}.
+\]
+Thus, $k$-means is monotonically non-increasing.
+
+\bigskip
+
+\subsection*{(2) $\ell_1$ version (k-medians)}
+
+New objective:
+\[
+J_1 = \sum_{i=1}^k \sum_{x \in \mathcal{C}_i} \|x - \mu_i\|_1.
+\]
+
+\textbf{Algorithm (k-medians):}
+\begin{enumerate}
+    \item Assign each point to nearest center using $\ell_1$ distance.
+    \item Update each center to the coordinate-wise median of its cluster.
+\end{enumerate}
+
+\textbf{Why it works:}
+\begin{itemize}
+    \item Assignment step: choosing nearest center minimizes each point’s contribution $\Rightarrow$ objective does not increase.
+    \item Update step: the median minimizes $\sum |x - \mu|$ $\Rightarrow$ objective does not increase.
+\end{itemize}
+
+\medskip
+Therefore,
+\[
+J_1^{(t+1)} \le J_1^{(t)},
+\]
+so the algorithm is also monotonically non-increasing.
+
+\newpage
+\section*{Check the Notebook for $k$-means}
+\newpage
+\section*{Check the Notebook for $K$-NN}
+\end{document}
